@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>NEXA – Schéma de flux HubSpot v8 – Offres Relais</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #F4F0FA; min-height: 100vh; padding: 28px; }
+  .hdr { background: #4B0082; color: #fff; padding: 18px 24px; border-radius: 10px; margin-bottom: 20px; }
+  .hdr h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+  .hdr p  { font-size: 12px; opacity: .75; margin: 0; }
+  .leg { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #444; }
+  .leg-dot { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0; }
+  .tabs { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; }
+  .tab { padding: 7px 18px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; border: 2px solid #4B0082; color: #4B0082; background: #fff; transition: all .18s; }
+  .tab.on { background: #4B0082; color: #fff; }
+  .box { background: #fff; border-radius: 10px; padding: 22px; border: 1px solid #DDD8F0; overflow-x: auto; min-height: 160px; }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  .spin { color: #888; font-style: italic; font-size: 13px; padding: 14px; }
+  .note { border-left: 4px solid #F9A825; background: #FFFDE7; padding: 10px 14px; border-radius: 0 7px 7px 0; margin-top: 14px; font-size: 12px; color: #5D4037; }
+  .info { border-left: 4px solid #1565C0; background: #E3F2FD; padding: 10px 14px; border-radius: 0 7px 7px 0; margin-top: 8px; font-size: 12px; color: #0D47A1; }
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <h1>NEXA — Schéma de flux HubSpot — Offres Relais</h1>
+  <p>Référence de développement · Version 8.0 · Mars 2026</p>
+</div>
+
+<div class="leg">
+  <div class="leg-item"><div class="leg-dot" style="background:#4B0082"></div>Workflow auto</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#1B5E20"></div>Action RE manuelle</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#B71C1C"></div>Sortie / clôture</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#92400E"></div>Webhook / endpoint</div>
+  <div class="leg-item"><div class="leg-dot" style="background:#0D47A1"></div>WF5 suivi entretien</div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" id="t0" onclick="show(0)">Flux principal</button>
+  <button class="tab"    id="t1" onclick="show(1)">Webhook &amp; fréquence</button>
+  <button class="tab"    id="t2" onclick="show(2)">Objets &amp; données</button>
+</div>
+
+<div class="box">
+  <div class="panel on" id="p0"><div class="spin">Chargement…</div></div>
+  <div class="panel"    id="p1"><div class="spin">Cliquer pour charger…</div></div>
+  <div class="panel"    id="p2"><div class="spin">Cliquer pour charger…</div></div>
+</div>
+
+<div class="note">⚠ Prérequis absolu avant démarrage : confirmer que HubSpot permet d'injecter l'ID d'un objet custom via token dans l'URL d'un CTA email.</div>
+<div class="info">ℹ Le statut « Pourvu » n'est jamais mis à jour par un workflow — action RE manuelle uniquement, après l'alerte WF5.</div>
+
+<script>
+(function(){
+  const DEFS = [
+
+`flowchart TD
+    A([Fiche de poste · Type = Relais]):::auto --> B{Champs obligatoires\\nURL · Filière · Niveau}
+    B -- Non --> B1([En attente de complétion]):::grey
+    B -- Oui  --> C[WF1 · Date création = J0\\nStatut = En qualification]:::auto
+    C --> D[WF2 · Diffusion\\nSegmentation filière et niveau\\nVérif fréquence journalière]:::auto
+    D --> E{Dernière offre envoyée\\n= aujourd hui ?}
+    E -- Oui  --> E1[Attendre 24h · re-check]:::auto
+    E1 --> E
+    E -- Non  --> F[Email J0 + SMS\\nBouton OUI = endpoint?fiche_id=X&contact_id=Y\\nMàJ : Dernière envoyée = aujourd hui]:::auto
+    F --> G{Réponse ?}
+    G -- OUI · clic endpoint --> WH[ENDPOINT WEBHOOK\\nfiche_id + contact_id\\nAssociation créée\\nRéponse intérêt = OUI\\nEnrôle WF3 via API]:::hook
+    G -- Silence 48h --> H[WF2 · Relance J+2]:::auto
+    H -- Silence J+5 --> S1([Sortie · données conservées]):::stop
+    H -- OUI · clic endpoint --> WH
+    G -- NON · tracking passif --> S1
+    WH --> I[WF3 · Tag offre relais = OUI\\nTâche RE - signal intérêt\\nRelance J+7 postulé ?]:::auto
+    I --> J{Réponse postulé ?}
+    J -- OUI postulé --> WF5START[WF5 · Réponse postulé = OUI\\nDate postulé\\nAttente 7 jours]:::ent
+    J -- Pas encore ou Silence --> S2([Sortie · données conservées]):::stop
+    WF5START --> M[WF5 · Email J+7\\nAs-tu eu un entretien ?\\nOUI / NON]:::ent
+    M -- OUI entretien --> ALERTE[WF5 · Réponse entretien = OUI\\nDate entretien\\nTâche RE priorité haute]:::ent
+    M -- NON --> N[WF5 · Relance J+15\\nDernière relance]:::ent
+    N -- OUI entretien --> ALERTE
+    N -- NON ou Silence --> S3([Sortie · données conservées]):::stop
+    ALERTE --> P([RE contacte l étudiant\\nACTION MANUELLE]):::re
+    P -- Placement confirmé --> Q[RE · Statut = Pourvu\\nTypologie du placement\\nJAMAIS par workflow]:::re
+    Q --> R[WF4c · Tag auto-placement\\nsi Autoplacement]:::auto
+    C --> T{J+60 sans évolution ?}
+    T -- Oui --> CL[WF4a · Clôture auto\\nStatut = Perdu · Expiré 60j]:::stop
+    C --> U{Contact entreprise créé ?}
+    U -- Oui --> V[WF4b · Qualification\\nStatut = Matching à faire]:::qual
+
+    classDef auto fill:#4B0082,stroke:#2A0050,color:#fff
+    classDef re   fill:#1B5E20,stroke:#0A3010,color:#fff
+    classDef stop fill:#B71C1C,stroke:#7F1212,color:#fff
+    classDef hook fill:#92400E,stroke:#78350F,color:#fff
+    classDef qual fill:#0D47A1,stroke:#062D6B,color:#fff
+    classDef grey fill:#546E7A,stroke:#2E454E,color:#fff
+    classDef ent  fill:#1565C0,stroke:#0A3D7A,color:#fff`,
+
+`flowchart TD
+    subgraph EMAIL["Email généré par WF2"]
+        URL["Bouton OUI\\nhttps://endpoint/clic-oui\\n?fiche_id={{ fiche_de_poste.id }}\\n&contact_id={{ contact.id }}"]:::url
+    end
+    URL -- Clic étudiant --> EP
+    subgraph ENDPOINT["Endpoint webhook"]
+        EP[Reçoit fiche_id + contact_id]:::hook
+        EP --> VAL{IDs valides ?}
+        VAL -- Non --> ERR[Logger erreur 400\\nRedirection neutre]:::stop
+        VAL -- Oui  --> IDEM{Association\\ndéjà existante ?}
+        IDEM -- Oui  --> CONF[Idempotence\\nRediriger confirmation]:::grey
+        IDEM -- Non  --> CREATE[Créer association\\nContact Fiche\\nRéponse intérêt = OUI\\nDate intérêt = aujourd hui]:::hook
+        CREATE --> RETRY{API HubSpot OK ?}
+        RETRY -- Oui  --> ENR[Enrôler WF3 via API]:::hook
+        RETRY -- Non  --> R3[Retry x3\\n1s · 3s · 9s]:::hook
+        R3 -- Échec  --> ERR2[Logger · Alerter admin]:::stop
+        R3 -- Succès --> ENR
+        ENR --> CONF
+    end
+    CONF --> PAGE([Page de confirmation\\nMerci ton intérêt est noté]):::re
+    subgraph FREQ["Règle de fréquence dans WF2"]
+        F1[Vérifier\\nDernière offre envoyée le]:::auto
+        F1 --> FC{= aujourd hui ?}
+        FC -- Oui  --> FW[Attendre 24h · Re-check]:::auto
+        FW --> FC
+        FC -- Non  --> FS[Autoriser envoi\\nMàJ propriété = aujourd hui]:::auto
+    end
+    classDef auto fill:#4B0082,stroke:#2A0050,color:#fff
+    classDef hook fill:#92400E,stroke:#78350F,color:#fff
+    classDef re   fill:#1B5E20,stroke:#0A3010,color:#fff
+    classDef stop fill:#B71C1C,stroke:#7F1212,color:#fff
+    classDef grey fill:#546E7A,stroke:#2E454E,color:#fff
+    classDef url  fill:#1A237E,stroke:#0D1757,color:#fff`,
+
+`erDiagram
+    FICHE_DE_POSTE {
+        string type_offre "Standard Relais Source-Etudiant - fige"
+        string statut "En-qualification vers Pourvu ou Perdu"
+        url    url_fiche "obligatoire declencheur WF1"
+        string filiere "Cyber IA-Data MARCOM Web-DevOps"
+        string niveau "Bac+2 Bac+3 Bac+5"
+        string campus "Paris Lyon Lille Bordeaux Nantes"
+        string re_diffuseur "owner HubSpot"
+        string typologie_placement "conditionnel si Pourvu - RE uniquement"
+        string motif_cloture "conditionnel si Perdu"
+        number compteur_interet "via liste dynamique"
+        boolean tag_auto_placement "via WF4c"
+        date date_creation "auto J0"
+        date date_cloture "auto selon statut final"
+    }
+    CONTACT_ETUDIANT {
+        string filiere_etudiant "doit matcher fiche de poste"
+        string niveau_etudiant "optionnel"
+        string campus_etudiant "optionnel"
+        boolean offre_relais_envoyee "mis a jour WF2"
+        date derniere_offre_envoyee "regle frequence journaliere"
+        boolean tag_offre_relais "mis a jour WF3"
+    }
+    CONTACT_ENTREPRISE {
+        string nom
+        string email
+        string fonction
+    }
+    COMPANY {
+        string nom
+        string secteur
+    }
+    ASSOCIATION_REPONSES {
+        string label "Candidat-interesse Confirme Place"
+        string reponse_interet "OUI Pas-de-reponse - endpoint"
+        string reponse_postule "OUI Pas-encore - WF3"
+        string reponse_entretien "OUI NON Pas-de-reponse - WF5"
+        date date_interet "endpoint"
+        date date_postule "WF3"
+        date date_entretien "WF5"
+    }
+    TACHE_HUBSPOT {
+        string type "Alerte-interet ou Alerte-entretien"
+        string priorite "Normale WF3 ou Haute WF5"
+        string assigne_a "RE owner"
+        string contenu "prenom intitule offre"
+        date date_creation "auto"
+    }
+    ENDPOINT_WEBHOOK {
+        string entree "fiche_id + contact_id depuis URL CTA"
+        string sortie "association cree + WF3 enrole"
+        string idempotence "verif existence avant creation"
+        string securite "token secret ou HMAC"
+        string retry "x3 delai exponentiel"
+    }
+    FICHE_DE_POSTE ||--o{ ASSOCIATION_REPONSES : "relie via endpoint"
+    CONTACT_ETUDIANT ||--o{ ASSOCIATION_REPONSES : "relie via endpoint"
+    FICHE_DE_POSTE ||--o| CONTACT_ENTREPRISE : "qualifiee par WF4b"
+    FICHE_DE_POSTE ||--o| COMPANY : "associee a"
+    FICHE_DE_POSTE ||--o{ TACHE_HUBSPOT : "genere WF3 et WF5"
+    ENDPOINT_WEBHOOK ||--o{ ASSOCIATION_REPONSES : "cree"`
+  ];
+
+  var done = {};
+
+  function fixER(container) {
+    var svg = container.querySelector('svg');
+    if (!svg) return;
+    svg.querySelectorAll('.entityBox').forEach(function(el) {
+      el.setAttribute('fill', '#4B0082');
+      el.setAttribute('stroke', '#2A0050');
+    });
+    svg.querySelectorAll('.entityLabel').forEach(function(t) {
+      t.setAttribute('fill', '#fff');
+    });
+    svg.querySelectorAll('.attributeBoxEven text, .attributeBoxOdd text').forEach(function(t) {
+      t.setAttribute('fill', '#2A1B6B');
+    });
+  }
+
+  function render(idx) {
+    if (done[idx]) return;
+    var container = document.getElementById('p' + idx);
+    var id = 'mg' + idx + '_' + Date.now();
+    mermaid.render(id, DEFS[idx]).then(function(res) {
+      container.innerHTML = res.svg;
+      if (idx === 2) fixER(container);
+      done[idx] = true;
+    }).catch(function(e) {
+      container.innerHTML = '<p style="color:#c00;padding:14px;font-size:12px">Erreur : ' + e.message + '</p>';
+    });
+  }
+
+  window.show = function(idx) {
+    [0,1,2].forEach(function(i) {
+      document.getElementById('t'+i).classList.toggle('on', i===idx);
+      document.getElementById('p'+i).classList.toggle('on', i===idx);
+    });
+    render(idx);
+  };
+
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    securityLevel: 'loose',
+    themeVariables: {
+      primaryColor:       '#4B0082',
+      primaryTextColor:   '#ffffff',
+      primaryBorderColor: '#2A0050',
+      secondaryColor:     '#1A237E',
+      tertiaryColor:      '#1B5E20',
+      lineColor:          '#6B6689',
+      nodeTextColor:      '#ffffff',
+      edgeLabelBackground:'#F4F0FA',
+      attributeBackgroundColorEven: '#EDE9FB',
+      attributeBackgroundColorOdd:  '#F6F4FF',
+      fontFamily: 'Arial, sans-serif',
+      fontSize:   '12px'
+    }
+  });
+
+  window.addEventListener('load', function() { render(0); });
+})();
+</script>
+</body>
+</html>
