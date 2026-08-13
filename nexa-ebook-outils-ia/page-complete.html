@@ -211,6 +211,63 @@
   .nx-legal{border-top:1px solid var(--nx-line);margin-top:34px;padding-top:22px;font-size:12px;color:var(--nx-muted);}
   .nx-legal p{margin:0 0 8px;}
 
+  /* ============================================================
+     ANIMATIONS
+     ============================================================ */
+
+  /* Apparition au scroll (la classe .nx-anim est ajoutée par le JS,
+     donc le contenu reste visible si le JS ne charge pas). */
+  .nx-lp .nx-anim{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1);}
+  .nx-lp .nx-anim.in{opacity:1;transform:none;}
+
+  /* E-book flottant + halo pulsé */
+  .nx-book{animation:nx-float 6s ease-in-out infinite;}
+  .nx-book-stage{position:relative;}
+  .nx-book-stage::before{
+    content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle,rgba(24,232,166,.35),rgba(24,232,166,0) 70%);
+    filter:blur(20px);z-index:0;animation:nx-glow 5s ease-in-out infinite;
+  }
+  .nx-book{position:relative;z-index:1;}
+  @keyframes nx-float{0%,100%{transform:rotateY(-16deg) rotateX(4deg) translateY(0);}50%{transform:rotateY(-13deg) rotateX(4deg) translateY(-16px);}}
+  @keyframes nx-glow{0%,100%{opacity:.5;transform:scale(.92);}50%{opacity:1;transform:scale(1.06);}}
+
+  /* Halos animés dans le hero */
+  .nx-hero::before,.nx-hero::after{
+    content:"";position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;
+  }
+  .nx-hero::before{width:420px;height:420px;top:-120px;right:-80px;background:rgba(124,58,237,.45);animation:nx-drift 14s ease-in-out infinite;}
+  .nx-hero::after{width:340px;height:340px;bottom:-140px;left:-60px;background:rgba(24,232,166,.16);animation:nx-drift 18s ease-in-out infinite reverse;}
+  .nx-hero > *{position:relative;z-index:1;}
+  @keyframes nx-drift{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,26px);}}
+
+  /* Brillance qui balaie les boutons */
+  .nx-btn{position:relative;overflow:hidden;}
+  .nx-btn::after{
+    content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-20deg);transition:left .6s ease;
+  }
+  .nx-btn:hover::after{left:140%;}
+
+  /* Badge & puces */
+  .nx-badge{animation:nx-pop .5s ease both;}
+  @keyframes nx-pop{from{opacity:0;transform:translateY(-6px) scale(.96);}to{opacity:1;transform:none;}}
+
+  /* Souligné animé sur les liens fantômes */
+  .nx-btn-ghost svg{transition:transform .18s ease;}
+  .nx-btn-ghost:hover svg{transform:translate(3px,-3px);}
+
+  /* Ouverture douce de la FAQ */
+  .nx-faq details[open] .a{animation:nx-fade .35s ease both;}
+  @keyframes nx-fade{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+
+  /* Respect de l'accessibilité : coupe tout le mouvement */
+  @media(prefers-reduced-motion:reduce){
+    .nx-lp *,.nx-lp *::before,.nx-lp *::after{animation:none !important;transition:none !important;}
+    .nx-lp .nx-anim{opacity:1 !important;transform:none !important;}
+  }
+
   /* --- Responsive --- */
   @media(max-width:860px){
     .nx-hero-grid{grid-template-columns:1fr;gap:36px;}
@@ -576,5 +633,58 @@
     </div>
   </footer>
 </div>
+<!--
+  ============================================================
+  BLOC 9 — SCRIPTS  (apparition au scroll)
+  À COLLER UNE SEULE FOIS, en bas de page :
+  Webflow > Page Settings > Custom Code > "Before </body> tag"
+  (ou un Embed placé tout en bas, après le footer).
+  Aucune dépendance externe. Dégradé propre si JS désactivé.
+  ============================================================
+-->
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce) return; // on ne touche à rien : tout reste visible et fixe
+
+  // Éléments à révéler au scroll
+  var selectors = [
+    ".nx-eyebrow",".nx-h1",".nx-h2",".nx-lead",
+    ".nx-checks li",".nx-book-stage",
+    ".nx-card",".nx-cta-card",".nx-authors > *",
+    ".nx-rating",".nx-quote",".nx-faq details",
+    ".nx-form",".nx-btn",".nx-foot-grid > *"
+  ];
+
+  var els = [];
+  document.querySelectorAll(".nx-lp").forEach(function(root){
+    selectors.forEach(function(sel){
+      root.querySelectorAll(sel).forEach(function(n){ if(els.indexOf(n)===-1) els.push(n); });
+    });
+  });
+  if(!els.length) return;
+
+  els.forEach(function(n){ n.classList.add("nx-anim"); });
+
+  if(!("IntersectionObserver" in window)){
+    els.forEach(function(n){ n.classList.add("in"); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      // léger décalage en cascade entre voisins d'un même groupe
+      var group = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+      el.style.transitionDelay = Math.min(group,6) * 80 + "ms";
+      el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+  els.forEach(function(n){ io.observe(n); });
+})();
+</script>
 </body>
 </html>

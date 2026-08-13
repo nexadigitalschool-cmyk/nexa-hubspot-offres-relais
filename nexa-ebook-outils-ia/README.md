@@ -21,6 +21,7 @@ structure de la page Liora.
 | `blocs-webflow/06-faq.html` | FAQ (accordéon, sans JS) |
 | `blocs-webflow/07-formulaire.html` | Formulaire de capture (ancre `#nx-form`) |
 | `blocs-webflow/08-footer.html` | Contact / footer |
+| `blocs-webflow/09-scripts.html` | **JS animations** — à coller UNE fois, avant `</body>` |
 
 ## 🚀 Intégration dans Webflow (format Embed découpé)
 
@@ -32,8 +33,20 @@ structure de la page Liora.
    > La limite d'un Embed Webflow est de 50 000 caractères : chaque bloc est bien en dessous.
 3. **Publie** et vérifie le rendu mobile (le CSS est déjà responsive, breakpoint à 860 px).
 
+3. **Les animations.** Colle `09-scripts.html` dans **« Before `</body>` tag »** (ou un Embed tout en bas).
+   Il gère l'apparition au scroll ; le reste (flottement, halos, brillance) est en CSS pur.
+   Rien à faire de plus — et si le JS ne charge pas, tout le contenu reste visible.
+
 Astuce : tu peux aussi coller `page-complete.html` dans un seul gros Embed, mais le découpage
 facilite les retouches section par section directement dans Webflow.
+
+### Animations incluses
+- Apparition **fade-up en cascade** des sections/cartes au scroll (IntersectionObserver)
+- E-book qui **flotte** avec un **halo vert pulsé**
+- **Halos violet/vert** qui dérivent en fond du hero
+- **Brillance** qui balaie les boutons au survol, cartes qui se soulèvent
+- Ouverture **animée** de la FAQ
+- ♿ Tout le mouvement est coupé si l'utilisateur a activé « réduire les animations » (`prefers-reduced-motion`)
 
 ## ✏️ Placeholders à remplacer
 
