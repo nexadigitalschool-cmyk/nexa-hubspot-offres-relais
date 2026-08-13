@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- ===================================================================
+         REFERENCEMENT (SEO)
+         Page en NOINDEX par defaut (elle ne doit pas remonter dans Google
+         tant qu'elle n'est pas publique).
+         >>> POUR LA RENDRE VISIBLE DANS GOOGLE : supprimer la ligne
+             <meta name="robots" ...> ci-dessous.
+         ==================================================================== -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <title>Vie etudiante NEXA 2026-2027 : tous les temps forts de ton annee</title>
+    <meta
+      name="description"
+      content="Eloquence, CTF cyber, hackathons, entrepreneuriat, engagement, soirees et Nexi'Play. Decouvre tous les evenements de la vie etudiante NEXA et inscris-toi a ceux qui t'interessent."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Il se passe toujours quelque chose a NEXA" />
+    <meta
+      property="og:description"
+      content="Une annee entiere de temps forts sur les 6 campus. Choisis les tiens."
+    />
+    <meta property="og:image" content="/img/og-cover.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Il se passe toujours quelque chose a NEXA" />
+    <meta
+      name="twitter:description"
+      content="Une annee entiere de temps forts sur les 6 campus. Choisis les tiens."
+    />
+    <meta name="twitter:image" content="/img/og-cover.jpg" />
+
+    <!-- Polices Google : preconnect + display=swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ===================================================================
+         GOOGLE TAG MANAGER (GTM)
+         Le code alimente deja window.dataLayer (voir src/lib/analytics.ts).
+         >>> POUR ACTIVER LE SUIVI : dé-commenter le bloc ci-dessous et
+             remplacer GTM-XXXXXXX par ton identifiant de conteneur GTM.
+         ==================================================================== -->
+    <!--
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-XXXXXXX');
+    </script>
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
