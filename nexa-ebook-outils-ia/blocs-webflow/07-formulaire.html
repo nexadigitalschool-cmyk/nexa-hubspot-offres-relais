@@ -1,0 +1,48 @@
+<!--
+  ============================================================
+  BLOC 6 — FORMULAIRE DE CAPTURE  (ancre #nx-form)
+  Tous les boutons "Télécharger l'e-book" mènent ici.
+  À CONNECTER À HUBSPOT :
+    Option A (simple) : remplace ce <form> par le code d'intégration
+      HubSpot Forms (embed JS) -> le plus fiable pour tracker les leads.
+    Option B : garde ce <form> et mets dans action="" l'URL de ton
+      endpoint (HubSpot Forms API / workflow / webhook), method="post".
+  ============================================================
+-->
+<div class="nx-lp">
+  <section class="nx-section nx-form-band" id="nx-form">
+    <div class="nx-wrap nx-center">
+      <span class="nx-eyebrow">Téléchargement gratuit</span>
+      <h2 class="nx-h2">Recevez l'e-book par e-mail</h2>
+      <p class="nx-lead" style="max-width:560px;margin:0 auto;">
+        Renseignez vos coordonnées et recevez immédiatement votre guide des +50 outils IA à connaître en 2026.
+      </p>
+
+      <form class="nx-form" action="REMPLACER_PAR_URL_HUBSPOT" method="post" style="text-align:left;">
+        <div class="row two">
+          <div>
+            <label for="nx-firstname">Prénom</label>
+            <input id="nx-firstname" name="firstname" type="text" placeholder="Votre prénom" required>
+          </div>
+          <div>
+            <label for="nx-lastname">Nom</label>
+            <input id="nx-lastname" name="lastname" type="text" placeholder="Votre nom" required>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="nx-email">E-mail</label>
+            <input id="nx-email" name="email" type="email" placeholder="vous@exemple.com" required>
+          </div>
+        </div>
+        <button class="nx-btn" type="submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          Recevoir l'e-book
+        </button>
+        <p class="nx-consent">
+          En soumettant ce formulaire, vous acceptez d'être recontacté(e) par NEXA. Vos données sont traitées conformément à notre politique de confidentialité.
+        </p>
+      </form>
+    </div>
+  </section>
+</div>

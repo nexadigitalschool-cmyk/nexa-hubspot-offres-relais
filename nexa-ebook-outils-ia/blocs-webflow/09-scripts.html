@@ -1,0 +1,53 @@
+<!--
+  ============================================================
+  BLOC 9 — SCRIPTS  (apparition au scroll)
+  À COLLER UNE SEULE FOIS, en bas de page :
+  Webflow > Page Settings > Custom Code > "Before </body> tag"
+  (ou un Embed placé tout en bas, après le footer).
+  Aucune dépendance externe. Dégradé propre si JS désactivé.
+  ============================================================
+-->
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce) return; // on ne touche à rien : tout reste visible et fixe
+
+  // Éléments à révéler au scroll
+  var selectors = [
+    ".nx-eyebrow",".nx-h1",".nx-h2",".nx-lead",
+    ".nx-checks li",".nx-book-stage",
+    ".nx-card",".nx-cta-card",".nx-authors > *",
+    ".nx-rating",".nx-quote",".nx-faq details",
+    ".nx-form",".nx-btn",".nx-foot-grid > *"
+  ];
+
+  var els = [];
+  document.querySelectorAll(".nx-lp").forEach(function(root){
+    selectors.forEach(function(sel){
+      root.querySelectorAll(sel).forEach(function(n){ if(els.indexOf(n)===-1) els.push(n); });
+    });
+  });
+  if(!els.length) return;
+
+  els.forEach(function(n){ n.classList.add("nx-anim"); });
+
+  if(!("IntersectionObserver" in window)){
+    els.forEach(function(n){ n.classList.add("in"); });
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      // léger décalage en cascade entre voisins d'un même groupe
+      var group = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+      el.style.transitionDelay = Math.min(group,6) * 80 + "ms";
+      el.classList.add("in");
+      io.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+  els.forEach(function(n){ io.observe(n); });
+})();
+</script>
