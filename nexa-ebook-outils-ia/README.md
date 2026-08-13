@@ -1,7 +1,8 @@
 # NEXA — Landing page « E-book : +50 outils IA à connaître en 2026 »
 
 Landing page de type *lead magnet* (téléchargement d'un e-book gratuit contre e-mail),
-adaptée aux couleurs et au positionnement NEXA à partir de la structure de la page Liora.
+adaptée à l'identité NEXA (thème sombre + violet électrique + vert menthe) à partir de la
+structure de la page Liora.
 
 > **Contenu original** : les textes ont été réécrits à la marque NEXA (pas de copie mot pour mot).
 > Les éléments que je ne connaissais pas sont des **placeholders** à remplacer (voir plus bas).
@@ -17,15 +18,16 @@ adaptée aux couleurs et au positionnement NEXA à partir de la structure de la 
 | `blocs-webflow/03-auteurs.html` | « À propos des auteurs » |
 | `blocs-webflow/04-formations.html` | Bandeau CTA « Nos formations IA » |
 | `blocs-webflow/05-temoignages.html` | Témoignages / notes |
-| `blocs-webflow/06-formulaire.html` | Formulaire de capture (ancre `#nx-form`) |
-| `blocs-webflow/07-footer.html` | Contact / footer |
+| `blocs-webflow/06-faq.html` | FAQ (accordéon, sans JS) |
+| `blocs-webflow/07-formulaire.html` | Formulaire de capture (ancre `#nx-form`) |
+| `blocs-webflow/08-footer.html` | Contact / footer |
 
 ## 🚀 Intégration dans Webflow (format Embed découpé)
 
 1. **Le style d'abord.** Ouvre `00-styles.html`, copie tout le bloc `<style>…</style>` et colle-le dans :
    **Webflow → Page Settings → Custom Code → « Inside `<head>` tag »**.
    (Alternative : un composant **Embed** placé tout en haut de la page.)
-2. **Les sections ensuite.** Pour chaque fichier `01` → `07`, glisse un composant
+2. **Les sections ensuite.** Pour chaque fichier `01` → `08`, glisse un composant
    **Embed** (`Add panel → Components → Embed`) dans la page, dans l'ordre, et colle le contenu du fichier.
    > La limite d'un Embed Webflow est de 50 000 caractères : chaque bloc est bien en dessous.
 3. **Publie** et vérifie le rendu mobile (le CSS est déjà responsive, breakpoint à 860 px).
@@ -39,8 +41,9 @@ facilite les retouches section par section directement dans Webflow.
 - **Photo équipe** (bloc 03) : la `div.nx-photo` → remplace par `<img class="nx-photo" src="…" alt="…">`.
 - **URL des boutons** : « Postuler », « En savoir plus », « Voir nos formations », liens footer (`href="#"`).
 - **Témoignages** (bloc 05) : scores, nombre d'avis `[nb]` et citations `[Témoignage à compléter]`.
-- **Contact** (bloc 07) : `[Adresse NEXA]`, `[Téléphone NEXA]`, e-mail, mentions RNCP/Qualiopi.
-- **Formulaire** (bloc 06) : `action="REMPLACER_PAR_URL_HUBSPOT"` (voir ci-dessous).
+- **FAQ** (bloc 06) : ajuste les questions/réponses aux infos réelles NEXA.
+- **Formulaire** (bloc 07) : `action="REMPLACER_PAR_URL_HUBSPOT"` (voir ci-dessous).
+- **Contact** (bloc 08) : `[Adresse NEXA]`, `[Téléphone NEXA]`, e-mail, mentions RNCP/Qualiopi.
 
 ## 🔗 Connexion du formulaire à HubSpot
 
@@ -54,6 +57,7 @@ Deux options :
 
 ## 🎨 Charte
 
-Couleurs définies en variables CSS en haut de `00-styles.html` (`--nx-violet`, etc.).
-Base violet `#4B0082` (reprise de ton repo). Modifie ces variables pour coller exactement à ta charte,
-et ajuste `font-family` si ta police Webflow diffère (Poppins par défaut).
+Thème sombre reprenant l'identité NEXA. Couleurs en variables CSS en haut de `00-styles.html` :
+`--nx-purple:#7C3AED` (violet électrique), `--nx-green:#18E8A6` (vert menthe signature, boutons/accents),
+`--nx-dark:#0E0B1A` (fond). Ajuste ces hex pour coller au pixel près à ta charte, et adapte
+`font-family` si ta police Webflow diffère (Poppins par défaut).
