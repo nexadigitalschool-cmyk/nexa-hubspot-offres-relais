@@ -1,6 +1,9 @@
 node_modules
 dist
 dist-ssr
+
+# Apercu autonome genere pour la previsualisation (artifact)
+nexa-preview.html
 *.local
 .DS_Store
 .vite
