@@ -7,13 +7,23 @@
 # l'Annuaire de l'éducation nationale (dataset fr-en-annuaire-education).
 #
 # IMPORTANT — Coordonnées GPS des campus :
-#   Les coordonnées ci-dessous sont VOLONTAIREMENT laissées à null.
-#   Elles NE DOIVENT PAS être inventées. Tant qu'un campus n'a pas de
-#   latitude/longitude renseignée, le calcul de distance à vol d'oiseau
-#   est automatiquement désactivé pour ce campus (colonne "Distance campus km"
-#   laissée vide et comptabilisée comme manquante).
-#   Pour activer le calcul : remplacez `latitude: null` / `longitude: null`
-#   par les valeurs réelles (WGS84, degrés décimaux) fournies par NEXA.
+#   Les coordonnées ne sont JAMAIS inventées. Deux cas :
+#   1) le campus a une `address` -> le pipeline la géocode via la Base Adresse
+#      Nationale officielle (api-adresse.data.gouv.fr) et renseigne lat/lon
+#      (provenance tracée dans `coordinates_source` et le manifeste des sources) ;
+#   2) ni adresse ni coordonnées -> le calcul de distance est proprement
+#      désactivé pour ce campus (colonne "Distance campus km" vide, comptabilisée
+#      comme manquante).
+#   Les coordonnées pré-renseignées ci-dessous pour Paris proviennent du
+#   géocodage BAN de l'adresse fournie ; elles sont re-dérivables à tout moment
+#   avec l'option `--geocode`. Pour un seuil de 60 km, la précision infra-km du
+#   géocodage n'a aucun impact sur les décisions de conservation.
+#
+# Règle de rayon (surcharge du process) :
+#   - Académies principales (Paris/Créteil/Versailles) : conservées sans
+#     condition de distance.
+#   - Départements « tampons » d'autres académies (buffer_departments) :
+#     conservés UNIQUEMENT si l'établissement est réellement à < radius_km.
 # =============================================================================
 
 source:
@@ -74,9 +84,17 @@ campuses:
   - name: "Paris"
     active: true            # périmètre du pilote
     academies: ["Paris", "Créteil", "Versailles"]
-    priority_departments: []
-    latitude: null
-    longitude: null
+    # Toute l'Île-de-France (75 est Paris, 77 Seine-et-Marne intégralement
+    # incluse via l'académie de Créteil, 78/91/92/93/94/95).
+    priority_departments: ["075", "077", "078", "091", "092", "093", "094", "095"]
+    # Départements limitrophes d'AUTRES académies à surveiller (Eure=27,
+    # Eure-et-Loir=28, Loiret=45, Oise=60). Conservés seulement si < radius_km.
+    buffer_departments: ["027", "028", "045", "060"]
+    radius_km: 60
+    address: "44 bis quai de Jemmapes, 75010 Paris"
+    coordinates_source: "BAN (géocodage de l'adresse) — re-dérivable via --geocode"
+    latitude: 48.8710
+    longitude: 2.3652
 
   - name: "Lyon"
     active: false

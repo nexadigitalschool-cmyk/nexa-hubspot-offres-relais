@@ -17,6 +17,7 @@ from pathlib import Path
 from . import __version__
 from .config import AppConfig, load_config
 from .fixtures import build_fixture_records
+from .geocode import geocode_ban
 from .logging_utils import get_logger, setup_logging
 from .ods_client import ODSAPIError, ODSClient
 from .reporting import (
@@ -59,6 +60,32 @@ def _iter_fixture_pages(records: list[dict], academie: str, page_size: int,
             yield rec
 
 
+def _iter_fixture_dept_pages(records: list[dict], dep_code: str, page_size: int,
+                             raw_dir: Path, log):
+    """Pagination synthétique par code département (tampons hors académie)."""
+    def _dep(r):
+        v = str((r.get("code_departement") or "")).strip()
+        return v.zfill(3) if v.isdigit() else v
+    subset = [r for r in records if _dep(r) == dep_code]
+    page_dir = raw_dir / f"dep_{dep_code}"
+    page_dir.mkdir(parents=True, exist_ok=True)
+    log.info("[dep %s] (fixture) %d enregistrements", dep_code, len(subset))
+    for offset in range(0, len(subset), page_size):
+        page = subset[offset:offset + page_size]
+        (page_dir / f"page_{offset:06d}.json").write_text(
+            json.dumps({"total_count": len(subset), "results": page}, ensure_ascii=False),
+            encoding="utf-8")
+        for rec in page:
+            yield rec
+
+
+def _src_entry(source_label, config, base_url, where, url, extraction_date, volume):
+    return {"source": source_label, "dataset_id": config.source.dataset_id,
+            "base_url": base_url, "where": where, "url_exemple": url,
+            "date_extraction": extraction_date, "volume_extrait": volume,
+            "volume_conserve": ""}
+
+
 def _safe(name: str) -> str:
     import unicodedata
     s = unicodedata.normalize("NFKD", name)
@@ -66,23 +93,62 @@ def _safe(name: str) -> str:
     return "".join(ch if ch.isalnum() else "_" for ch in s).strip("_").lower()
 
 
+def build_where_dept(dep_field: str, dep_code: str, nature_field: str | None,
+                     keep_natures: list[str]) -> str:
+    """Clause ODSQL narrowant par code département (+ nature si possible)."""
+    clause = f'{dep_field}="{dep_code}"'
+    if nature_field and keep_natures:
+        values = ", ".join('"' + n.replace('"', '\\"') + '"' for n in keep_natures)
+        clause += f" and {nature_field} in ({values})"
+    return clause
+
+
+def geocode_active_campuses(config: AppConfig, force: bool, log,
+                            session=None) -> None:
+    """Renseigne les coordonnées des campus actifs à partir de leur adresse via
+    la BAN officielle. N'écrase jamais des coordonnées existantes en cas d'échec."""
+    for c in config.active_campuses():
+        need = force or not c.has_coordinates
+        if not need or not c.address:
+            continue
+        coords = geocode_ban(c.address, session=session)
+        if coords:
+            c.latitude, c.longitude = coords
+            c.coordinates_source = "BAN (api-adresse.data.gouv.fr)"
+        elif not c.has_coordinates:
+            log.warning("Campus %s : adresse non géocodée et pas de coordonnées "
+                        "-> distance désactivée pour ce campus.", c.name)
+
+
 def run(config: AppConfig, source: str, paths: dict, run_id: str,
         base_url_override: str | None = None, resume: bool = True,
-        limit_per_academie: int | None = None) -> dict:
+        limit_per_academie: int | None = None, geocode: bool = False) -> dict:
     log = get_logger()
     extraction_date = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     active = config.active_campuses()
     academies: list[str] = []
+    buffer_depts: list[str] = []
     national = False
     for c in active:
         academies.extend(c.academies)
+        buffer_depts.extend(c.buffer_departments)
         national = national or c.national
-    academies = list(dict.fromkeys(academies))  # dédoublonnage en conservant l'ordre
+    academies = list(dict.fromkeys(academies))
+    buffer_depts = list(dict.fromkeys(buffer_depts))
+
+    # Géocodage des campus (source officielle) — jamais de coordonnées inventées.
+    geocode_active_campuses(config, force=geocode, log=log)
+    for c in active:
+        if c.has_coordinates:
+            log.info("Campus %-12s : (%.5f, %.5f) source=%s | rayon=%.0f km",
+                     c.name, c.latitude, c.longitude, c.coordinates_source, c.radius_km)
+        else:
+            log.info("Campus %-12s : sans coordonnées (distance désactivée)", c.name)
 
     log.info("IE Prospection v%s — étape 1 socle national", __version__)
-    log.info("Source=%s | campus actifs=%s | académies=%s | national=%s",
-             source, [c.name for c in active], academies, national)
+    log.info("Source=%s | campus actifs=%s | académies=%s | tampons=%s | national=%s",
+             source, [c.name for c in active], academies, buffer_depts, national)
 
     raw_dir = Path(paths["raw"])
     all_records: list[dict] = []
@@ -96,41 +162,49 @@ def run(config: AppConfig, source: str, paths: dict, run_id: str,
             if limit_per_academie:
                 recs = recs[:limit_per_academie]
             all_records.extend(recs)
-            source_entries.append({
-                "source": source_label, "dataset_id": config.source.dataset_id,
-                "base_url": "(local fixture)", "where": f'academie="{aca}"',
-                "url_exemple": "(local fixture)", "date_extraction": extraction_date,
-                "volume_extrait": len(recs), "volume_conserve": "",
-            })
+            source_entries.append(_src_entry(source_label, config, "(local fixture)",
+                                              f'academie="{aca}"', "(local fixture)",
+                                              extraction_date, len(recs)))
+        for dep in buffer_depts:
+            recs = list(_iter_fixture_dept_pages(fixtures, dep, config.http.page_size,
+                                                 raw_dir, log))
+            all_records.extend(recs)
+            source_entries.append(_src_entry(source_label, config, "(local fixture)",
+                                              f'code_departement="{dep}"', "(local fixture)",
+                                              extraction_date, len(recs)))
     elif source == "api":
         base_url = base_url_override or config.source.base_url
         source_label = f"Annuaire de l'éducation nationale — {config.source.dataset_id}"
         client = ODSClient(base_url, config.source.dataset_id, config.http, raw_dir)
         aca_field = client.resolve_field(FIELD_MAP["Académie"]) or "libelle_academie"
+        dep_field = client.resolve_field(AUX_FIELDS["code_departement"]) or "code_departement"
         nature_field = client.resolve_field(AUX_FIELDS["libelle_nature"])
-        log.info("Champ académie résolu : %s | champ nature : %s", aca_field, nature_field)
+        log.info("Champs résolus — académie:%s département:%s nature:%s",
+                 aca_field, dep_field, nature_field)
 
-        for aca in academies:
-            where = build_where(aca_field, aca, nature_field,
-                                config.lycee_filter.keep_natures)
+        targets = [("academie", aca, build_where(aca_field, aca, nature_field,
+                                                 config.lycee_filter.keep_natures))
+                   for aca in academies]
+        targets += [("dep", dep, build_where_dept(dep_field, dep, nature_field,
+                                                  config.lycee_filter.keep_natures))
+                    for dep in buffer_depts]
+
+        for kind, key, where in targets:
             try:
                 client.count(where)
             except ODSAPIError as exc:
-                log.warning("Clause 'where' avec nature rejetée (%s) — repli "
-                            "sur filtrage par académie seule.", exc)
-                where = build_where(aca_field, aca, None, [])
-            recs = list(client.iter_records(where, label=aca, resume=resume))
+                log.warning("Clause 'where' avec nature rejetée (%s) — repli sans nature.", exc)
+                where = (build_where(aca_field, key, None, []) if kind == "academie"
+                         else build_where_dept(dep_field, key, None, []))
+            label = key if kind == "academie" else f"dep_{key}"
+            recs = list(client.iter_records(where, label=label, resume=resume))
             if limit_per_academie:
                 recs = recs[:limit_per_academie]
             all_records.extend(recs)
-            source_entries.append({
-                "source": source_label, "dataset_id": config.source.dataset_id,
-                "base_url": base_url, "where": where,
-                "url_exemple": f"{base_url}/catalog/datasets/{config.source.dataset_id}"
-                               f"/records?where={where}&limit={config.http.page_size}&offset=0",
-                "date_extraction": extraction_date,
-                "volume_extrait": len(recs), "volume_conserve": "",
-            })
+            url = (f"{base_url}/catalog/datasets/{config.source.dataset_id}"
+                   f"/records?where={where}&limit={config.http.page_size}&offset=0")
+            source_entries.append(_src_entry(source_label, config, base_url, where, url,
+                                             extraction_date, len(recs)))
     else:
         raise ValueError(f"source inconnue : {source}")
 
@@ -156,14 +230,11 @@ def run(config: AppConfig, source: str, paths: dict, run_id: str,
         cpath = out / f"campus_{_safe(c.name)}.csv"
         write_socle(cpath, rows)
         per_campus[c.name] = {"count": len(rows), "distance_enabled": c.has_coordinates,
-                              "file": str(cpath)}
+                              "radius_km": c.radius_km, "buffer": c.buffer_departments,
+                              "coordinates_source": c.coordinates_source, "file": str(cpath)}
         log.info("Campus %-12s : %4d lignes | distance=%s", c.name, len(rows),
                  "oui" if c.has_coordinates else "désactivée (coordonnées manquantes)")
 
-    for e in source_entries:
-        e["volume_conserve"] = sum(1 for r in kept
-                                   if str(e["where"]).split('"')[1] in r["Académie"]) \
-            if '"' in str(e["where"]) else ""
     manifest_path = write_sources_manifest(reports / "sources.csv", source_entries)
 
     meta = {"run_id": run_id, "extraction_date": extraction_date,
@@ -195,6 +266,8 @@ def parse_args(argv=None):
     p.add_argument("--no-resume", action="store_true",
                    help="Ne pas relire les pages brutes déjà sauvegardées")
     p.add_argument("--limit-per-academie", type=int, default=None)
+    p.add_argument("--geocode", action="store_true",
+                   help="Forcer le (re)géocodage BAN des adresses de campus")
     p.add_argument("--run-id", default=None)
     return p.parse_args(argv)
 
@@ -214,7 +287,7 @@ def main(argv=None) -> int:
     try:
         run(config, args.source, paths, run_id,
             base_url_override=args.base_url, resume=not args.no_resume,
-            limit_per_academie=args.limit_per_academie)
+            limit_per_academie=args.limit_per_academie, geocode=args.geocode)
     except ODSAPIError as exc:
         get_logger().error("Extraction interrompue (API) : %s", exc)
         return 2

@@ -90,6 +90,8 @@ def write_quality_report(path: str | Path, stats: dict, field_presence: dict,
     sig = stats.get("signalements", {})
     lines.append(f"- Sans commune : **{sig.get('sans_commune', 0)}**")
     lines.append(f"- Sans coordonnées GPS : **{sig.get('gps_absent', 0)}**")
+    lines.append(f"- Établissements « tampons » (autre académie) conservés car < rayon : "
+                 f"**{sig.get('tampons_conserves', 0)}**")
     lines.append("")
     lines.append("## Complétude des champs (sur enregistrements extraits)")
     lines.append("")
@@ -116,11 +118,13 @@ def write_quality_report(path: str | Path, stats: dict, field_presence: dict,
     lines.append("")
     lines.append("## Répartition par campus (socle conservé)")
     lines.append("")
-    lines.append("| Campus | Lignes | Distance calculée |")
-    lines.append("| --- | ---: | :---: |")
+    lines.append("| Campus | Lignes | Rayon (km) | Tampons | Distance | Source coord. |")
+    lines.append("| --- | ---: | ---: | --- | :---: | --- |")
     for campus, info in per_campus.items():
-        dist = "oui" if info.get("distance_enabled") else "non (coordonnées campus manquantes)"
-        lines.append(f"| {campus} | {info['count']} | {dist} |")
+        dist = "oui" if info.get("distance_enabled") else "non (coord. campus manquantes)"
+        buf = ", ".join(info.get("buffer", [])) or "—"
+        lines.append(f"| {campus} | {info['count']} | {info.get('radius_km', '')} | "
+                     f"{buf} | {dist} | {info.get('coordinates_source') or '—'} |")
     lines.append("")
 
     path.write_text("\n".join(lines), encoding="utf-8")

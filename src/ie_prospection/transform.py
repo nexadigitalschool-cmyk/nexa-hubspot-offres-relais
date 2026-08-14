@@ -171,54 +171,115 @@ def _parse_position(pos) -> tuple[float | None, float | None]:
     return None, None
 
 
-def assign_campus(row: dict, campuses: list[Campus]) -> None:
-    """Affecte un campus (par académie, priorité au département prioritaire)
-    et calcule la distance à vol d'oiseau si les coordonnées du campus ET de
-    l'établissement sont disponibles."""
-    aca_n = _norm(row.get("Académie"))
-    dep = _text(row.get("Département"))
+def record_dept_code(record: dict) -> str:
+    _, dep = first_present(record, AUX_FIELDS["code_departement"])
+    d = _text(dep)
+    return d.zfill(3) if d.isdigit() else d
 
-    chosen: Campus | None = None
-    # Priorité 1 : campus dont le département prioritaire correspond.
+
+def nearest_campus(lat, lon, campuses: list[Campus]) -> tuple[Campus | None, float | None]:
+    """Campus actif le plus proche disposant de coordonnées, et sa distance km.
+    (None, None) si aucune distance n'est calculable."""
+    best, best_d = None, None
+    if lat is None or lon is None:
+        return None, None
     for c in campuses:
-        if c.priority_departments and _dept_matches(dep, c.priority_departments):
-            if aca_n and any(_norm(a) == aca_n for a in c.academies):
-                chosen = c
-                break
-    # Priorité 2 : correspondance par académie.
-    if chosen is None:
-        for c in campuses:
-            if aca_n and any(_norm(a) == aca_n for a in c.academies):
-                chosen = c
-                break
-    # Priorité 3 : campus national (second rideau).
-    if chosen is None:
-        for c in campuses:
-            if c.national:
-                chosen = c
-                break
+        if c.has_coordinates:
+            d = haversine_km(lat, lon, c.latitude, c.longitude)
+            if best_d is None or d < best_d:
+                best, best_d = c, d
+    return best, best_d
 
-    if chosen is None:
-        return
-    row["Campus rattaché"] = chosen.name
 
-    if not chosen.has_coordinates:
-        return
+def _matches_academie(aca_n: str, campuses: list[Campus]) -> Campus | None:
+    for c in campuses:
+        if aca_n and any(_norm(a) == aca_n for a in c.academies):
+            return c
+    return None
+
+
+def _buffer_campuses(dep_code: str, campuses: list[Campus]) -> list[Campus]:
+    out = []
+    for c in campuses:
+        if dep_code and any(_dept_eq(dep_code, b) for b in c.buffer_departments):
+            out.append(c)
+    return out
+
+
+def _dept_eq(a: str, b: str) -> bool:
+    ad = re.sub(r"\D", "", a)
+    bd = re.sub(r"\D", "", b)
+    if ad and bd:
+        return ad.zfill(3) == bd.zfill(3)
+    return _text(a).upper() == _text(b).upper()
+
+
+def evaluate_perimeter(row: dict, dep_code: str, campuses: list[Campus],
+                       national: bool) -> tuple[bool, str | None, str]:
+    """Affecte le campus + la distance, et décide de conserver la ligne.
+
+    - Académie principale d'un campus actif  -> conservé (distance = attribut).
+    - Département tampon d'une autre académie -> conservé SEULEMENT si la
+      distance réelle au campus est < radius_km ; sinon rejeté avec motif.
+    - Campus national (second rideau)         -> conservé.
+    Retourne (garder, motif_rejet, detail).
+    """
+    aca_n = _norm(row.get("Académie"))
     lat = parse_coordinate(row.get("Latitude"))
     lon = parse_coordinate(row.get("Longitude"))
-    if lat is None or lon is None:
-        return
-    row["Distance campus km"] = repr(haversine_km(lat, lon, chosen.latitude, chosen.longitude))
+
+    main_campus = _matches_academie(aca_n, campuses)
+    buffers = _buffer_campuses(dep_code, campuses)
+    near, dist = nearest_campus(lat, lon, campuses)
+
+    # Renseigne toujours campus + distance quand c'est calculable.
+    if near is not None:
+        row["Campus rattaché"] = near.name
+        row["Distance campus km"] = repr(dist)
+    elif main_campus is not None:
+        row["Campus rattaché"] = main_campus.name
+
+    # Décision de conservation.
+    if main_campus is not None:
+        if row["Campus rattaché"] == "":
+            row["Campus rattaché"] = main_campus.name
+        return True, None, f"academie_principale={main_campus.name}"
+
+    if buffers:
+        # On ne conserve que si une distance < radius est VÉRIFIÉE.
+        target = None
+        target_d = None
+        for c in buffers:
+            if c.has_coordinates and lat is not None and lon is not None:
+                d = haversine_km(lat, lon, c.latitude, c.longitude)
+                if target_d is None or d < target_d:
+                    target, target_d = c, d
+        if target_d is None:
+            return False, "distance_non_verifiable", (
+                "tampon sans distance calculable "
+                f"(coord. campus ou GPS établissement manquante ; dep={dep_code})")
+        if target_d > target.radius_km:
+            return False, "hors_rayon_km", (
+                f"{target_d:.1f} km > {target.radius_km:.0f} km du campus {target.name}")
+        row["Campus rattaché"] = target.name
+        row["Distance campus km"] = repr(round(target_d, 2))
+        return True, None, f"tampon<{target.radius_km:.0f}km={target.name} ({target_d:.1f}km)"
+
+    if national:
+        for c in campuses:
+            if c.national:
+                row["Campus rattaché"] = c.name
+                return True, None, "national"
+
+    return False, "hors_perimetre_configuration", (
+        f"academie={row.get('Académie')} dep={dep_code} hors académies/tampons configurés")
 
 
-def _dept_matches(dep_label_or_code: str, priority: list[str]) -> bool:
-    d = _text(dep_label_or_code)
-    d_digits = re.sub(r"\D", "", d)
-    for p in priority:
-        p_digits = re.sub(r"\D", "", p)
-        if p_digits and (d_digits == p_digits or d_digits.zfill(3) == p_digits.zfill(3)):
-            return True
-    return False
+def assign_campus(row: dict, campuses: list[Campus], dep_code: str = "",
+                  national: bool = False) -> None:
+    """Compat : renseigne « Campus rattaché » et « Distance campus km » sans
+    porter la décision de conservation (utilisé en tests unitaires)."""
+    evaluate_perimeter(row, dep_code, campuses, national)
 
 
 def transform_records(
@@ -234,6 +295,7 @@ def transform_records(
     """
     filt = config.lycee_filter
     campuses = config.active_campuses()
+    national = any(c.national for c in campuses)
 
     kept: list[dict] = []
     rejected: list[dict] = []
@@ -284,13 +346,22 @@ def transform_records(
             continue
         seen_uai[uai] = row["Nom"]
 
-        # Signalements (non bloquants, comptabilisés).
+        # Décision de périmètre (académie principale / tampon < rayon / national).
+        dep_code = record_dept_code(record)
+        keep_p, reason_p, detail_p = evaluate_perimeter(row, dep_code, campuses, national)
+        if not keep_p:
+            rejected.append(_reject(row, reason_p, detail_p))
+            reject_counter[reason_p] += 1
+            continue
+
+        # Signalements (non bloquants, comptabilisés sur les lignes conservées).
         if not row["Commune"]:
             flags["sans_commune"] += 1
         if not row["Latitude"] or not row["Longitude"]:
             flags["gps_absent"] += 1
+        if detail_p.startswith("tampon"):
+            flags["tampons_conserves"] += 1
 
-        assign_campus(row, campuses)
         kept.append(row)
 
     drift = detect_drift(key_presence, total)

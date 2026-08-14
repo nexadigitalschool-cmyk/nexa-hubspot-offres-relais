@@ -30,15 +30,25 @@ Parcoursup, et **aucun import HubSpot**.
 6. Utilise l'**UAI** comme identifiant principal et **détecte / journalise** :
    UAI absent, UAI invalide, doublons UAI, établissement sans commune,
    coordonnées GPS absentes, champs renommés.
-7. **Affecte un campus** (par académie, priorité au département prioritaire).
-8. Calcule la **distance à vol d'oiseau (km)** *uniquement si* les coordonnées du
-   campus sont fournies (sinon calcul désactivé proprement). Cette distance
-   **n'est jamais** un temps de transport.
+7. **Affecte un campus** (au plus proche par distance quand les coordonnées sont
+   connues, sinon par académie / département prioritaire).
+8. **Géocode l'adresse du campus** via la **Base Adresse Nationale** officielle
+   (`api-adresse.data.gouv.fr`) — jamais de coordonnées inventées — puis calcule
+   la **distance à vol d'oiseau (km)** (sinon calcul désactivé proprement). Cette
+   distance **n'est jamais** un temps de transport.
+9. **Règle de rayon (60 km)** : les académies principales (Paris/Créteil/
+   Versailles, dont **la Seine-et-Marne 77 en intégralité**) sont conservées
+   sans condition ; les **départements « tampons » d'autres académies**
+   (Eure 27, Eure-et-Loir 28, Loiret 45, Oise 60) ne sont conservés que si
+   l'établissement est **réellement à moins de 60 km** du campus. Les cas non
+   vérifiables (GPS manquant) sont rejetés avec motif, jamais devinés.
 9. Ne produit **aucune donnée nominative** (pas de nom de proviseur, pas d'e-mail
    personnel reconstruit).
 
 Aucun résultat n'est supprimé silencieusement : toute ligne écartée est versée
-dans `rejected.csv` avec un **motif précis**.
+dans `rejected.csv` avec un **motif précis** (`type_hors_perimetre`,
+`etablissement_ferme`, `hors_perimetre_etranger`, `uai_absent`, `uai_invalide`,
+`doublon_uai`, `hors_rayon_km`, `distance_non_verifiable`, …).
 
 ---
 
@@ -79,6 +89,7 @@ python -m ie_prospection.pipeline --config config/campuses.yml --source fixture
 | Option | Rôle |
 | --- | --- |
 | `--base-url URL` | forcer un miroir Opendatasoft (voir `config/campuses.yml`) |
+| `--geocode` | (re)géocoder les adresses de campus via la BAN officielle |
 | `--no-resume` | ignorer les pages brutes déjà sauvegardées |
 | `--limit-per-academie N` | plafonner le volume par académie (tests/diagnostic) |
 | `--run-id ID` | identifiant de run (nom du journal) |
@@ -114,12 +125,16 @@ python -m ie_prospection.pipeline --config config/campuses.yml --source fixture
   actif ; Lyon, Lille, Bordeaux, Nantes, À distance sont préconfigurés et
   inactifs).
 - `campuses[].academies` : académies interrogées.
-- `campuses[].priority_departments` : départements prioritaires pour
-  l'affectation (ex. `033` pour Bordeaux, `044` pour Nantes).
-- `campuses[].latitude / longitude` : **`null` par défaut — à compléter par NEXA**.
-  Tant qu'elles sont absentes, le calcul de distance est **désactivé** pour ce
-  campus (`Distance campus km` reste vide et est comptabilisé comme manquant).
-  **Ne jamais inventer ces coordonnées.**
+- `campuses[].priority_departments` : départements prioritaires (Paris couvre
+  toute l'Île-de-France : `075,077,078,091,092,093,094,095`).
+- `campuses[].buffer_departments` : départements **d'autres académies** à
+  surveiller (Paris : `027,028,045,060`) — conservés seulement si < `radius_km`.
+- `campuses[].radius_km` : rayon de conservation des tampons (défaut **60**).
+- `campuses[].address` : adresse du campus, **géocodée via la BAN** au run
+  (renseigne lat/lon, provenance dans `coordinates_source`). Le campus Paris
+  (`44 bis quai de Jemmapes, 75010`) est pré-renseigné et re-dérivable via
+  `--geocode`. Sans adresse ni coordonnées, la distance est **désactivée**.
+  **Les coordonnées ne sont jamais inventées.**
 - `lycee_filter` : familles de lycées retenues, exclusions, ouverts uniquement.
 
 ---
@@ -148,7 +163,9 @@ pytest -q
 
 Les tests couvrent notamment : **pagination au-delà de 100 lignes**, **doublons
 UAI**, **zéros initiaux**, **erreurs API** (400 / 429 / 5xx + retry), **champs
-manquants / renommés**, affectation campus et distance.
+manquants / renommés**, **règle des 60 km** (tampon conservé / hors rayon /
+distance non vérifiable), **géocodage BAN**, affectation campus et distance.
+30 tests, tous verts.
 
 ---
 
@@ -160,8 +177,9 @@ src/ie_prospection/
   config.py                    # chargement + validation de la config
   schema.py                    # schéma de sortie + cartographie des champs
   ods_client.py                # client API (pagination, retry, backoff, reprise)
-  transform.py                 # filtrage, normalisation, dédup, campus, distance
+  transform.py                 # filtrage, normalisation, dédup, campus, rayon 60 km
   geo.py                       # distance orthodromique (à vol d'oiseau)
+  geocode.py                   # géocodage des campus via la BAN officielle
   reporting.py                 # écriture CSV / rapport qualité / manifeste
   fixtures.py                  # jeu synthétique hors-ligne
   pipeline.py                  # orchestration + CLI

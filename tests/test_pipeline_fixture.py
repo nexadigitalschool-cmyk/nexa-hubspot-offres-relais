@@ -39,8 +39,17 @@ def test_end_to_end_fixture(tmp_path):
         rows = list(csv.DictReader(f))
     assert rows and all(r["reject_reason"] for r in rows)
 
-    # Cas limites présents dans les rejets.
+    # Cas limites présents dans les rejets (dont la règle des 60 km).
     reasons = {r["reject_reason"] for r in rows}
     assert {"uai_absent", "uai_invalide", "doublon_uai",
             "type_hors_perimetre", "etablissement_ferme",
-            "hors_perimetre_etranger"} <= reasons
+            "hors_perimetre_etranger", "hors_rayon_km",
+            "distance_non_verifiable"} <= reasons
+
+    # Le campus Paris a des coordonnées (config) -> distance calculée.
+    with (tmp_path / "output" / "socle_national.csv").open(encoding="utf-8") as f:
+        socle = list(csv.DictReader(f))
+    assert any(r["Distance campus km"] for r in socle)
+    # Au moins un établissement tampon (autre académie) conservé sous 60 km.
+    assert any(r["Académie"] in ("Amiens", "Normandie") and r["Distance campus km"]
+               for r in socle)

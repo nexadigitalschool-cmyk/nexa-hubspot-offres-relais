@@ -210,3 +210,58 @@ def test_priority_department_wins():
                            libelle_departement="Gironde"), "src", "2026-01-01")
     assign_campus(row, [bordeaux])
     assert row["Campus rattaché"] == "Bordeaux"
+
+
+# --- Règle des 60 km / départements tampons ---------------------------------
+def _paris_campus():
+    return Campus(name="Paris", academies=["Paris", "Créteil", "Versailles"],
+                  priority_departments=["075", "077", "078", "091", "092", "093",
+                                        "094", "095"],
+                  buffer_departments=["027", "028", "045", "060"],
+                  radius_km=60, latitude=48.8710, longitude=2.3652, active=True)
+
+
+def _config_paris():
+    return AppConfig(
+        source=SourceConfig("fr-en-annuaire-education", "https://x/api"),
+        http=HttpConfig(), lycee_filter=_filter(), campuses=[_paris_campus()])
+
+
+def test_seine_et_marne_fully_included():
+    # 77 (Créteil) : conservé sans condition de distance, même éloigné.
+    rec = _lycee(identifiant_de_l_etablissement="0771234A", libelle_academie="Créteil",
+                 code_departement="077", latitude=48.55, longitude=3.05)  # ~55 km
+    res = transform_records([rec], _config_paris(), "src", "2026-01-01", LOG)
+    assert res["stats"]["conserves"] == 1
+
+
+def test_buffer_within_radius_kept():
+    rec = _lycee(identifiant_de_l_etablissement="0601234B", libelle_academie="Amiens",
+                 code_departement="060", latitude=49.19, longitude=2.47)  # ~36 km
+    res = transform_records([rec], _config_paris(), "src", "2026-01-01", LOG)
+    assert res["stats"]["conserves"] == 1
+    assert res["stats"]["signalements"].get("tampons_conserves") == 1
+
+
+def test_buffer_beyond_radius_rejected():
+    rec = _lycee(identifiant_de_l_etablissement="0451234C", libelle_academie="Orléans-Tours",
+                 code_departement="045", latitude=47.90, longitude=1.90)  # ~108 km
+    res = transform_records([rec], _config_paris(), "src", "2026-01-01", LOG)
+    assert res["stats"]["conserves"] == 0
+    assert res["stats"]["rejets_par_motif"].get("hors_rayon_km") == 1
+
+
+def test_buffer_without_gps_not_verifiable():
+    rec = _lycee(identifiant_de_l_etablissement="0601235D", libelle_academie="Amiens",
+                 code_departement="060", latitude="", longitude="")
+    res = transform_records([rec], _config_paris(), "src", "2026-01-01", LOG)
+    assert res["stats"]["conserves"] == 0
+    assert res["stats"]["rejets_par_motif"].get("distance_non_verifiable") == 1
+
+
+def test_main_academie_kept_regardless_of_distance():
+    # Versailles éloigné (Rambouillet-like) : académie principale -> conservé.
+    rec = _lycee(identifiant_de_l_etablissement="0781234E", libelle_academie="Versailles",
+                 code_departement="078", latitude=48.55, longitude=1.75)
+    res = transform_records([rec], _config_paris(), "src", "2026-01-01", LOG)
+    assert res["stats"]["conserves"] == 1

@@ -118,4 +118,56 @@ def build_fixture_records(n_per_academie: int = 45) -> list[dict]:
     rec["longitude"] = ""
     rec["nom_etablissement"] = "Lycée sans GPS"
     records.append(rec)
+
+    # --- Départements tampons (AUTRES académies) : test de la règle 60 km ----
+    # Campus Paris ~ (48.8710, 2.3652). On place des points en-deçà et au-delà.
+    base = seq + 6
+    records += [
+        # Oise (60, académie d'Amiens) ~36 km -> CONSERVÉ.
+        _buffer_record(base + 0, "060", "Amiens", "Picardie", 49.19, 2.47,
+                       "Lycee Oise proche (~36km)"),
+        # Eure (27, académie de Normandie) ~36 km -> CONSERVÉ.
+        _buffer_record(base + 1, "027", "Normandie", "Normandie", 49.05, 1.95,
+                       "Lycee Eure proche (~36km)"),
+        # Loiret (45, académie d'Orléans-Tours) ~108 km -> REJETÉ (hors rayon).
+        _buffer_record(base + 2, "045", "Orléans-Tours", "Centre-Val de Loire",
+                       47.90, 1.90, "Lycee Loiret lointain (~108km)"),
+        # Eure-et-Loir (28, Orléans-Tours) ~80 km -> REJETÉ (hors rayon).
+        _buffer_record(base + 3, "028", "Orléans-Tours", "Centre-Val de Loire",
+                       48.44, 1.49, "Lycee Chartres (~80km)"),
+        # Oise sans GPS -> REJETÉ (distance non vérifiable).
+        _buffer_record(base + 4, "060", "Amiens", "Picardie", None, None,
+                       "Lycee Oise sans GPS"),
+    ]
     return records
+
+
+def _buffer_record(seq: int, dep_code: str, academie: str, region: str,
+                   lat, lon, nom: str) -> dict:
+    letter = "ABCDEFGHJKLMNPRSTUVWXYZ"[seq % 23]
+    uai = f"{dep_code}{seq % 10000:04d}{letter}"
+    return {
+        "identifiant_de_l_etablissement": uai,
+        "nom_etablissement": nom,
+        "type_etablissement": "Lycée",
+        "libelle_nature": "LYCEE POLYVALENT",
+        "statut_public_prive": "Public",
+        "adresse_1": f"{seq} avenue Tampon",
+        "code_postal": f"{dep_code}00"[:5].ljust(5, "0"),
+        "code_commune": f"{dep_code}100",
+        "nom_commune": f"Commune {dep_code}",
+        "libelle_academie": academie,
+        "code_academie": "99",
+        "libelle_departement": f"Dept {dep_code}",
+        "code_departement": dep_code,
+        "libelle_region": region,
+        "telephone": "0300000000",
+        "mail": f"ce.{dep_code}{seq:04d}@ac-exemple.fr",
+        "web": "",
+        "siren": f"2{seq % 100000000:08d}",
+        "siret": f"2{seq % 100000000:08d}00011",
+        "latitude": "" if lat is None else lat,
+        "longitude": "" if lon is None else lon,
+        "etat": "OUVERT",
+        "ministere_tutelle": "MENJ",
+    }

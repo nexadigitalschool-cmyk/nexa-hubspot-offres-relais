@@ -12,6 +12,13 @@ class Campus:
     name: str
     academies: list[str]
     priority_departments: list[str] = field(default_factory=list)
+    # Départements « tampons » situés dans D'AUTRES académies, à surveiller :
+    # les lycées qui s'y trouvent ne sont conservés que s'ils sont réellement
+    # à moins de `radius_km` du campus.
+    buffer_departments: list[str] = field(default_factory=list)
+    radius_km: float = 60.0
+    address: str | None = None
+    coordinates_source: str | None = None  # provenance des coordonnées (BAN, manuel…)
     latitude: float | None = None
     longitude: float | None = None
     active: bool = False
@@ -101,7 +108,12 @@ def load_config(path: str | Path) -> AppConfig:
             Campus(
                 name=str(c["name"]),
                 academies=[str(a) for a in c.get("academies", [])],
-                priority_departments=[str(d) for d in c.get("priority_departments", [])],
+                priority_departments=[_dept3(d) for d in c.get("priority_departments", [])],
+                buffer_departments=[_dept3(d) for d in c.get("buffer_departments", [])],
+                radius_km=float(c.get("radius_km", 60.0)),
+                address=(str(c["address"]) if c.get("address") else None),
+                coordinates_source=(str(c["coordinates_source"])
+                                    if c.get("coordinates_source") else None),
                 latitude=_as_float_or_none(c.get("latitude")),
                 longitude=_as_float_or_none(c.get("longitude")),
                 active=bool(c.get("active", False)),
@@ -112,6 +124,15 @@ def load_config(path: str | Path) -> AppConfig:
         raise ValueError("config.campuses est vide")
 
     return AppConfig(source=source, http=http, lycee_filter=lycee_filter, campuses=campuses)
+
+
+def _dept3(value) -> str:
+    """Normalise un code département sur 3 caractères (zéros initiaux) en
+    conservant le texte. Ex : 75 -> '075', 2A reste '2A' (Corse)."""
+    s = str(value).strip()
+    if s.isdigit():
+        return s.zfill(3)
+    return s
 
 
 def _as_float_or_none(value) -> float | None:
