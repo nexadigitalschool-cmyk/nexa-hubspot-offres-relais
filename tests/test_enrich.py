@@ -1,0 +1,104 @@
+"""Tests étape 2 : jointures UAI, périmètre 60 km, complétude, indisponibilité."""
+from __future__ import annotations
+
+from ie_prospection.enrich.build import build_enriched
+from ie_prospection.enrich.fetchers import FetchResult
+from ie_prospection.enrich.pipeline2 import FULL_COLUMNS, filter_within_radius
+from ie_prospection.enrich.schema2 import ENRICH_COLUMNS
+
+
+def _socle(uai, **over):
+    row = {c: "" for c in ["UAI", "Nom", "Académie", "Distance campus km",
+                           "Site web", "Date extraction"]}
+    row["UAI"] = uai
+    row["Nom"] = f"Lycée {uai}"
+    row["Distance campus km"] = "10.0"
+    row.update(over)
+    return row
+
+
+def _res(key, by_uai, available=True, error=None):
+    return FetchResult(key, key, available, by_uai, "ref", "2026-01-01",
+                       error=error, matched=len(by_uai))
+
+
+# --- Jointure sur UAI --------------------------------------------------------
+def test_join_is_by_uai_only():
+    socle = [_socle("0750001A"), _socle("0750002B")]
+    results = [
+        _res("effectifs", {"0750001A": {"Effectif élèves": "800"}}),
+        _res("ips", {"0750002B": {"IPS": "110"}}),
+    ]
+    out = build_enriched(socle, results)
+    rows = {r["UAI"]: r for r in out["enriched"]}
+    assert rows["0750001A"]["Effectif élèves"] == "800"
+    assert rows["0750001A"]["IPS"] == ""        # pas de jointure croisée
+    assert rows["0750002B"]["IPS"] == "110"
+    assert rows["0750002B"]["Effectif élèves"] == ""
+
+
+def test_join_never_matches_on_name():
+    # Même nom, UAI différents -> aucune contamination.
+    socle = [_socle("0750001A", Nom="Lycée Charles Péguy"),
+             _socle("0750002B", Nom="Lycée Charles Péguy")]
+    results = [_res("effectifs", {"0750001A": {"Effectif élèves": "900"}})]
+    out = build_enriched(socle, results)
+    rows = {r["UAI"]: r for r in out["enriched"]}
+    assert rows["0750002B"]["Effectif élèves"] == ""
+
+
+# --- Provenance (source + date) ---------------------------------------------
+def test_provenance_columns_filled_on_match_only():
+    socle = [_socle("0750001A"), _socle("0750002B")]
+    results = [_res("ips", {"0750001A": {"IPS": "115"}})]
+    out = build_enriched(socle, results)
+    rows = {r["UAI"]: r for r in out["enriched"]}
+    assert rows["0750001A"]["Source IPS"] == "ref"
+    assert rows["0750001A"]["Date IPS"] == "2026-01-01"
+    assert rows["0750002B"]["Source IPS"] == ""   # non joint -> pas de provenance
+
+
+# --- Taux de jointure & complétude ------------------------------------------
+def test_join_rate_and_completeness():
+    socle = [_socle(f"075{i:04d}A") for i in range(10)]
+    matched = {r["UAI"]: {"IPS": "100"} for r in socle[:6]}
+    out = build_enriched(socle, [_res("ips", matched)])
+    js = {s["key"]: s for s in out["join_stats"]}
+    assert js["ips"]["matched"] == 6
+    assert abs(js["ips"]["join_rate"] - 0.6) < 1e-9
+    assert abs(out["completeness"]["IPS"]["rate"] - 0.6) < 1e-9
+
+
+# --- Source indisponible -> valeurs vides + documenté ------------------------
+def test_unavailable_source_leaves_empty_and_documents():
+    socle = [_socle("0750001A")]
+    results = [_res("ips", {}, available=False, error="egress bloqué")]
+    out = build_enriched(socle, results)
+    assert out["enriched"][0]["IPS"] == ""
+    js = {s["key"]: s for s in out["join_stats"]}
+    assert js["ips"]["available"] is False
+    assert js["ips"]["error"] == "egress bloqué"
+    # Anomalie source_indisponible présente.
+    assert any(a["type_anomalie"] == "source_indisponible" and "IPS" in a["source"]
+               for a in out["anomalies"])
+
+
+# --- Périmètre 60 km ---------------------------------------------------------
+def test_perimeter_filter_keeps_under_radius():
+    rows = [_socle("A", **{"Distance campus km": "30"}),
+            _socle("B", **{"Distance campus km": "75"}),
+            _socle("C", **{"Distance campus km": ""})]
+    kept, excluded = filter_within_radius(rows, 60.0, {"Paris"})
+    assert [r["UAI"] for r in kept] == ["A"]
+    assert len(excluded) == 2   # >60 km et distance inconnue
+
+
+# --- Aucune colonne nominative ----------------------------------------------
+def test_no_nominative_columns():
+    forbidden = ("proviseur", "prénom", "prenom", "civilité", "nom du contact")
+    for col in FULL_COLUMNS:
+        assert not any(f in col.lower() for f in forbidden)
+    # Aucune colonne d'enrichissement ne collecte d'email personnel.
+    assert "Mail ce." in FULL_COLUMNS  # institutionnel, hérité du socle
+    for c in ENRICH_COLUMNS:
+        assert "mail" not in c.lower() and "email" not in c.lower()

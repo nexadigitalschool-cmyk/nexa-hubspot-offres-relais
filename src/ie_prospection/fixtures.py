@@ -46,7 +46,8 @@ def _record(seq: int, academie: str, nature: str, **overrides) -> dict:
         "libelle_region": "Île-de-France",
         "telephone": f"01{seq % 100000000:08d}"[:10],
         "mail": f"ce.0{dep_code}{seq:04d}@ac-exemple.fr",
-        "web": "",
+        # ~70% des établissements ont un site officiel (réaliste).
+        "web": f"https://lycee-demo-{seq}.exemple.fr" if seq % 10 < 7 else "",
         "siren": f"1{seq % 100000000:08d}",
         "siret": f"1{seq % 100000000:08d}{seq % 100000:05d}",
         "latitude": round(48.8 + (seq % 50) / 100, 6),

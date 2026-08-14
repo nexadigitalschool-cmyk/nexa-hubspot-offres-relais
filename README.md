@@ -169,7 +169,47 @@ distance non vérifiable), **géocodage BAN**, affectation campus et distance.
 
 ---
 
-## 8. Structure
+## 8. Étape 2 — Enrichissement public (Paris, < 60 km)
+
+Enrichit le socle Paris **restreint aux établissements à moins de 60 km** du
+campus, à partir de sources **publiques externes uniquement** — aucune donnée
+HubSpot / My Future / interne, **aucun contact nominatif**, **aucun scoring**.
+
+```bash
+# Démonstration hors-ligne (données d'enrichissement synthétiques) :
+python -m ie_prospection.enrich.pipeline2 --source fixture
+# Sources publiques réelles (dès l'egress ouvert) :
+python -m ie_prospection.enrich.pipeline2 --source api
+```
+
+**Sources** (jointure **exclusivement sur l'UAI**, jamais sur le nom) :
+ONISEP Idéo-Structures, ONISEP Idéo-Formations, effectifs officiels des lycées,
+IPS, Parcoursup, état ouvert/fermé (annuaire), et sites officiels des
+établissements (détection *bureau des entreprises* / *forum d'orientation* par
+mots-clés). Chaque source qui échoue est **poursuivie avec des valeurs vides et
+documentée** (rapport de jointures).
+
+**Variables ajoutées** : filières `NSI/SNT/STI2D/STMG/bac pro SN`, `Effectif
+élèves`, `IPS`, `BTS ou post-bac`, `État établissement`, `Bureau des
+entreprises`, `Forum ou événement orientation`, plus **Source + Date par
+donnée**.
+
+**Livrables** :
+
+| Fichier | Contenu |
+| --- | --- |
+| `data/output/paris/02_enrichissement_public_paris.csv` / `.xlsx` | socle enrichi |
+| `reports/paris/02_jointures.md` | taux de jointure et de complétude par source |
+| `reports/paris/02_anomalies.csv` | anomalies (join miss, fermé, hors 60 km, …) |
+| `reports/paris/02_controle_30_lignes.xlsx` | échantillon 30 lignes (relecture) |
+
+> Comme à l'étape 1, les identifiants de datasets et noms de champs sont
+> **validés au premier run en ligne** (aucun endpoint inventé). Toutes les
+> sources d'enrichissement sont hébergées sur des domaines actuellement bloqués
+> par l'egress de cet environnement : le mode `fixture` démontre la chaîne
+> complète, le mode `api` se dégrade proprement et documente l'indisponibilité.
+
+## 9. Structure
 
 ```
 config/campuses.yml            # configuration campus / filtres
@@ -182,7 +222,14 @@ src/ie_prospection/
   geocode.py                   # géocodage des campus via la BAN officielle
   reporting.py                 # écriture CSV / rapport qualité / manifeste
   fixtures.py                  # jeu synthétique hors-ligne
-  pipeline.py                  # orchestration + CLI
+  pipeline.py                  # orchestration + CLI (étape 1)
+  enrich/                      # ÉTAPE 2 — enrichissement public (Paris < 60 km)
+    schema2.py                 #   colonnes d'enrichissement + spéc. des sources
+    fetchers.py                #   récupération ODS/ONISEP/sites (best-effort)
+    build.py                   #   jointures UAI, complétude, anomalies
+    fixtures2.py               #   enrichissement synthétique hors-ligne
+    xlsx.py                    #   écriture .xlsx
+    pipeline2.py               #   orchestration + CLI (étape 2)
 tests/                         # suite pytest
 data/{raw,intermediate,output} # données (non versionnées)
 reports/                       # journaux + rapports
