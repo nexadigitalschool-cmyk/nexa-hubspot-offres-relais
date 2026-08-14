@@ -136,6 +136,19 @@ def test_robots_unreachable_abstains():
     assert ok is False and "abstention" in reason
 
 
+def test_robots_404_means_allow_all():
+    # Absence de robots.txt (404) = pas de restriction => autorisé.
+    pol = RobotsPolicy(session=_S("Not Found", code=404))
+    ok, reason = pol.can_fetch("https://site.fr/direction")
+    assert ok is True and "aucun robots.txt" in reason
+
+
+def test_robots_403_denies():
+    pol = RobotsPolicy(session=_S("Forbidden", code=403))
+    ok, _ = pol.can_fetch("https://site.fr/x")
+    assert ok is False
+
+
 # --- Cascade + plafond 5 -----------------------------------------------------
 class _PageSession:
     """robots.txt permissif + une page riche sur la home, vide ailleurs."""

@@ -26,29 +26,48 @@ class RobotsPolicy:
         self.log = get_logger()
 
     def _robots_for(self, url: str):
+        """Retourne (état, parser). État ∈ {ok, allow_all, deny, abstain}.
+
+        Conventions robots.txt :
+          * 2xx -> on obéit aux règles publiées ;
+          * 401/403 -> accès restreint : on s'abstient (deny) ;
+          * autres 4xx (404/410…) -> aucun robots.txt = tout autorisé ;
+          * 5xx / erreur réseau -> indisponibilité temporaire : abstention.
+        """
         parsed = urlparse(url)
         base = f"{parsed.scheme}://{parsed.netloc}"
         if base in self._cache:
             return self._cache[base]
-        rp = urllib.robotparser.RobotFileParser()
         robots_url = base + "/robots.txt"
+        result = ("abstain", None)
         try:
             resp = self.session.get(robots_url, timeout=self.timeout,
                                     headers={"User-Agent": self.ua})
-            if resp.status_code >= 400:
-                rp = None  # robots inaccessible -> abstention
+            code = resp.status_code
+            if code in (401, 403):
+                result = ("deny", None)
+            elif 400 <= code < 500:
+                result = ("allow_all", None)      # pas de robots.txt = autorisé
+            elif code >= 500:
+                result = ("abstain", None)
             else:
+                rp = urllib.robotparser.RobotFileParser()
                 rp.parse(resp.text.splitlines())
+                result = ("ok", rp)
         except Exception as exc:  # noqa: BLE001
-            self.log.debug("robots.txt inaccessible pour %s : %s", base, exc)
-            rp = None
-        self._cache[base] = rp
-        return rp
+            self.log.debug("robots.txt injoignable pour %s : %s", base, exc)
+            result = ("abstain", None)
+        self._cache[base] = result
+        return result
 
     def can_fetch(self, url: str) -> tuple[bool, str]:
-        rp = self._robots_for(url)
-        if rp is None:
-            return False, "robots.txt inaccessible — abstention"
-        if rp.can_fetch(self.ua, url):
-            return True, "autorisé par robots.txt"
-        return False, "interdit par robots.txt"
+        state, rp = self._robots_for(url)
+        if state == "allow_all":
+            return True, "aucun robots.txt (autorisé par défaut)"
+        if state == "ok":
+            if rp.can_fetch(self.ua, url):
+                return True, "autorisé par robots.txt"
+            return False, "interdit par robots.txt"
+        if state == "deny":
+            return False, "robots.txt protégé (401/403) — abstention"
+        return False, "robots.txt indisponible (5xx/réseau) — abstention"
