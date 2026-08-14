@@ -10,6 +10,12 @@ reports/*
 !data/output/.gitkeep
 !reports/.gitkeep
 
+# Données socles RÉELLES (open data publique) — versionnées comme référence.
+!data/output/socle_national.csv
+!data/output/paris/
+data/output/paris/*
+!data/output/paris/01_socle_paris.csv
+
 # Python
 __pycache__/
 *.pyc

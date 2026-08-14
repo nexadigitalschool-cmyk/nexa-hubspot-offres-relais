@@ -32,12 +32,29 @@ INPUT_CANDIDATES = [
 ]
 
 
-def load_socle_paris(input_path: str | None) -> tuple[list[dict], str]:
+def _sniff_delimiter(sample: str) -> str:
+    # CSV FR = ';' ; export standard = ',' . On choisit le séparateur dominant.
+    first = sample.splitlines()[0] if sample else ""
+    return ";" if first.count(";") >= first.count(",") else ","
+
+
+def read_socle_csv(path: str) -> tuple[list[dict], list[str]]:
+    """Lecture robuste : BOM (utf-8-sig) + détection du séparateur ';' ou ','."""
+    with open(path, encoding="utf-8-sig", newline="") as f:
+        sample = f.read(4096)
+        f.seek(0)
+        reader = csv.DictReader(f, delimiter=_sniff_delimiter(sample))
+        rows = list(reader)
+        header = [h for h in (reader.fieldnames or []) if h is not None]
+    return rows, header
+
+
+def load_socle_paris(input_path: str | None) -> tuple[list[dict], list[str], str]:
     candidates = [input_path] if input_path else INPUT_CANDIDATES
     for cand in candidates:
         if cand and Path(cand).exists():
-            with open(cand, encoding="utf-8") as f:
-                return list(csv.DictReader(f)), cand
+            rows, header = read_socle_csv(cand)
+            return rows, header, cand
     raise FileNotFoundError(
         "Socle Paris introuvable. Lancer d'abord l'étape 1 "
         "(data/output/campus_paris.csv). Cherché : " + ", ".join(c for c in candidates if c))
@@ -48,7 +65,7 @@ def filter_within_radius(rows: list[dict], radius: float, main_academies: set[st
     inconnue sont exclues (on ne peut l'affirmer) mais journalisées."""
     kept, excluded = [], []
     for r in rows:
-        d = (r.get("Distance campus km") or "").strip()
+        d = (r.get("Distance campus km") or "").strip().replace(",", ".")
         if d:
             if float(d) <= radius:
                 kept.append(r)
@@ -146,13 +163,24 @@ def write_csv(path, rows, columns):
 
 
 def run(source: str, input_path: str | None, config_path: str, out_dir: str,
-        reports_dir: str, radius: float, run_id: str) -> dict:
+        reports_dir: str, radius: float, run_id: str,
+        max_retries: int | None = None, timeout: float | None = None) -> dict:
     log = get_logger()
     date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     config = load_config(config_path)
+    if max_retries is not None:
+        config.http.max_retries = max_retries
+    if timeout is not None:
+        config.http.timeout_seconds = timeout
 
-    socle_rows, used_input = load_socle_paris(input_path)
+    socle_rows, socle_header, used_input = load_socle_paris(input_path)
     log.info("Étape 2 — socle d'entrée : %s (%d lignes)", used_input, len(socle_rows))
+
+    # Colonnes de sortie : on PRÉSERVE toutes les colonnes du socle d'entrée
+    # (schéma réel, ex. « Téléphone normalisé », « Règle d'inclusion »…) puis on
+    # ajoute les colonnes d'enrichissement.
+    base_cols = socle_header or OUTPUT_COLUMNS
+    full_columns = list(base_cols) + [c for c in ENRICH_COLUMNS if c not in base_cols]
 
     paris = config.campus_by_name("Paris")
     main_acas = set(paris.academies) if paris else set()
@@ -164,10 +192,6 @@ def run(source: str, input_path: str | None, config_path: str, out_dir: str,
     out_dir = Path(out_dir)
     reports_dir = Path(reports_dir)
     raw_dir = Path("data/raw/enrich")
-
-    # Copie de référence du socle d'entrée dans le dossier campus.
-    write_csv(out_dir / "01_socle_paris.csv", socle_rows, list(socle_rows[0].keys())
-              if socle_rows else OUTPUT_COLUMNS)
 
     results = run_sources(source, kept, config, raw_dir, log)
     for r in results:
@@ -188,12 +212,12 @@ def run(source: str, input_path: str | None, config_path: str, out_dir: str,
 
     # Écritures.
     csv_path = write_csv(out_dir / "02_enrichissement_public_paris.csv",
-                         enriched, FULL_COLUMNS)
+                         enriched, full_columns)
     xlsx_path = write_xlsx(out_dir / "02_enrichissement_public_paris.xlsx",
-                           enriched, FULL_COLUMNS, sheet_name="Enrichissement")
+                           enriched, full_columns, sheet_name="Enrichissement")
     anom_path = write_csv(reports_dir / "02_anomalies.csv", anomalies, ANOMALY_COLUMNS)
     ctrl_path = write_xlsx(reports_dir / "02_controle_30_lignes.xlsx",
-                           enriched[:30], FULL_COLUMNS, sheet_name="Controle 30")
+                           enriched[:30], full_columns, sheet_name="Controle 30")
     meta = {"run_id": run_id, "date": date, "source": _source_label(source, results),
             "input": used_input, "input_total": len(socle_rows),
             "radius": radius, "perimeter": len(kept)}
@@ -229,6 +253,10 @@ def parse_args(argv=None):
     p.add_argument("--reports-dir", default="reports/paris")
     p.add_argument("--radius-km", type=float, default=0.0,
                    help="Rayon (défaut : radius_km du campus Paris)")
+    p.add_argument("--max-retries", type=int, default=None,
+                   help="Surcharge du nombre de tentatives HTTP (source api)")
+    p.add_argument("--timeout", type=float, default=None,
+                   help="Surcharge du timeout HTTP (source api)")
     p.add_argument("--run-id", default=None)
     return p.parse_args(argv)
 
@@ -238,7 +266,7 @@ def main(argv=None) -> int:
     run_id = args.run_id or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     setup_logging(args.reports_dir, f"02_{run_id}")
     run(args.source, args.input, args.config, args.out_dir, args.reports_dir,
-        args.radius_km, run_id)
+        args.radius_km, run_id, max_retries=args.max_retries, timeout=args.timeout)
     return 0
 
 

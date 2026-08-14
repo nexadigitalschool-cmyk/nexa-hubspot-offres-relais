@@ -208,6 +208,14 @@ donnée**.
 > sources d'enrichissement sont hébergées sur des domaines actuellement bloqués
 > par l'egress de cet environnement : le mode `fixture` démontre la chaîne
 > complète, le mode `api` se dégrade proprement et documente l'indisponibilité.
+>
+> **Données réelles** : `data/output/paris/01_socle_paris.csv` (601 lycées) et
+> `data/output/socle_national.csv` (620) sont les **socles réels** issus de
+> l'Annuaire (open data publique), versionnés comme référence. Le lecteur gère
+> le séparateur `;`, le BOM et **préserve toutes les colonnes** du socle (dont
+> `Téléphone normalisé`, `Règle d'inclusion`, …). Sur ces données, `--source api`
+> conserve les 592 lycées à < 60 km et laisse l'enrichissement vide (sources
+> bloquées), documenté dans le rapport de jointures.
 
 ## 9. Étape 4 — Enrichissement nominatif (Paris, tous les lycées)
 

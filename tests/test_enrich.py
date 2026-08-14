@@ -3,7 +3,11 @@ from __future__ import annotations
 
 from ie_prospection.enrich.build import build_enriched
 from ie_prospection.enrich.fetchers import FetchResult
-from ie_prospection.enrich.pipeline2 import FULL_COLUMNS, filter_within_radius
+from ie_prospection.enrich.pipeline2 import (
+    FULL_COLUMNS,
+    filter_within_radius,
+    read_socle_csv,
+)
 from ie_prospection.enrich.schema2 import ENRICH_COLUMNS
 
 
@@ -91,6 +95,28 @@ def test_perimeter_filter_keeps_under_radius():
     kept, excluded = filter_within_radius(rows, 60.0, {"Paris"})
     assert [r["UAI"] for r in kept] == ["A"]
     assert len(excluded) == 2   # >60 km et distance inconnue
+
+
+# --- Lecture du socle réel (séparateur ';' + BOM + zéros initiaux) ----------
+def test_read_socle_csv_semicolon_bom(tmp_path):
+    p = tmp_path / "01_socle_paris.csv"
+    p.write_text("﻿UAI;Nom;CP;Distance campus km;Téléphone normalisé\n"
+                 "0930933J;Lycée Assomption;93140;9.61;+33148495174\n",
+                 encoding="utf-8")
+    rows, header = read_socle_csv(str(p))
+    assert header[0] == "UAI"                       # BOM retiré
+    assert "Téléphone normalisé" in header          # colonne réelle préservée
+    assert rows[0]["UAI"] == "0930933J"             # texte, zéro initial conservé
+    assert rows[0]["CP"] == "93140"
+    assert rows[0]["Distance campus km"] == "9.61"
+
+
+def test_read_socle_csv_comma_still_works(tmp_path):
+    p = tmp_path / "s.csv"
+    p.write_text("UAI,Nom,CP\n0750001A,Lycée X,75008\n", encoding="utf-8")
+    rows, header = read_socle_csv(str(p))
+    assert header == ["UAI", "Nom", "CP"]
+    assert rows[0]["CP"] == "75008"
 
 
 # --- Aucune colonne nominative ----------------------------------------------
