@@ -209,7 +209,49 @@ donnée**.
 > par l'egress de cet environnement : le mode `fixture` démontre la chaîne
 > complète, le mode `api` se dégrade proprement et documente l'indisponibilité.
 
-## 9. Structure
+## 9. Étape 4 — Enrichissement nominatif (Paris, tous les lycées)
+
+Recherche de **contacts professionnels publics** pour **tous** les lycées du
+fichier Paris (aucun filtre P1/P2/P3), dans l'ordre imposé : site officiel de
+l'établissement → site de l'académie → annuaire institutionnel → page
+professionnelle publique → LinkedIn/Sales Navigator **uniquement si un accès
+légal est déjà configuré** (désactivé par défaut).
+
+```bash
+python -m ie_prospection.enrich_nominatif.pipeline4
+# entrée : 03_base_finale_paris.xlsx si présent, sinon 02_enrichissement_public_paris.xlsx
+```
+
+**Garde-fous appliqués par le code** (règles impératives) : aucun nom inventé
+(on n'extrait que du texte réellement présent, avec **extrait de preuve** et
+URL), aucun email déduit sans preuve, aucun téléphone créé — les coordonnées
+sont bornées à l'entrée du contact pour ne jamais capter celles du voisin ;
+les emails **académiques reconstruits** (à partir d'un nom réel) sont marqués
+**Non vérifié** ; les emails **génériques** du lycée restent dans l'onglet
+Établissements ; **robots.txt respecté** (abstention si inaccessible) ; source +
+date conservées ; **max 5 contacts** par établissement ; si aucun contact :
+le lycée est conservé et marqué **« Contact nominatif non trouvé »**. Aucun
+envoi, aucun import HubSpot.
+
+**Profils** : Décideur (proviseur, adjoint), Facilitateur (DDFPT, bureau des
+entreprises), Prescripteur (référent orientation, prof documentaliste/CDI).
+
+**Livrables** :
+
+| Fichier | Contenu |
+| --- | --- |
+| `data/output/paris/04_enrichissement_nominatif_paris.xlsx` | onglets **Établissements** + **Contacts** |
+| `reports/paris/04_lycees_sans_contact.csv` | lycées sans contact + raisons |
+| `reports/paris/04_emails_a_verifier.csv` | emails à valider (dont reconstruits) |
+| `reports/paris/04_sources_utilisees.csv` | statut de chaque source de la cascade |
+
+> Toutes les sources web sont bloquées par l'egress de cet environnement : le
+> harnais s'exécute réellement, respecte les robots.txt et se solde par
+> « Contact nominatif non trouvé » pour tous les lycées (aucune donnée
+> inventée). La logique d'extraction est validée par des tests unitaires sur
+> pages HTML factices.
+
+## 10. Structure
 
 ```
 config/campuses.yml            # configuration campus / filtres
@@ -230,6 +272,13 @@ src/ie_prospection/
     fixtures2.py               #   enrichissement synthétique hors-ligne
     xlsx.py                    #   écriture .xlsx
     pipeline2.py               #   orchestration + CLI (étape 2)
+  enrich_nominatif/            # ÉTAPE 4 — contacts professionnels publics
+    schema4.py                 #   colonnes, rôles ciblés, profils, emails
+    robots.py                  #   respect des robots.txt
+    extractors.py              #   extraction sans invention (+ preuve)
+    sources4.py                #   cascade de sources publiques
+    build4.py                  #   onglets + rapports
+    pipeline4.py               #   orchestration + CLI (étape 4)
 tests/                         # suite pytest
 data/{raw,intermediate,output} # données (non versionnées)
 reports/                       # journaux + rapports
