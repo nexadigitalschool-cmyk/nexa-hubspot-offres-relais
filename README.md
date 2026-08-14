@@ -214,8 +214,13 @@ donnée**.
 > l'Annuaire (open data publique), versionnés comme référence. Le lecteur gère
 > le séparateur `;`, le BOM et **préserve toutes les colonnes** du socle (dont
 > `Téléphone normalisé`, `Règle d'inclusion`, …). Sur ces données, `--source api`
-> conserve les 592 lycées à < 60 km et laisse l'enrichissement vide (sources
-> bloquées), documenté dans le rapport de jointures.
+> conserve les **592 lycées à < 60 km** (9 exclus > 60 km) ; dans cet
+> environnement **tous les domaines externes sont bloqués par l'egress**
+> (open data ET sites d'établissement renvoient 403 via le proxy), donc les
+> **7 sources sont indisponibles (0 % de jointure)** et l'enrichissement reste
+> vide — documenté dans `02_jointures.md`. Deux garde-fous de fiabilité ont été
+> ajoutés à cette occasion : un HTTP ≥ 400 (403 du proxy) n'est jamais compté
+> comme site exploitable, et un `robots.txt` 404 vaut « autorisé ».
 
 ## 9. Étape 4 — Enrichissement nominatif (Paris, tous les lycées)
 
@@ -253,11 +258,14 @@ entreprises), Prescripteur (référent orientation, prof documentaliste/CDI).
 | `reports/paris/04_emails_a_verifier.csv` | emails à valider (dont reconstruits) |
 | `reports/paris/04_sources_utilisees.csv` | statut de chaque source de la cascade |
 
-> Toutes les sources web sont bloquées par l'egress de cet environnement : le
-> harnais s'exécute réellement, respecte les robots.txt et se solde par
-> « Contact nominatif non trouvé » pour tous les lycées (aucune donnée
-> inventée). La logique d'extraction est validée par des tests unitaires sur
-> pages HTML factices.
+> Toutes les sources web sont bloquées par l'egress de cet environnement (les
+> sites d'établissement renvoient 403 via le proxy, `robots.txt` inclus) : le
+> harnais s'exécute réellement sur les **592 lycées réels**, respecte les
+> robots.txt et se solde par « Contact nominatif non trouvé » pour tous
+> (aucune donnée inventée). La logique d'extraction est validée par des tests
+> unitaires sur pages HTML factices. Dès qu'un accès sortant vers les sites
+> d'établissement sera ouvert, le même `--source api` extraira les contacts
+> réellement publiés.
 
 ## 10. Structure
 
