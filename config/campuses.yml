@@ -1,0 +1,115 @@
+# =============================================================================
+# NEXA Digital School — Socle national des lycées
+# Configuration des campus, académies, départements et filtres
+# =============================================================================
+#
+# Étape 1 du processus : construction du socle national à partir de
+# l'Annuaire de l'éducation nationale (dataset fr-en-annuaire-education).
+#
+# IMPORTANT — Coordonnées GPS des campus :
+#   Les coordonnées ci-dessous sont VOLONTAIREMENT laissées à null.
+#   Elles NE DOIVENT PAS être inventées. Tant qu'un campus n'a pas de
+#   latitude/longitude renseignée, le calcul de distance à vol d'oiseau
+#   est automatiquement désactivé pour ce campus (colonne "Distance campus km"
+#   laissée vide et comptabilisée comme manquante).
+#   Pour activer le calcul : remplacez `latitude: null` / `longitude: null`
+#   par les valeurs réelles (WGS84, degrés décimaux) fournies par NEXA.
+# =============================================================================
+
+source:
+  # Dataset officiel de l'Annuaire de l'éducation nationale.
+  # API Opendatasoft Explore v2.1 (à confirmer au premier appel live :
+  # le pipeline récupère le schéma réel du dataset et journalise tout écart).
+  dataset_id: "fr-en-annuaire-education"
+  # Base de l'API officielle. Peut être surchargée par --base-url en CLI.
+  # Portail officiel Éducation nationale :
+  base_url: "https://data.education.gouv.fr/api/explore/v2.1"
+  # Portails Opendatasoft de repli hébergeant le MÊME dataset officiel
+  # (utilisables si le portail principal est indisponible). Non utilisés
+  # automatiquement : à activer explicitement via --base-url.
+  mirrors:
+    - "https://data.opendatasoft.com/api/explore/v2.1"
+    - "https://dataeducation.opendatasoft.com/api/explore/v2.1"
+
+# Paramètres réseau de l'extraction.
+http:
+  page_size: 100          # taille de page ODS (max 100 pour l'API v2.1)
+  timeout_seconds: 30
+  max_retries: 5
+  backoff_base_seconds: 2.0   # backoff exponentiel : 2, 4, 8, 16, 32...
+  backoff_max_seconds: 60.0
+  rate_limit_seconds: 0.4     # pause minimale entre deux appels (limitation de rythme)
+
+# Filtres de périmètre "lycée". La classification fine s'appuie d'abord sur
+# le libellé de nature de l'UAI (`libelle_nature`) puis, en repli, sur
+# `type_etablissement`. Toute valeur inconnue est journalisée, jamais
+# supprimée silencieusement.
+lycee_filter:
+  # Familles retenues (clé interne -> libellés attendus dans la source).
+  keep_natures:
+    - "LYCEE D ENSEIGNEMENT GENERAL ET TECHNOLOGIQUE"
+    - "LYCEE D ENSEIGNEMENT GENERAL"
+    - "LYCEE D ENSEIGNEMENT TECHNOLOGIQUE"
+    - "LYCEE PROFESSIONNEL"
+    - "LYCEE POLYVALENT"
+  # Repli si `libelle_nature` absent : on garde les établissements dont
+  # `type_etablissement` vaut l'une de ces valeurs.
+  keep_types:
+    - "Lycée"
+  # Exclusions explicites (journalisées avec motif).
+  exclude_types:
+    - "Ecole"
+    - "Collège"
+    - "EREA"
+  # Exclure les établissements hors périmètre national / étrangers / AEFE.
+  exclude_foreign: true       # rejette code_departement/académie hors France + mention AEFE
+  # Ne conserver que les établissements ouverts (etat = OUVERT). Les autres
+  # sont conservés dans le fichier des rejets avec le motif "etablissement_ferme".
+  only_open: true
+
+# Campus NEXA. `academies` filtre l'extraction ; `priority_departments`
+# sert à l'affectation prioritaire. `latitude`/`longitude` = null tant que
+# les coordonnées officielles ne sont pas fournies (distance désactivée).
+campuses:
+  - name: "Paris"
+    active: true            # périmètre du pilote
+    academies: ["Paris", "Créteil", "Versailles"]
+    priority_departments: []
+    latitude: null
+    longitude: null
+
+  - name: "Lyon"
+    active: false
+    academies: ["Lyon"]
+    priority_departments: []
+    latitude: null
+    longitude: null
+
+  - name: "Lille"
+    active: false
+    academies: ["Lille"]
+    priority_departments: []
+    latitude: null
+    longitude: null
+
+  - name: "Bordeaux"
+    active: false
+    academies: ["Bordeaux"]
+    priority_departments: ["033"]   # Gironde prioritaire
+    latitude: null
+    longitude: null
+
+  - name: "Nantes"
+    active: false
+    academies: ["Nantes"]
+    priority_departments: ["044"]   # Loire-Atlantique prioritaire
+    latitude: null
+    longitude: null
+
+  - name: "À distance"
+    active: false
+    national: true          # second rideau : périmètre national
+    academies: []           # vide + national:true => toutes académies
+    priority_departments: []
+    latitude: null
+    longitude: null

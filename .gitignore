@@ -1,0 +1,21 @@
+# Données extraites / générées (rejouables via le pipeline) — non versionnées.
+data/raw/*
+data/intermediate/*
+data/output/*
+reports/*
+
+# Garder la structure des dossiers.
+!data/raw/.gitkeep
+!data/intermediate/.gitkeep
+!data/output/.gitkeep
+!reports/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
