@@ -2,7 +2,8 @@
 from __future__ import annotations
 
 from ie_prospection.enrich.build import build_enriched
-from ie_prospection.enrich.fetchers import FetchResult
+from ie_prospection.enrich.fetchers import FetchResult, fetch_websites
+from ie_prospection.enrich.schema2 import source_by_key
 from ie_prospection.enrich.pipeline2 import (
     FULL_COLUMNS,
     filter_within_radius,
@@ -85,6 +86,36 @@ def test_unavailable_source_leaves_empty_and_documents():
     # Anomalie source_indisponible présente.
     assert any(a["type_anomalie"] == "source_indisponible" and "IPS" in a["source"]
                for a in out["anomalies"])
+
+
+# --- Sites : un 403 (proxy/egress) n'est PAS une page exploitable -----------
+class _Resp:
+    def __init__(self, code, text=""):
+        self.status_code = code
+        self.text = text
+
+
+class _Sess403:
+    def get(self, url, timeout=None):
+        return _Resp(403, "Access denied")
+
+
+class _SessOK:
+    def get(self, url, timeout=None):
+        return _Resp(200, "<p>bureau des entreprises</p>")
+
+
+def test_websites_403_not_counted_as_reachable():
+    rows = [{"UAI": "0750001A", "Site web": "http://x.fr"}]
+    res = fetch_websites(source_by_key("sites"), rows, session=_Sess403())
+    assert res.available is False and res.matched == 0
+
+
+def test_websites_200_detects_keywords():
+    rows = [{"UAI": "0750001A", "Site web": "http://x.fr"}]
+    res = fetch_websites(source_by_key("sites"), rows, session=_SessOK())
+    assert res.available is True
+    assert res.by_uai["0750001A"]["Bureau des entreprises"] == "O"
 
 
 # --- Périmètre 60 km ---------------------------------------------------------

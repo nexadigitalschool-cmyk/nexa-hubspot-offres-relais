@@ -85,14 +85,15 @@ def fetch_ods_source(spec: EnrichSource, uais, http, raw_dir, derive) -> FetchRe
                        matched=len(by_uai), fields_resolved={"uai": uai_field})
 
 
-def fetch_websites(spec: EnrichSource, socle_rows, timeout=8.0) -> FetchResult:
+def fetch_websites(spec: EnrichSource, socle_rows, timeout=8.0,
+                   session=None) -> FetchResult:
     """Détecte bureau des entreprises / forum d'orientation sur le site officiel."""
     log = get_logger()
     date = _today()
     by_uai: dict[str, dict] = {}
     errors = 0
     checked = 0
-    session = requests.Session()
+    session = session or requests.Session()
     for row in socle_rows:
         url = (row.get("Site web") or "").strip()
         uai = row.get("UAI", "").strip()
@@ -103,6 +104,13 @@ def fetch_websites(spec: EnrichSource, socle_rows, timeout=8.0) -> FetchResult:
         checked += 1
         try:
             resp = session.get(url, timeout=timeout)
+            # Un code >= 400 (dont le 403 du proxy d'egress) N'EST PAS une page
+            # exploitable : on ne l'analyse pas et on le compte comme injoignable.
+            if resp.status_code >= 400:
+                errors += 1
+                log.debug("Site non exploitable UAI %s (%s) : HTTP %s",
+                          uai, url, resp.status_code)
+                continue
             html = resp.text.lower()
             by_uai[uai] = {
                 "Bureau des entreprises": "O" if any(k in html for k in KW_BDE) else "N",
