@@ -7,7 +7,7 @@ Aucune dépendance autre que Python 3 et `numpy`.
 pip install numpy
 python3 01_telechargement_referentiels.py   # réseau requis (npm + GitHub)
 python3 02_bassins.py                        # exclusion 60 km + construction des 75 bassins
-python3 03_scoring.py                        # score d'opportunité territoriale, 53 bassins retenus
+python3 03_scoring.py                        # score d'opportunité territoriale, 59 bassins retenus
 python3 04_exclusion_export.py               # périmètre d'exclusion par département
 python3 06_livrables.py                      # tableau de synthèse + handoff étape 2
 ```
@@ -41,7 +41,7 @@ provisoire tant que cette étape n'a pas été faite.**
 |---|---|---|---|
 | `02_bassins.py` | `RAYON` | 30 km | amplitude d'une tournée IE ; à 35 km les bassins fusionnent (Montpellier absorbe Nîmes plus largement) |
 | `02_bassins.py` | `RAYON_EXCL` | 60 km | règle d'exclusion des campus |
-| `02_bassins.py` | `CAMPUS_A` / `CAMPUS_B` | 3 / 6 campus | périmètre A = règle du brief ; B = campus NEXA réels |
+| `02_bassins.py` | `CAMPUS` | 3 campus | Paris, Lyon, Lille — confirmés par NEXA |
 | `02_bassins.py` | `POP_MIN_POLE` | 15 000 hab. | seuil de crédibilité d'une ville-centre |
 | `02_bassins.py` | `RATIO_TLE` | 0,0105 | proxy Terminale/population — **à supprimer après enrichissement DEPP** |
 | `03_scoring.py` | pondérations | 40/25/20/15 | cadre du brief |

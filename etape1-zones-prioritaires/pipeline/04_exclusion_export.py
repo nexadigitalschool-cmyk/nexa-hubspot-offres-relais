@@ -2,8 +2,7 @@ import json, csv, math
 import numpy as np
 from gpsfix import build_gps
 R=6371.0088
-CAMPUS_A={"Paris":(48.8709,2.3646),"Lyon":(45.7578,4.8320),"Lille":(50.6216,3.0790)}
-CAMPUS_B=dict(CAMPUS_A,**{"Bordeaux":(44.8672,-0.5560),"Nantes":(47.2043,-1.5535),"Marseille":(43.2555,5.3980)})
+CAMPUS={"Paris":(48.8709,2.3646),"Lyon":(45.7578,4.8320),"Lille":(50.6216,3.0790)}
 deps_nom={d["code"]:d["nom"] for d in json.load(open("deco/package/data/departements.json"))}
 gps=build_gps()
 C=[c for c in json.load(open("deco/package/data/communes.json"))
@@ -15,9 +14,9 @@ def d_all(p):
     p2=math.radians(p[0])
     h=np.sin((p2-rlat)/2)**2+np.cos(rlat)*math.cos(p2)*np.sin(np.radians(p[1]-lons)/2)**2
     return 2*R*np.arcsin(np.sqrt(h))
-dA=np.min(np.vstack([d_all(v) for v in CAMPUS_A.values()]),axis=0)
-dB=np.min(np.vstack([d_all(v) for v in CAMPUS_B.values()]),axis=0)
-eA,eB=dA<=60,dB<=60
+dA=np.min(np.vstack([d_all(v) for v in CAMPUS.values()]),axis=0)
+eA=dA<=60
+eB=eA
 agg={}
 for i,c in enumerate(C):
     d=deps[i]; a=agg.setdefault(d,[0,0,0,0.0,0.0,0.0])

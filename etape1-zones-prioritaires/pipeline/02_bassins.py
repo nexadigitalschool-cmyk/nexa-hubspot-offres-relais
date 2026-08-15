@@ -9,8 +9,8 @@ RAYON_EXCL = 60.0
 POP_MIN_POLE = 15000
 RATIO_TLE = 0.0105      # PROXY national Terminale(GT+pro)/population
 
-CAMPUS_A = {"Paris":(48.8709,2.3646),"Lyon":(45.7578,4.8320),"Lille":(50.6216,3.0790)}
-CAMPUS_B = dict(CAMPUS_A, **{"Bordeaux":(44.8672,-0.5560),"Nantes":(47.2043,-1.5535),"Marseille":(43.2555,5.3980)})
+# Campus physiques NEXA confirmes par NEXA : Paris, Lyon, Lille (et eux seuls).
+CAMPUS = {"Paris":(48.8709,2.3646),"Lyon":(45.7578,4.8320),"Lille":(50.6216,3.0790)}
 POLES_ETU = {
  "Paris":(48.8566,2.3522),"Lyon":(45.7640,4.8357),"Marseille":(43.2965,5.3698),"Toulouse":(43.6047,1.4442),
  "Lille":(50.6292,3.0573),"Bordeaux":(44.8378,-0.5792),"Nantes":(47.2184,-1.5536),"Montpellier":(43.6108,3.8767),
@@ -46,22 +46,20 @@ def dist_all(plat, plon):
     h = np.sin((p2-rlat)/2)**2 + np.cos(rlat)*math.cos(p2)*np.sin(np.radians(plon-lons)/2)**2
     return 2*R*np.arcsin(np.sqrt(h))
 
-d_A = np.min(np.vstack([dist_all(*v) for v in CAMPUS_A.values()]), axis=0)
-d_B = np.min(np.vstack([dist_all(*v) for v in CAMPUS_B.values()]), axis=0)
-excl_A, excl_B = d_A <= RAYON_EXCL, d_B <= RAYON_EXCL
+d_campus = np.min(np.vstack([dist_all(*v) for v in CAMPUS.values()]), axis=0)
+excl = d_campus <= RAYON_EXCL
 d_etu = np.min(np.vstack([dist_all(*v) for v in POLES_ETU.values()]), axis=0)
 
 print(f"[data] {len(C)} communes | pop {pops.sum():,.0f}")
-print(f"[excl A Paris/Lyon/Lille] {excl_A.sum()} communes, {pops[excl_A].sum():,.0f} hab ({100*pops[excl_A].sum()/pops.sum():.1f}%)")
-print(f"[excl B +Bdx/Nantes/Mrs ] {excl_B.sum()} communes, {pops[excl_B].sum():,.0f} hab ({100*pops[excl_B].sum()/pops.sum():.1f}%)")
+print(f"[exclusion 60 km Paris/Lyon/Lille] {excl.sum()} communes, {pops[excl].sum():,.0f} hab ({100*pops[excl].sum()/pops.sum():.1f}%)")
 
-elig = ~excl_A
+elig = ~excl
 cand = np.where(elig & (pops >= POP_MIN_POLE))[0]
 D = np.vstack([dist_all(lats[i], lons[i]) for i in cand])
 # pole = maximum local de population dans un rayon de 12 km (evite les bassins centres sur une banlieue)
 locmax = np.array([pops[i] >= pops[np.where(D[k] <= 12)[0]].max() for k, i in enumerate(cand)])
 cand_ok = np.where(locmax)[0]
-print(f"[poles] candidats >= {POP_MIN_POLE} hab hors exclusion A : {len(cand)} -> maxima locaux : {len(cand_ok)}")
+print(f"[poles] candidats >= {POP_MIN_POLE} hab hors exclusion : {len(cand)} -> maxima locaux : {len(cand_ok)}")
 
 dispo = elig.copy(); out = []
 while len(out) < 75:
@@ -82,7 +80,7 @@ while len(out) < 75:
             et = max(et, dd)
     pop_b = pops[memb].sum()
     main = order[0]   # ville principale du bassin : reference des distances
-    dcs = {c: float(dist_all(*v)[main]) for c, v in CAMPUS_B.items()}
+    dcs = {c: float(dist_all(*v)[main]) for c, v in CAMPUS.items()}
     dep_pop = {}
     for i in memb: dep_pop[deps[i]] = dep_pop.get(deps[i], 0) + pops[i]
     out.append({
@@ -102,7 +100,6 @@ while len(out) < 75:
       "campus_proche": min(dcs, key=dcs.get),
       "d_pole_etudiant_km": round(float(d_etu[main]),1),
       "contient_pole_etudiant": bool(min(d_etu[i] for i in memb) <= 10),
-      "exclu_perimetre_B": bool(excl_B[order[0]]),
     })
     dispo[memb] = False
 
@@ -112,4 +109,4 @@ print(f"{'#':>3} {'bassin':<24}{'pop':>10}{'Tle~':>7}{'v10k':>5}{'etend':>7}{'c2
 for i,b in enumerate(out,1):
     print(f"{i:>3} {b['bassin']:<24}{b['pop_bassin']:>10,}{b['tle_estim']:>7,}{b['nb_villes_10k']:>5}"
           f"{b['etendue_km']:>7.1f}{b['conc_20km_pct']:>6.0f}{b['d_campus_nexa_km']:>7.0f}{b['d_pole_etudiant_km']:>7.0f}"
-          f" {','.join(d[:2] for d in b['departements'][:3])}{' [exclB]' if b['exclu_perimetre_B'] else ''}")
+          f" {','.join(d[:2] for d in b['departements'][:3])}")

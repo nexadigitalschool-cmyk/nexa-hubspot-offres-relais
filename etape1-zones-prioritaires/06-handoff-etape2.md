@@ -3,7 +3,7 @@
 L'étape 2 consiste à **rechercher exhaustivement les établissements de chaque périmètre retenu et à
 les classer P1/P2/P3**. Elle ne doit pas rejouer l'analyse territoriale.
 
-**Fichier d'entrée : [`data/handoff_etape2.json`](data/handoff_etape2.json)** — 53 zones, une entrée
+**Fichier d'entrée : [`data/handoff_etape2.json`](data/handoff_etape2.json)** — 59 zones, une entrée
 par bassin.
 
 ---
@@ -38,8 +38,8 @@ par bassin.
   "variables_experimentales": {
     "distance_pole_etudiant_majeur_km": 46.9,
     "contient_pole_etudiant_majeur": false,
-    "distance_campus_nexa_km": 103.7,
-    "campus_nexa_le_plus_proche": "Nantes",
+    "distance_campus_nexa_km": 402.2,
+    "campus_nexa_le_plus_proche": "Paris",
     "concentration_20km_pct": 68.0,
     "etendue_villes_km": 16.5,
     "campus_connecte": "A_COLLECTER (source DGESIP)",
@@ -100,23 +100,28 @@ chaque lycée sur des critères que l'étape territoriale ne peut pas trancher :
 
 ## Ordre de priorité recommandé pour l'étape 2
 
-Ne pas lancer la recherche établissement sur les 53 bassins. Suivre l'ordre suivant :
+Ne pas lancer la recherche établissement sur les 59 bassins. Suivre l'ordre suivant :
 
-1. **Les 8 bassins du portefeuille de test** (voir [README](README.md)) — Rennes, Grenoble, Rouen,
-   Angers, Toulouse, Niort, Vannes, Béziers. Ce sont les seuls à activer en année 1.
-2. **Les 4 autres P1** — Nice, Montpellier–Nîmes, Strasbourg, Clermont-Ferrand, Tours, Annecy,
-   La Réunion — en réserve, activables si la saison avance plus vite que prévu.
-3. **Les P2 et P3** — uniquement après les résultats de mi-saison, en fonction de ce que les
+1. **Les 8 bassins du portefeuille de test** (voir [README](README.md)) — Marseille, Grenoble,
+   Rouen, Clermont-Ferrand, Orléans, Valence, Troyes, Dunkerque–Calais. Ce sont les seuls à activer
+   en année 1.
+2. **Amiens**, si le budget permet un neuvième bassin : il complète la paire expérimentale avec
+   Dunkerque (viviers identiques à 1,6 % près, même base de tournée à Lille).
+3. **Les P1 non retenus** — Toulouse, Bordeaux, Nantes, Nice, Rennes, Strasbourg,
+   Montpellier–Nîmes, Angers — écartés en année 1 pour leur seul coût d'accès (> 250 km), pas pour
+   leur potentiel. À réactiver dès qu'une base ou un relais local le permet.
+4. **Les P2 et P3** — uniquement après les résultats de mi-saison, en fonction de ce que les
    premières zones auront appris.
 
 ---
 
 ## Trois arbitrages à trancher avant de lancer l'étape 2
 
-1. **Le périmètre d'exclusion.** NEXA opère six campus. Faut-il neutraliser les six (périmètre B,
-   retenu ici) ou seulement Paris/Lyon/Lille (périmètre A, la règle littérale) ? Si A, alors
-   Marseille (~18 520 Terminales estimées) et Bordeaux (~12 650) réintègrent l'univers en tête de
-   classement, ce qui change entièrement le portefeuille.
+1. **L'arbitrage score / coût d'accès.** Avec Paris, Lyon et Lille pour seules bases, quatre des
+   cinq meilleurs bassins (Toulouse, Bordeaux, Nantes, Nice) sont à plus de 290 km. Le portefeuille
+   recommandé assume un seul long-courrier (Marseille). Si NEXA dispose de relais locaux — alumni,
+   partenaires, salons régionaux — permettant de mutualiser un déplacement, cet arbitrage change et
+   Toulouse ou Bordeaux redeviennent prioritaires.
 
 2. **L'enrichissement DEPP.** Lancer `pipeline/05_enrichissement_depp.py` depuis un poste au réseau
    ouvert, puis rejouer `03_scoring.py`. Le classement P1/P2/P3 **doit être considéré comme

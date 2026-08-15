@@ -26,11 +26,10 @@
    "Provence-Alpes-Côte d'Azur"
   ],
   "tle_estim": 18520,
-  "d_campus_nexa_km": 5.4,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 276.6,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 3.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Toulouse",
@@ -61,11 +60,10 @@
    "Occitanie"
   ],
   "tle_estim": 13900,
-  "d_campus_nexa_km": 212.3,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 360.6,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 1.4,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Bordeaux",
@@ -94,11 +92,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 12650,
-  "d_campus_nexa_km": 1.7,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 434.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 2.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Nice",
@@ -128,11 +125,10 @@
    "Provence-Alpes-Côte d'Azur"
   ],
   "tle_estim": 11480,
-  "d_campus_nexa_km": 156.9,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 296.4,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 2.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Nantes",
@@ -162,11 +158,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 10390,
-  "d_campus_nexa_km": 3.1,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 343.1,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.6,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Montpellier",
@@ -196,11 +191,10 @@
    "Occitanie"
   ],
   "tle_estim": 10080,
-  "d_campus_nexa_km": 129.7,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 250.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Strasbourg",
@@ -232,8 +226,7 @@
   "d_campus_nexa_km": 383.5,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 1.2,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Rouen",
@@ -266,8 +259,7 @@
   "d_campus_nexa_km": 112.1,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.5,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Toulon",
@@ -297,11 +289,10 @@
    "Provence-Alpes-Côte d'Azur"
   ],
   "tle_estim": 7560,
-  "d_campus_nexa_km": 45.3,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 304.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 1.4,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Rennes",
@@ -330,11 +321,10 @@
    "Bretagne"
   ],
   "tle_estim": 7500,
-  "d_campus_nexa_km": 101.3,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 309.9,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Annecy",
@@ -369,8 +359,7 @@
   "d_campus_nexa_km": 101.3,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 1.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Metz",
@@ -403,8 +392,7 @@
   "d_campus_nexa_km": 278.3,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 0.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Grenoble",
@@ -436,8 +424,7 @@
   "d_campus_nexa_km": 94.3,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.8,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Saint-Denis",
@@ -466,11 +453,10 @@
    "La Réunion"
   ],
   "tle_estim": 7120,
-  "d_campus_nexa_km": 8776.8,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 8999.7,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 5.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Avignon",
@@ -502,11 +488,10 @@
    "Provence-Alpes-Côte d'Azur"
   ],
   "tle_estim": 6820,
-  "d_campus_nexa_km": 87.9,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 202.7,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 3.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Mulhouse",
@@ -540,8 +525,7 @@
   "d_campus_nexa_km": 291.7,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.8,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Clermont-Ferrand",
@@ -573,8 +557,7 @@
   "d_campus_nexa_km": 133.2,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 2.4,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Tours",
@@ -603,11 +586,10 @@
    "Centre-Val de Loire"
   ],
   "tle_estim": 5390,
-  "d_campus_nexa_km": 171.0,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 205.3,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Nancy",
@@ -640,8 +622,7 @@
   "d_campus_nexa_km": 280.0,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.6,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Angers",
@@ -670,11 +651,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 5070,
-  "d_campus_nexa_km": 82.4,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 264.7,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 2.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Caen",
@@ -706,8 +686,7 @@
   "d_campus_nexa_km": 202.4,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.2,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Perpignan",
@@ -737,11 +716,10 @@
    "Occitanie"
   ],
   "tle_estim": 4720,
-  "d_campus_nexa_km": 212.6,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 373.6,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.9,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Orléans",
@@ -773,8 +751,7 @@
   "d_campus_nexa_km": 114.8,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 2.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Brest",
@@ -803,11 +780,10 @@
    "Bretagne"
   ],
   "tle_estim": 4600,
-  "d_campus_nexa_km": 257.3,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 507.2,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.6,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Béziers",
@@ -837,11 +813,10 @@
    "Occitanie"
   ],
   "tle_estim": 4410,
-  "d_campus_nexa_km": 174.9,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 296.7,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 59.4,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Valence",
@@ -874,8 +849,7 @@
   "d_campus_nexa_km": 93.1,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 70.3,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Le Havre",
@@ -909,8 +883,7 @@
   "d_campus_nexa_km": 176.0,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 2.4,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Dijon",
@@ -942,8 +915,7 @@
   "d_campus_nexa_km": 174.7,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Le Mans",
@@ -972,11 +944,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 4230,
-  "d_campus_nexa_km": 157.8,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 187.4,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.9,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Reims",
@@ -1011,8 +982,7 @@
   "d_campus_nexa_km": 129.2,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.9,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "La Rochelle",
@@ -1041,11 +1011,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 4000,
-  "d_campus_nexa_km": 119.4,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 401.6,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.8,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Chambéry",
@@ -1080,8 +1049,7 @@
   "d_campus_nexa_km": 86.7,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Bayonne",
@@ -1111,11 +1079,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 3930,
-  "d_campus_nexa_km": 169.2,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 558.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 91.2,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Dunkerque",
@@ -1148,8 +1115,7 @@
   "d_campus_nexa_km": 71.0,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 69.3,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Amiens",
@@ -1182,8 +1148,7 @@
   "d_campus_nexa_km": 97.8,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 0.8,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Saint-Nazaire",
@@ -1214,11 +1179,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 3760,
-  "d_campus_nexa_km": 53.3,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 385.8,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 53.1,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Fort-de-France",
@@ -1247,11 +1211,10 @@
    "Martinique"
   ],
   "tle_estim": 3740,
-  "d_campus_nexa_km": 6531.5,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 6854.1,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 3.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Belfort",
@@ -1285,8 +1248,7 @@
   "d_campus_nexa_km": 260.1,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 38.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Pau",
@@ -1317,11 +1279,10 @@
    "Occitanie"
   ],
   "tle_estim": 3540,
-  "d_campus_nexa_km": 172.8,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 491.9,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 3.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Vannes",
@@ -1350,11 +1311,10 @@
    "Bretagne"
   ],
   "tle_estim": 3460,
-  "d_campus_nexa_km": 103.7,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 402.2,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 46.9,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Les Abymes",
@@ -1383,11 +1343,10 @@
    "Guadeloupe"
   ],
   "tle_estim": 3320,
-  "d_campus_nexa_km": 6432.1,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 6751.0,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 4.9,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Limoges",
@@ -1416,11 +1375,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 3210,
-  "d_campus_nexa_km": 178.7,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 277.9,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 2.5,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Poitiers",
@@ -1449,11 +1407,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 3210,
-  "d_campus_nexa_km": 160.9,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 295.3,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 1.5,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Cholet",
@@ -1485,11 +1442,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 3170,
-  "d_campus_nexa_km": 54.1,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 315.3,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 53.6,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Quimper",
@@ -1518,11 +1474,10 @@
    "Bretagne"
   ],
   "tle_estim": 3100,
-  "d_campus_nexa_km": 209.7,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 485.9,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 52.6,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Évreux",
@@ -1558,8 +1513,7 @@
   "d_campus_nexa_km": 90.8,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 47.2,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Besançon",
@@ -1593,8 +1547,7 @@
   "d_campus_nexa_km": 189.7,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 2.0,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Saint-Brieuc",
@@ -1623,11 +1576,10 @@
    "Bretagne"
   ],
   "tle_estim": 2970,
-  "d_campus_nexa_km": 171.3,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 378.3,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 91.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Colmar",
@@ -1661,8 +1613,7 @@
   "d_campus_nexa_km": 325.5,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 40.1,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Lorient",
@@ -1692,11 +1643,10 @@
    "Bretagne"
   ],
   "tle_estim": 2960,
-  "d_campus_nexa_km": 150.0,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 442.5,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.7,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Forbach",
@@ -1729,8 +1679,7 @@
   "d_campus_nexa_km": 317.2,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 52.7,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Montélimar",
@@ -1765,8 +1714,7 @@
   "d_campus_nexa_km": 133.9,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 67.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Mamoudzou",
@@ -1795,11 +1743,10 @@
    "Mayotte"
   ],
   "tle_estim": 2690,
-  "d_campus_nexa_km": 7425.6,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 7660.6,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 1415.2,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Saint-Quentin",
@@ -1834,8 +1781,7 @@
   "d_campus_nexa_km": 85.2,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 56.7,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Saint-Malo",
@@ -1865,11 +1811,10 @@
    "Bretagne"
   ],
   "tle_estim": 2620,
-  "d_campus_nexa_km": 162.8,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 319.5,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 62.3,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Chalon-sur-Saône",
@@ -1902,8 +1847,7 @@
   "d_campus_nexa_km": 110.8,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 65.2,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Laval",
@@ -1934,11 +1878,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 2490,
-  "d_campus_nexa_km": 112.1,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 247.7,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 66.6,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Chartres",
@@ -1970,8 +1913,7 @@
   "d_campus_nexa_km": 78.7,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 67.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Albi",
@@ -2000,11 +1942,10 @@
    "Occitanie"
   ],
   "tle_estim": 2430,
-  "d_campus_nexa_km": 238.9,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 293.8,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 0.5,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Angoulême",
@@ -2033,11 +1974,10 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 2390,
-  "d_campus_nexa_km": 102.7,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 364.1,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 89.0,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Niort",
@@ -2069,11 +2009,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 2390,
-  "d_campus_nexa_km": 127.8,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 354.0,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 55.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Agen",
@@ -2105,11 +2044,10 @@
    "Occitanie"
   ],
   "tle_estim": 2380,
-  "d_campus_nexa_km": 119.3,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 373.2,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 93.4,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Soissons",
@@ -2142,8 +2080,7 @@
   "d_campus_nexa_km": 87.7,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 36.5,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "La Roche-sur-Yon",
@@ -2172,11 +2109,10 @@
    "Pays de la Loire"
   ],
   "tle_estim": 2370,
-  "d_campus_nexa_km": 59.7,
-  "campus_proche": "Nantes",
+  "d_campus_nexa_km": 373.4,
+  "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.9,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Alès",
@@ -2208,11 +2144,10 @@
    "Occitanie"
   ],
   "tle_estim": 2350,
-  "d_campus_nexa_km": 143.0,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 190.7,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 38.8,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Montauban",
@@ -2241,11 +2176,10 @@
    "Occitanie"
   ],
   "tle_estim": 2340,
-  "d_campus_nexa_km": 179.0,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 334.4,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 46.9,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Troyes",
@@ -2277,8 +2211,7 @@
   "d_campus_nexa_km": 141.3,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 0.3,
-  "contient_pole_etudiant": true,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": true
  },
  {
   "bassin": "Saint-Paul",
@@ -2307,11 +2240,10 @@
    "La Réunion"
   ],
   "tle_estim": 2220,
-  "d_campus_nexa_km": 8779.7,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 9003.0,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 22.4,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Blois",
@@ -2343,8 +2275,7 @@
   "d_campus_nexa_km": 159.8,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 53.6,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Brive-la-Gaillarde",
@@ -2376,11 +2307,10 @@
    "Occitanie"
   ],
   "tle_estim": 2190,
-  "d_campus_nexa_km": 166.0,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 267.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 79.3,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Montereau-Fault-Yonne",
@@ -2416,8 +2346,7 @@
   "d_campus_nexa_km": 70.3,
   "campus_proche": "Paris",
   "d_pole_etudiant_km": 69.7,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Draguignan",
@@ -2447,11 +2376,10 @@
    "Provence-Alpes-Côte d'Azur"
   ],
   "tle_estim": 2050,
-  "d_campus_nexa_km": 91.8,
-  "campus_proche": "Marseille",
+  "d_campus_nexa_km": 274.3,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 65.3,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Épinal",
@@ -2484,8 +2412,7 @@
   "d_campus_nexa_km": 297.6,
   "campus_proche": "Lyon",
   "d_pole_etudiant_km": 60.7,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "Maubeuge",
@@ -2517,8 +2444,7 @@
   "d_campus_nexa_km": 73.1,
   "campus_proche": "Lille",
   "d_pole_etudiant_km": 33.5,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": false
+  "contient_pole_etudiant": false
  },
  {
   "bassin": "La Teste-de-Buch",
@@ -2548,10 +2474,9 @@
    "Nouvelle-Aquitaine"
   ],
   "tle_estim": 2000,
-  "d_campus_nexa_km": 59.9,
-  "campus_proche": "Bordeaux",
+  "d_campus_nexa_km": 489.5,
+  "campus_proche": "Lyon",
   "d_pole_etudiant_km": 56.6,
-  "contient_pole_etudiant": false,
-  "exclu_perimetre_B": true
+  "contient_pole_etudiant": false
  }
 ]

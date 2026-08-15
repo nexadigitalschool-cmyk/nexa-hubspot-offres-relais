@@ -12,6 +12,12 @@ B = {b["bassin"]: b for b in json.load(open("bassins.json"))}
 # ---------------------------------------------------------------------------
 EXP = {
  # bassin            cyb dev data mkt eco  justification (ancrage factuel)
+ "Marseille":         (5,5,5,4,5,"2e ville de France ; 4e hub internet europeen (cables sous-marins, data centers), CMA CGM, STMicroelectronics Rousset, Airbus Helicopters ; Aix-Marseille Universite"),
+ "Bordeaux":          (4,5,4,5,5,"Capitale French Tech ; Cdiscount, Ubisoft, aeronautique-defense-spatial (Dassault, Thales, ArianeGroup) ; vin et tourisme = fort vivier marketing"),
+ "Nantes":            (4,5,4,5,5,"Capitale French Tech, Atlanpole et quartier de la creation ; Airbus, forte densite d'ESN ; premier ecosysteme numerique de l'Ouest"),
+ "Toulon":            (5,3,3,3,3,"1er port militaire francais : Marine nationale, Naval Group, cyberdefense navale ; Universite de Toulon"),
+ "Saint-Nazaire":     (3,3,3,3,3,"Chantiers de l'Atlantique, Airbus, eolien offshore : industrie lourde a forts besoins de numerisation"),
+ "Cholet":            (3,3,2,3,2,"Tissu tres dense de PME industrielles (mecanique, agroalimentaire, mode) ; offre superieure locale limitee"),
  "Toulouse":          (5,5,5,4,5,"Aeronautique-spatial (Airbus, Thales, CNES), 1er bassin d'emploi ingenieur hors IDF"),
  "Nice":              (5,5,4,4,5,"Sophia Antipolis, 1er technopole europeen ; Amadeus, Orange Labs ; economie touristique = vivier marketing"),
  "Montpellier":       (4,5,4,4,4,"IBM, Dell, sante-numerique ; corridor Montpellier-Nimes tres dynamique demographiquement"),
@@ -73,6 +79,17 @@ def conc_score(b):
     e = max(0.0, min(100.0, 100*(60 - b["etendue_km"])/35))   # 25 km -> 100 ; 60 km -> 0
     v = min(b["nb_villes_10k"], 10)/10*100
     return 0.40*c + 0.35*e + 0.25*v
+
+UNIVERS_H7 = ("Troyes", "Angoulême", "Niort", "Albi", "Saint-Malo")  # ajouts sous seuil : rendent H7 testable
+attendu = {n for n, b in B.items() if b["pop_bassin"] >= 250000} | set(UNIVERS_H7)
+manquants = sorted(attendu - set(EXP))
+if manquants:
+    raise SystemExit(f"Bassins de l'univers sans evaluation experte : {manquants}")
+en_trop = sorted(set(EXP) - attendu)
+if en_trop:
+    raise SystemExit(f"Bassins evalues hors univers : {en_trop}")
+print(f"[univers] {len(EXP)} bassins scores "
+      f"({len(attendu)-len(UNIVERS_H7)} de >= 250 000 hab. + {len(UNIVERS_H7)} villes moyennes pour H7)")
 
 rows = []
 for nom, (cy, dv, da, mk, ec, why) in EXP.items():

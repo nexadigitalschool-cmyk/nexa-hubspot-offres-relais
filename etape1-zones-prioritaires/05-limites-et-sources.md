@@ -52,8 +52,8 @@ qu'un lycéen d'un territoire peu doté est plus enclin à s'inscrire dans un ca
 
 40 % du score repose sur un proxy, 40 % supplémentaires (25 % affinité + 15 % économie) sur du
 jugement expert. Seuls 20 % (concentration) sont entièrement observés. **Les écarts de score
-inférieurs à ~5 points ne sont pas significatifs** — Annecy (58,2) et Clermont-Ferrand (58,2) sont à
-égalité, et l'ordre entre les rangs 9 à 15 ne doit pas être interprété.
+inférieurs à ~5 points ne sont pas significatifs** — Metz et Caen sont à 48,3 tous les deux, et
+l'ordre entre les rangs 18 et 30 ne doit pas être interprété comme un classement.
 
 ### Les distances sont orthodromiques, pas routières
 
@@ -69,8 +69,9 @@ et mérite un arbitrage NEXA sur les cas limites.
 ### Les bassins bicéphales
 
 Trois bassins regroupent des marchés que l'algorithme fusionne par contiguïté mais qui doivent être
-travaillés séparément : **Montpellier–Nîmes** (53 km d'étendue, 33 % de concentration),
-**Annecy–Annemasse** (55 km, 50 %), **Dunkerque–Calais** (56 km, 50 %).
+travaillés séparément : **Montpellier–Nîmes** (53 km d'étendue, 33 % de la population à 20 km),
+**Annecy–Annemasse–Genevois** (55 km, 50 %), **Dunkerque–Calais** (56 km, 50 %) et
+**Marseille–Aix–étang de Berre** (57 km, tricéphale).
 
 ---
 
@@ -85,7 +86,7 @@ travaillés séparément : **Montpellier–Nîmes** (53 km d'étendue, 33 % de c
 | 5 | **Offre supérieure numérique locale** (BTS SIO/CIEL, BUT info/MMI/R&T, bachelors) | Rend H1 réellement testable | Parcoursup, ONISEP | ~1 j |
 | 6 | **IPS des lycées** | Variable expérimentale socio-économique | `fr-en-ips-lycees` | script fourni |
 | 7 | **Emploi numérique par bassin** | Fiabilise l'axe économie (15 %) | France Travail, INSEE Flores, Numeum | ~1 j |
-| 8 | **Confirmation de la liste des campus NEXA** | Détermine le périmètre d'exclusion (A ou B) | interne NEXA | immédiat |
+| 8 | **Temps de trajet routier** (à la place des distances à vol d'oiseau) | Fiabilise l'arbitrage score / coût, décisif dans le choix du portefeuille | API itinéraires | ~2 h |
 
 Les points 1, 2, 3 et 6 sont couverts par `pipeline/05_enrichissement_depp.py`, qui n'a pas pu être
 exécuté ici faute d'accès réseau.
@@ -118,8 +119,8 @@ exécuté ici faute d'accès réseau.
 
 ### Éléments territoriaux (recherche documentaire, alimentent la colonne « Pourquoi »)
 
-Campus NEXA et adresses : [nexa.fr/ecole](https://www.nexa.fr/ecole) et pages campus Paris, Lyon,
-Lille, Bordeaux, Nantes, Marseille — consultées le 15/08/2026.
+Campus NEXA : liste confirmée par NEXA — **Paris, Lyon, Lille**. Adresses relevées sur
+[nexa.fr](https://www.nexa.fr/ecole), consultées le 15/08/2026.
 
 Faits économiques territoriaux (Sophia Antipolis, COMCYBER et DGA-MI à Rennes, CEA-Leti et
 STMicroelectronics à Grenoble, Michelin à Clermont-Ferrand, mutuelles niortaises, supercalculateur
@@ -153,3 +154,18 @@ l'environnement de production**. Voir `01-methodologie.md` §0.
 
 **En une phrase :** la géographie de ce livrable est solide, sa démographie est raisonnable, sa
 dimension scolaire reste à établir.
+
+---
+
+## 5. Un point réglé depuis la première version
+
+La liste des campus physiques NEXA a été **confirmée par NEXA : Paris, Lyon et Lille, et eux seuls**.
+Une vérification de sensibilité avait été menée en incluant Bordeaux, Nantes et Marseille — des pages
+campus existant à ces noms sur nexa.fr. Cette hypothèse est écartée.
+
+Conséquence sur le livrable : six bassins majeurs (Marseille, Bordeaux, Nantes, Toulon,
+Saint-Nazaire, Cholet) ont été **réintégrés à l'univers scoré**, qui passe de 53 à 59 bassins.
+Marseille devient le premier bassin de France hors exclusion (~18 520 Terminales estimées) et le
+classement P1 est modifié en conséquence. Toutes les distances d'accès sont désormais mesurées
+depuis les trois bases réelles, ce qui a **fortement modifié le portefeuille de test recommandé** :
+les zones du Grand Ouest, accessibles depuis un hypothétique campus nantais, sont devenues coûteuses.

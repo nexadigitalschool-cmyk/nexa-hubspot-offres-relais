@@ -21,16 +21,21 @@ départ — et à ne rien apprendre.
 Pour cela il faut comparer, **à vivier comparable**, des zones à faible et à forte offre numérique
 locale. Les paires suivantes sont constituées à cet effet :
 
-| Vivier estimé | Forte offre supérieure locale | Faible offre supérieure locale | Écart de vivier |
+| Forte offre supérieure locale | Faible offre supérieure locale | Écart de vivier | Coût des deux côtés |
 |---|---|---|---|
-| ~3 500–4 000 Tle | **Chambéry** (~3 970, pôle étudiant sur place) | **Vannes** (~3 460, pôle à 47 km) | 13 % |
-| ~4 000–4 600 Tle | **Le Havre** (~4 310, pôle sur place) | **Béziers–Narbonne** (~4 410, pôle à 59 km) | 2 % |
-| ~3 000–3 200 Tle | **Besançon** (~3 030, pôle sur place) | **Saint-Brieuc** (~2 970, pôle à 92 km) | 2 % |
-| ~2 400 Tle | **Poitiers** (~3 210, pôle sur place) | **Angoulême** (~2 390, pôle à 89 km) | 34 % |
-| ~3 700–4 300 Tle | **Le Mans** (~4 230, pôle sur place) | **Belfort–Montbéliard** (~3 700, pôle à 38 km) | 14 % |
+| **Amiens** (~3 780, pôle sur place, **98 km de Lille**) | **Dunkerque–Calais** (~3 840, pôle à 69 km, **71 km de Lille**) | **1,6 %** | ★★★ les deux depuis Lille |
+| **Le Havre** (~4 310, pôle sur place, 176 km de Paris) | **Valence** (~4 340, pôle à 70 km, **93 km de Lyon**) | **0,7 %** | ★★ deux bases différentes |
+| **Besançon** (~3 030, pôle sur place, 190 km de Lyon) | **Évreux** (~3 040, pôle à 47 km, **91 km de Paris**) | **0,3 %** | ★★ deux bases différentes |
+| **Lorient** (~2 960, pôle sur place, 442 km) | **Saint-Brieuc** (~2 970, pôle à 92 km, 378 km) | 0,3 % | ✗ très coûteux |
+| **Chambéry** (~3 970, pôle sur place, 87 km de Lyon) | **Bayonne** (~3 930, pôle à 91 km, 558 km) | 1,0 % | ✗ asymétrique |
 
-Les paires **Le Havre / Béziers** et **Besançon / Saint-Brieuc** sont les plus propres : moins de 3 %
-d'écart de vivier estimé, et une opposition nette sur l'offre locale.
+**La paire Amiens / Dunkerque–Calais est de très loin la meilleure** : viviers estimés identiques à
+1,6 % près, offre supérieure locale radicalement opposée, et **les deux zones sont desservies par la
+même base — Lille, à moins de 100 km**. C'est une expérience naturelle quasi parfaite, réalisable
+pour le coût d'une seule zone lointaine.
+
+Les paires **Le Havre / Valence** et **Besançon / Évreux** sont aussi propres statistiquement, mais
+mobilisent deux bases différentes.
 
 **Condition de validité — importante.** Ces paires reposent sur le vivier **proxy**. Elles devront
 être **revalidées avec les effectifs DEPP réels** avant d'en tirer la moindre conclusion : un écart
@@ -48,33 +53,43 @@ et ONISEP bloqué). Sans elle, « offre locale » reste approximée par la seule
 
 ### H1 — Les zones faiblement couvertes en formations numériques convertissent mieux
 
-**Terrain** : les paires ci-dessus. **Zones porteuses** : Vannes, Béziers, Saint-Brieuc, Angoulême,
-Quimper, Saint-Malo, Dunkerque.
-**Contre-terrain indispensable** : Rennes et Grenoble — offre locale maximale. Si NEXA y convertit
-aussi bien, H1 est fausse ou secondaire.
+**Terrain** : les paires ci-dessus. **Zones porteuses activables à coût raisonnable** :
+Dunkerque–Calais (71 km de Lille), Valence (93 km de Lyon), Évreux (91 km de Paris),
+Saint-Quentin (85 km de Lille), Montélimar (134 km de Lyon).
+**Zones porteuses mais coûteuses** : Vannes, Bayonne, Niort, Béziers, Saint-Brieuc, Quimper.
+**Contre-terrain indispensable** : Grenoble et Rouen — offre locale forte, et tous deux proches d'une
+base. Si NEXA y convertit aussi bien, H1 est fausse ou secondaire.
 **Mesure** : taux leads / lycéens exposés, puis taux candidatures / leads, par zone.
 
 ### H2 — L'éloignement des grands pôles étudiants augmente l'intérêt pour le campus À distance
 
 **Variable** : `d_pole_etudiant_km` (observée, dans `data/bassins_scores.csv`).
-**Gradient disponible dans le panel** : 0 km (Rouen, Dijon, Caen) → 38 km (Belfort) → 47 km (Vannes)
-→ 59 km (Béziers) → 69 km (Dunkerque) → 91 km (Bayonne) → 92 km (Saint-Brieuc) → 1 415 km (Mayotte)
-→ La Réunion.
-**Test le plus fort** : La Réunion. Si H2 est vraie, ce territoire doit surperformer nettement.
+**Gradient disponible dans le panel** : 0 km (Rouen, Dijon, Caen, Grenoble) → 38 km (Belfort)
+→ 47 km (Vannes, Évreux) → 57 km (Saint-Quentin) → 59 km (Béziers) → 69 km (Dunkerque)
+→ 70 km (Valence) → 89–92 km (Angoulême, Bayonne, Saint-Brieuc) → 1 415 km (Mayotte) → La Réunion.
+**Test le plus fort** : La Réunion (~7 120 Tle, aucune alternative métropolitaine). Si H2 est vraie,
+ce territoire doit surperformer nettement — mais il ne peut être testé qu'à distance (9 000 km).
+**Test le plus économique** : Valence et Dunkerque, tous deux à moins de 95 km d'une base.
 
 ### H3 — Un environnement économique numérique dynamique augmente l'intérêt pour les formations NEXA
 
-**Gradient** : Toulouse / Rennes / Grenoble / Nice (5/5) → Rouen / Valence / Dijon (3/5) →
-Béziers / Forbach / Saint-Quentin / Mamoudzou (1/5).
-**Test décisif** : Béziers. Vivier réel, économie numérique notée 1/5. **Si Béziers performe, l'axe
-économie numérique doit être fortement dépondéré dans le modèle de l'année 2.**
+**Gradient** : Marseille / Toulouse / Bordeaux / Nantes / Rennes / Grenoble / Nice (5/5) →
+Rouen / Valence / Dijon / Dunkerque (3/5) → Béziers / Forbach / Saint-Quentin / Mamoudzou (1/5).
+**Test décisif** : **Saint-Quentin** (économie numérique 1/5, 85 km de Lille) ou **Béziers** (1/5,
+vivier ~4 410, mais 297 km). Si l'une des deux performe, **l'axe économie numérique doit être
+fortement dépondéré dans le modèle de l'année 2.**
+Saint-Quentin est le contre-test le moins cher, mais son vivier (~2 650 Tle) est faible : un
+résultat nul y sera ambigu. Béziers offre un vivier 66 % supérieur pour un déplacement bien plus
+lourd. **Dunkerque–Calais est le compromis retenu** : économie 3/5 mais en réindustrialisation
+active, vivier ~3 840, et 71 km de Lille.
 
 ### H4 — L'économie numérique influence davantage l'alternance que le recrutement étudiant
 
 **Mesure** : suivre séparément, par zone, le taux d'inscription B1 **et** le taux de signature en
 alternance.
-**Zones les plus informatives** : Rouen, Le Havre, Belfort–Montbéliard, Dunkerque (besoins IT réels,
-écosystème start-up modeste) opposées à Rennes et Grenoble.
+**Zones les plus informatives** : Rouen (112 km de Paris), Dunkerque–Calais (71 km de Lille),
+Le Havre, Belfort–Montbéliard, Saint-Nazaire — besoins IT industriels réels, écosystème start-up
+modeste — opposées à Grenoble, Rennes et Marseille.
 Si H4 est vraie, l'économie numérique doit sortir du score de **recrutement** et alimenter un score
 de **placement** distinct.
 
@@ -85,22 +100,25 @@ pu être collectés**. Les notes cyber/dev du livrable sont des estimations issu
 pas des comptages d'élèves — les utiliser pour tester H5 reviendrait à tester une hypothèse contre
 elle-même.
 **Prérequis absolu** : lancer `pipeline/05_enrichissement_depp.py`.
-**Zones porteuses une fois les données obtenues** : Rennes, Grenoble, Toulouse, Belfort, Vannes, Brest.
+**Zones porteuses une fois les données obtenues** : Rennes, Grenoble, Toulouse, Marseille, Belfort,
+Vannes, Brest, Toulon.
 
 ### H6 — Les territoires à forte présence STMG ou généraliste performent en Marketing Digital
 
-**Zones porteuses** : Bayonne (5/5 marketing), Angoulême (5/5), Perpignan, Béziers, Avignon, Reims,
-Tours, Orléans.
+**Zones porteuses** : Bordeaux (5/5 marketing) et Nantes (5/5) sur gros vivier ; Bayonne (5/5),
+Angoulême (5/5), Perpignan, Béziers, Avignon, Reims, Tours, Orléans sur vivier moyen.
 **Même réserve que H5** : la présence effective de STMG doit être vérifiée sur données DEPP. Le
 raisonnement actuel infère le vivier STMG depuis l'économie tertiaire locale — c'est plausible, ce
 n'est pas mesuré.
 
 ### H7 — Les villes moyennes constituent un marché particulièrement intéressant
 
-**Terrain constitué exprès** : quatre bassins ont été ajoutés sous le seuil de population pour rendre
-cette hypothèse testable — **Troyes, Angoulême, Niort, Albi**. Sans eux, l'échantillon n'aurait
-contenu que des agglomérations et H7 aurait été invérifiable.
-**Comparaison** : ces quatre zones + Angers (ville moyenne « haut de gamme ») contre les métropoles P1.
+**Terrain constitué exprès** : cinq bassins ont été ajoutés sous le seuil de population pour rendre
+cette hypothèse testable — **Troyes, Angoulême, Niort, Albi, Saint-Malo**. Sans eux, l'échantillon
+n'aurait contenu que des agglomérations et H7 aurait été invérifiable.
+**Comparaison** : ces cinq zones + Angers (ville moyenne « haut de gamme ») contre les métropoles P1.
+**Zone retenue au portefeuille** : **Troyes**, seule des cinq à être proche d'une base (141 km de
+Paris) — Niort est à 354 km, Angoulême à 364 km, Albi à 447 km.
 **Indicateur clé** : rendement par IE (leads obtenus / IE réalisée), pas volume absolu. Une ville
 moyenne ne gagnera jamais en volume ; la question est de savoir si elle gagne **au coût d'IE**.
 
@@ -111,7 +129,7 @@ récupérée (accès `enseignementsup-recherche.gouv.fr` et DGESIP bloqué). Deu
 sont confirmées par recherche documentaire — **Cahors** et **Nevers**, parmi les 13 sites de la vague
 expérimentale 2019 — et aucune ne tombe dans un bassin retenu.
 **Action requise** : récupérer la liste sur `services.dgesip.fr/CampusConnectes/`, géocoder, et
-croiser avec les 53 bassins. C'est une collecte de quelques heures, à faire avant le lancement.
+croiser avec les 59 bassins. C'est une collecte de quelques heures, à faire avant le lancement.
 Un Campus connecté est un **partenaire opérationnel potentiel** autant qu'une variable d'étude :
 c'est un lieu qui accueille déjà des étudiants inscrits à distance.
 

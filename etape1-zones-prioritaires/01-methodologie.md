@@ -47,24 +47,28 @@ Aucune valeur n'a été inventée pour combler un trou. Les colonnes non collect
 | Paris | 44bis quai de Jemmapes, 75010 | 48,8709 / 2,3646 |
 | Lyon | centre-ville (secteur Bellecour) | 45,7578 / 4,8320 |
 | Lille | 250 rue Madeleine Rebérioux, 59000 | 50,6216 / 3,0790 |
-| *Bordeaux* (périmètre B) | 1 quai Armand Lalande, 33300 | 44,8672 / -0,5560 |
-| *Nantes* (périmètre B) | 19 rue La Noue Bras de Fer, 44200 | 47,2043 / -1,5535 |
-| *Marseille* (périmètre B) | Impasse Paradou, 13009 | 43,2555 / 5,3980 |
+
+**NEXA a confirmé que ces trois campus sont les seuls à neutraliser.** Une vérification de
+sensibilité avait été menée en incluant Bordeaux, Nantes et Marseille (des pages campus existent à
+ces noms sur nexa.fr) : elle portait l'exclusion à 4 040 communes et 25,4 M hab. Cette hypothèse est
+**écartée** ; les bassins de Marseille, Bordeaux, Nantes, Toulon, Saint-Nazaire, Cholet,
+La Roche-sur-Yon et La Teste-de-Buch sont donc **pleinement dans le champ** du campus À distance.
 
 L'adresse exacte du campus de Lyon n'a pas été trouvée en source primaire ; le centre-ville a été
 utilisé. **À 60 km de rayon, une imprécision de 2 km sur le centre est sans effet matériel** sur
 la liste des communes exclues.
 
-### Deux périmètres
+### Résultat
 
-- **Périmètre A** — la règle demandée (Paris, Lyon, Lille) : **2 982 communes, 19,1 M hab. (28,0 %)**.
-- **Périmètre B** — sensibilité, les six campus réels : **4 040 communes, 25,4 M hab. (37,2 %)**.
+**2 982 communes exclues, 19,1 M habitants — 28,0 % de la population française.**
 
 ### Résultat par département (extrait — fichier complet : `data/exclusion_departements.csv`)
 
-| Dép. | % communes exclues (A) | % population exclue (A) | Statut |
+Dix-neuf départements sont touchés, sur 101.
+
+| Dép. | % communes exclues | % population exclue | Statut |
 |---|---|---|---|
-| 92, 93, 94 | 100 % | 100 % | totalement exclus |
+| 75, 92, 93, 94 | 100 % | 100 % | totalement exclus |
 | 95 | 98,4 % | 99,9 % | majoritairement exclu |
 | 69 Rhône | 97,7 % | 99,9 % | majoritairement exclu |
 | 91 Essonne | 96,9 % | 99,2 % | majoritairement exclu |
@@ -94,7 +98,7 @@ Deux conséquences commercialement importantes :
 L'unité commerciale recherchée est le **bassin d'activation IE**, pas le département. La construction
 est **algorithmique et data-driven**, pas déclarative :
 
-1. **Villes-centres candidates** : communes de ≥ 15 000 hab., hors exclusion A, qui sont un
+1. **Villes-centres candidates** : communes de ≥ 15 000 hab., hors exclusion, qui sont un
    **maximum local de population dans un rayon de 12 km**. Ce filtre évite qu'un bassin soit centré
    sur une banlieue (sans lui, l'algorithme centrait le bassin bordelais sur Le Bouscat et le bassin
    nantais sur Bouguenais). 377 candidates → **231 maxima locaux**.
@@ -112,17 +116,23 @@ géographie le justifie : *Montpellier–Nîmes* (34+30), *Dunkerque–Calais* (
 (57+54), *Belfort–Montbéliard* (25+90+70), *Annecy–Annemasse–Genevois* (74+01), *Béziers–Narbonne*
 (34+11).
 
-### Univers retenu : 53 bassins
+### Univers retenu : 59 bassins
 
-- Les **8 bassins situés à ≤ 60 km d'un campus NEXA réel** (périmètre B) sont écartés du scoring :
-  Marseille, Bordeaux, Nantes, Toulon, Saint-Nazaire, Cholet, La Roche-sur-Yon, La Teste-de-Buch.
-- Les bassins de plus de 250 000 habitants sont retenus (**49**).
-- **4 villes moyennes sous le seuil** sont ajoutées délibérément pour rendre **H7 testable** :
-  Troyes, Angoulême, Niort, Albi. Sans elles, l'hypothèse « les villes moyennes sont un marché
-  intéressant » serait invérifiable, l'échantillon ne contenant que des agglomérations.
+- Les bassins de **plus de 250 000 habitants** sont retenus (**54**).
+- **5 villes moyennes sous le seuil** sont ajoutées délibérément pour rendre **H7 testable** :
+  Troyes, Angoulême, Niort, Albi, Saint-Malo. Sans elles, l'hypothèse « les villes moyennes
+  constituent un marché intéressant » serait invérifiable, l'échantillon ne contenant que des
+  agglomérations.
+- Les 16 bassins restants (110 000 à 250 000 hab. : La Roche-sur-Yon, Chalon-sur-Saône, Laval,
+  Chartres, Blois, Brive, Épinal, Maubeuge, Draguignan, Soissons, Agen, Montauban, Alès,
+  La Teste-de-Buch, Montereau, Saint-Paul) constituent une **réserve**, non scorée à ce stade.
 
-Le total de 53 dépasse légèrement la fourchette indicative de 30–50 ; conformément à la consigne,
-aucune zone pertinente n'a été supprimée pour atteindre un chiffre rond.
+La règle est vérifiée programmatiquement à chaque exécution : `03_scoring.py` échoue si un bassin de
+l'univers n'a pas d'évaluation, ou si un bassin évalué n'appartient pas à l'univers.
+
+Le total de 59 dépasse la fourchette indicative de 30–50. Conformément à la consigne, aucune zone
+pertinente n'a été supprimée pour atteindre un chiffre rond — et la confirmation que Bordeaux,
+Nantes et Marseille ne sont pas des campus a mécaniquement réintégré 6 bassins majeurs.
 
 ---
 
