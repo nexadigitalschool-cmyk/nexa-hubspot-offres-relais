@@ -1,0 +1,3332 @@
+[
+ {
+  "bassin": "Toulouse",
+  "priorite": "P1",
+  "rang": 1,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Toulouse",
+    "lat": 43.596,
+    "lon": 1.4323
+   },
+   "rayon_km": 30,
+   "departements": [
+    "31 Haute-Garonne",
+    "32 Gers",
+    "81 Tarn"
+   ],
+   "regions": [
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Toulouse (515k)",
+    "Colomiers (41k)",
+    "Tournefeuille (30k)",
+    "Blagnac (28k)",
+    "Muret (26k)"
+   ],
+   "nb_communes": 232
+  },
+  "potentiel_estime": {
+   "population_bassin": 1323768,
+   "terminale_estimee": 13900,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 5,
+   "data_ia": 5,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Aeronautique-spatial (Airbus, Thales, CNES), 1er bassin d'emploi ingenieur hors IDF",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.4,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 212.3,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 85.4,
+   "etendue_villes_km": 38.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Nice",
+  "priorite": "P1",
+  "rang": 2,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Grasse",
+    "lat": 43.6558,
+    "lon": 6.9318
+   },
+   "rayon_km": 30,
+   "departements": [
+    "06 Alpes-Maritimes",
+    "83 Var"
+   ],
+   "regions": [
+    "Provence-Alpes-Côte d'Azur"
+   ],
+   "villes_principales": [
+    "Nice (358k)",
+    "Antibes (78k)",
+    "Cannes (74k)",
+    "Fréjus (60k)",
+    "Cagnes-sur-Mer (53k)"
+   ],
+   "nb_communes": 87
+  },
+  "potentiel_estime": {
+   "population_bassin": 1093251,
+   "terminale_estimee": 11480,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 5,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Sophia Antipolis, 1er technopole europeen ; Amadeus, Orange Labs ; economie touristique = vivier marketing",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 156.9,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 51.0,
+   "etendue_villes_km": 47.6,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Rennes",
+  "priorite": "P1",
+  "rang": 3,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Rennes",
+    "lat": 48.1116,
+    "lon": -1.6816
+   },
+   "rayon_km": 30,
+   "departements": [
+    "35 Ille-et-Vilaine"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Rennes (231k)",
+    "Bruz (20k)",
+    "Cesson-Sévigné (19k)",
+    "Saint-Jacques-de-la-Lande (14k)",
+    "Betton (13k)"
+   ],
+   "nb_communes": 144
+  },
+  "potentiel_estime": {
+   "population_bassin": 714155,
+   "terminale_estimee": 7500,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 5,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Pole cyber national (COMCYBER, DGA-MI, campus cyber breton), b<>com, telecoms",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 101.3,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 79.8,
+   "etendue_villes_km": 22.3,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Grenoble",
+  "priorite": "P1",
+  "rang": 4,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Grenoble",
+    "lat": 45.1822,
+    "lon": 5.7208
+   },
+   "rayon_km": 30,
+   "departements": [
+    "38 Isère"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes"
+   ],
+   "villes_principales": [
+    "Grenoble (156k)",
+    "Saint-Martin-d'Hères (38k)",
+    "Échirolles (37k)",
+    "Fontaine (22k)",
+    "Voiron (22k)"
+   ],
+   "nb_communes": 181
+  },
+  "potentiel_estime": {
+   "population_bassin": 686820,
+   "terminale_estimee": 7210,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 5,
+   "data_ia": 5,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Microelectronique CEA-Leti, STMicroelectronics ; hub deeptech de rang mondial",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.8,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 94.3,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 81.7,
+   "etendue_villes_km": 29.4,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Montpellier",
+  "priorite": "P1",
+  "rang": 5,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Lunel",
+    "lat": 43.6927,
+    "lon": 4.1101
+   },
+   "rayon_km": 30,
+   "departements": [
+    "34 Hérault",
+    "30 Gard"
+   ],
+   "regions": [
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Montpellier (310k)",
+    "Nîmes (152k)",
+    "Lunel (27k)",
+    "Castelnau-le-Lez (26k)",
+    "Lattes (17k)"
+   ],
+   "nb_communes": 136
+  },
+  "potentiel_estime": {
+   "population_bassin": 960447,
+   "terminale_estimee": 10080,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 5,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "IBM, Dell, sante-numerique ; corridor Montpellier-Nimes tres dynamique demographiquement",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 129.7,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 32.8,
+   "etendue_villes_km": 53.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Strasbourg",
+  "priorite": "P1",
+  "rang": 6,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Strasbourg",
+    "lat": 48.5716,
+    "lon": 7.7677
+   },
+   "rayon_km": 30,
+   "departements": [
+    "67 Bas-Rhin"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Strasbourg (294k)",
+    "Haguenau (36k)",
+    "Schiltigheim (35k)",
+    "Illkirch-Graffenstaden (28k)",
+    "Lingolsheim (21k)"
+   ],
+   "nb_communes": 204
+  },
+  "potentiel_estime": {
+   "population_bassin": 852523,
+   "terminale_estimee": 8950,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Capitale europeenne, banque-assurance, industrie ; ecosysteme numerique structure",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.2,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 383.5,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 75.7,
+   "etendue_villes_km": 48.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Rouen",
+  "priorite": "P1",
+  "rang": 7,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Rouen",
+    "lat": 49.4415,
+    "lon": 1.0932
+   },
+   "rayon_km": 30,
+   "departements": [
+    "76 Seine-Maritime",
+    "27 Eure"
+   ],
+   "regions": [
+    "Normandie"
+   ],
+   "villes_principales": [
+    "Rouen (118k)",
+    "Saint-Étienne-du-Rouvray (30k)",
+    "Sotteville-lès-Rouen (29k)",
+    "Le Grand-Quevilly (26k)",
+    "Le Petit-Quevilly (22k)"
+   ],
+   "nb_communes": 336
+  },
+  "potentiel_estime": {
+   "population_bassin": 769914,
+   "terminale_estimee": 8080,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Chimie-industrie-logistique portuaire, assurance (Matmut) ; besoins IT industriels",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.5,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 112.1,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 77.8,
+   "etendue_villes_km": 42.3,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Angers",
+  "priorite": "P1",
+  "rang": 8,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Angers",
+    "lat": 47.4915,
+    "lon": -0.545
+   },
+   "rayon_km": 30,
+   "departements": [
+    "49 Maine-et-Loire"
+   ],
+   "regions": [
+    "Pays de la Loire"
+   ],
+   "villes_principales": [
+    "Angers (159k)",
+    "Mauges-sur-Loire (19k)",
+    "Loire-Authion (17k)",
+    "Trélazé (16k)",
+    "Avrillé (15k)"
+   ],
+   "nb_communes": 87
+  },
+  "potentiel_estime": {
+   "population_bassin": 483174,
+   "terminale_estimee": 5070,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 5,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Capitale French Tech, Cite de l'objet connecte, electronique-IoT, Thales",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 82.4,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 72.0,
+   "etendue_villes_km": 33.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Annecy",
+  "priorite": "P1",
+  "rang": 9,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Saint-Julien-en-Genevois",
+    "lat": 46.1149,
+    "lon": 6.1045
+   },
+   "rayon_km": 30,
+   "departements": [
+    "74 Haute-Savoie",
+    "01 Ain",
+    "39 Jura"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes",
+    "Bourgogne-Franche-Comté"
+   ],
+   "villes_principales": [
+    "Annecy (132k)",
+    "Annemasse (38k)",
+    "Valserhône (17k)",
+    "Rumilly (16k)",
+    "Saint-Julien-en-Genevois (16k)"
+   ],
+   "nb_communes": 202
+  },
+  "potentiel_estime": {
+   "population_bassin": 689186,
+   "terminale_estimee": 7240,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Mecatronique-decolletage vallee de l'Arve, frontalier Geneve, tertiaire haut de gamme",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 101.3,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 50.0,
+   "etendue_villes_km": 54.8,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Clermont-Ferrand",
+  "priorite": "P1",
+  "rang": 10,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Clermont-Ferrand",
+    "lat": 45.7859,
+    "lon": 3.1155
+   },
+   "rayon_km": 30,
+   "departements": [
+    "63 Puy-de-Dôme"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes"
+   ],
+   "villes_principales": [
+    "Clermont-Ferrand (146k)",
+    "Cournon-d'Auvergne (20k)",
+    "Riom (19k)",
+    "Chamalières (18k)",
+    "Issoire (15k)"
+   ],
+   "nb_communes": 208
+  },
+  "potentiel_estime": {
+   "population_bassin": 529942,
+   "terminale_estimee": 5560,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Michelin (data/IA industrielle), Limagrain ; universite scientifique",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.4,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 133.2,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 77.4,
+   "etendue_villes_km": 41.3,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Tours",
+  "priorite": "P1",
+  "rang": 11,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Tours",
+    "lat": 47.398,
+    "lon": 0.6963
+   },
+   "rayon_km": 30,
+   "departements": [
+    "37 Indre-et-Loire"
+   ],
+   "regions": [
+    "Centre-Val de Loire"
+   ],
+   "villes_principales": [
+    "Tours (139k)",
+    "Joué-lès-Tours (38k)",
+    "Saint-Cyr-sur-Loire (17k)",
+    "Saint-Pierre-des-Corps (16k)",
+    "Saint-Avertin (15k)"
+   ],
+   "nb_communes": 137
+  },
+  "potentiel_estime": {
+   "population_bassin": 513126,
+   "terminale_estimee": 5390,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Banque-assurance, tertiaire superieur, universite ; bassin bien structure",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 171.0,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 80.4,
+   "etendue_villes_km": 33.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Saint-Denis",
+  "priorite": "P1",
+  "rang": 12,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Saint-Benoît",
+    "lat": -21.0919,
+    "lon": 55.6493
+   },
+   "rayon_km": 30,
+   "departements": [
+    "974 La Réunion"
+   ],
+   "regions": [
+    "La Réunion"
+   ],
+   "villes_principales": [
+    "Saint-Denis (156k)",
+    "Saint-Pierre (85k)",
+    "Le Tampon (83k)",
+    "Saint-André (59k)",
+    "Saint-Louis (55k)"
+   ],
+   "nb_communes": 18
+  },
+  "potentiel_estime": {
+   "population_bassin": 678238,
+   "terminale_estimee": 7120,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "La Reunion : Capitale French Tech ; forte demande numerique locale, eloignement structurel",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 5.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 8776.8,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 35.3,
+   "etendue_villes_km": 46.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Brest",
+  "priorite": "P2",
+  "rang": 13,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Landerneau",
+    "lat": 48.4526,
+    "lon": -4.2228
+   },
+   "rayon_km": 30,
+   "departements": [
+    "29 Finistère"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Brest (142k)",
+    "Landerneau (16k)",
+    "Guipavas (16k)",
+    "Plougastel-Daoulas (13k)",
+    "Le Relecq-Kerhuon (12k)"
+   ],
+   "nb_communes": 115
+  },
+  "potentiel_estime": {
+   "population_bassin": 437869,
+   "terminale_estimee": 4600,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Capitale French Tech Brest Bretagne Ouest ; cyberdefense navale, Naval Group, Thales, IMT Atlantique",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.6,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 257.3,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 40.2,
+   "etendue_villes_km": 21.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Metz",
+  "priorite": "P2",
+  "rang": 14,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Metz",
+    "lat": 49.1138,
+    "lon": 6.1789
+   },
+   "rayon_km": 30,
+   "departements": [
+    "57 Moselle",
+    "54 Meurthe-et-Moselle"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Metz (123k)",
+    "Thionville (43k)",
+    "Montigny-lès-Metz (22k)",
+    "Yutz (17k)",
+    "Hayange (16k)"
+   ],
+   "nb_communes": 331
+  },
+  "potentiel_estime": {
+   "population_bassin": 688312,
+   "terminale_estimee": 7230,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Siderurgie-logistique, frontalier Luxembourg (emploi transfrontalier tres attractif)",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 278.3,
+   "campus_nexa_le_plus_proche": "Lille",
+   "concentration_20km_pct": 62.3,
+   "etendue_villes_km": 52.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Mulhouse",
+  "priorite": "P2",
+  "rang": 15,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Mulhouse",
+    "lat": 47.7494,
+    "lon": 7.3254
+   },
+   "rayon_km": 30,
+   "departements": [
+    "68 Haut-Rhin",
+    "90 Territoire de Belfort"
+   ],
+   "regions": [
+    "Bourgogne-Franche-Comté",
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Mulhouse (105k)",
+    "Saint-Louis (23k)",
+    "Wittenheim (16k)",
+    "Illzach (15k)",
+    "Rixheim (14k)"
+   ],
+   "nb_communes": 291
+  },
+  "potentiel_estime": {
+   "population_bassin": 575912,
+   "terminale_estimee": 6050,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Industrie automobile (Stellantis), textile, frontalier Bale-Suisse",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.8,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 291.7,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 74.5,
+   "etendue_villes_km": 40.4,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Caen",
+  "priorite": "P2",
+  "rang": 16,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Caen",
+    "lat": 49.185,
+    "lon": -0.37
+   },
+   "rayon_km": 30,
+   "departements": [
+    "14 Calvados"
+   ],
+   "regions": [
+    "Normandie"
+   ],
+   "villes_principales": [
+    "Caen (109k)",
+    "Hérouville-Saint-Clair (23k)",
+    "Bayeux (13k)",
+    "Ifs (12k)",
+    "Mondeville (10k)"
+   ],
+   "nb_communes": 265
+  },
+  "potentiel_estime": {
+   "population_bassin": 480248,
+   "terminale_estimee": 5040,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Normandie Capitale French Tech 2026, NXP, Orange Labs, filiere cyber normande",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.2,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 202.4,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 81.7,
+   "etendue_villes_km": 31.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Orléans",
+  "priorite": "P2",
+  "rang": 17,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Orléans",
+    "lat": 47.8826,
+    "lon": 1.9164
+   },
+   "rayon_km": 30,
+   "departements": [
+    "45 Loiret"
+   ],
+   "regions": [
+    "Centre-Val de Loire"
+   ],
+   "villes_principales": [
+    "Orléans (116k)",
+    "Olivet (24k)",
+    "Saint-Jean-de-Braye (23k)",
+    "Fleury-les-Aubrais (22k)",
+    "Saran (17k)"
+   ],
+   "nb_communes": 111
+  },
+  "potentiel_estime": {
+   "population_bassin": 442015,
+   "terminale_estimee": 4640,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Logistique, cosmetique, tertiaire ; effet de desserrement francilien",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.3,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 114.8,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 85.1,
+   "etendue_villes_km": 17.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Pau",
+  "priorite": "P2",
+  "rang": 18,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Pau",
+    "lat": 43.3202,
+    "lon": -0.3497
+   },
+   "rayon_km": 30,
+   "departements": [
+    "64 Pyrénées-Atlantiques",
+    "65 Hautes-Pyrénées"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine",
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Pau (80k)",
+    "Billère (14k)",
+    "Lons (14k)",
+    "Oloron-Sainte-Marie (11k)",
+    "Lescar (9k)"
+   ],
+   "nb_communes": 294
+  },
+  "potentiel_estime": {
+   "population_bassin": 337207,
+   "terminale_estimee": 3540,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 5,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "TotalEnergies et supercalculateur Pangea : l'un des plus gros centres de calcul prives d'Europe",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 3.3,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 172.8,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 70.7,
+   "etendue_villes_km": 27.6,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Vannes",
+  "priorite": "P2",
+  "rang": 19,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Vannes",
+    "lat": 47.6598,
+    "lon": -2.757
+   },
+   "rayon_km": 30,
+   "departements": [
+    "56 Morbihan"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Vannes (56k)",
+    "Auray (14k)",
+    "Saint-Avé (12k)",
+    "Séné (10k)",
+    "Sarzeau (9k)"
+   ],
+   "nb_communes": 86
+  },
+  "potentiel_estime": {
+   "population_bassin": 329766,
+   "terminale_estimee": 3460,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 5,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Pole cyber breton (Vannes-Ploermel), DGA, Universite Bretagne Sud, ESN",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 46.9,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 103.7,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 68.0,
+   "etendue_villes_km": 16.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (47 km)",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Nancy",
+  "priorite": "P2",
+  "rang": 20,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Nancy",
+    "lat": 48.6902,
+    "lon": 6.176
+   },
+   "rayon_km": 30,
+   "departements": [
+    "54 Meurthe-et-Moselle",
+    "57 Moselle"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Nancy (104k)",
+    "Vandœuvre-lès-Nancy (30k)",
+    "Lunéville (18k)",
+    "Toul (16k)",
+    "Laxou (15k)"
+   ],
+   "nb_communes": 334
+  },
+  "potentiel_estime": {
+   "population_bassin": 498131,
+   "terminale_estimee": 5230,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "LORIA (recherche informatique), industrie, universite de Lorraine",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.6,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 280.0,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 77.0,
+   "etendue_villes_km": 50.8,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Dijon",
+  "priorite": "P2",
+  "rang": 21,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Dijon",
+    "lat": 47.3229,
+    "lon": 5.0375
+   },
+   "rayon_km": 30,
+   "departements": [
+    "21 Côte-d'Or"
+   ],
+   "regions": [
+    "Bourgogne-Franche-Comté"
+   ],
+   "villes_principales": [
+    "Dijon (162k)",
+    "Chenôve (14k)",
+    "Talant (12k)",
+    "Chevigny-Saint-Sauveur (11k)",
+    "Fontaine-lès-Dijon (9k)"
+   ],
+   "nb_communes": 268
+  },
+  "potentiel_estime": {
+   "population_bassin": 406498,
+   "terminale_estimee": 4270,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "OnDijon (smart city), agro-sante, universite ; tertiaire regional",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.3,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 174.7,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 81.1,
+   "etendue_villes_km": 10.4,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Avignon",
+  "priorite": "P2",
+  "rang": 22,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Avignon",
+    "lat": 43.9353,
+    "lon": 4.8412
+   },
+   "rayon_km": 30,
+   "departements": [
+    "84 Vaucluse",
+    "13 Bouches-du-Rhône",
+    "30 Gard"
+   ],
+   "regions": [
+    "Occitanie",
+    "Provence-Alpes-Côte d'Azur"
+   ],
+   "villes_principales": [
+    "Avignon (92k)",
+    "Carpentras (32k)",
+    "Orange (30k)",
+    "Cavaillon (26k)",
+    "L'Isle-sur-la-Sorgue (20k)"
+   ],
+   "nb_communes": 123
+  },
+  "potentiel_estime": {
+   "population_bassin": 649533,
+   "terminale_estimee": 6820,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Agro-logistique-tourisme ; tissu numerique limite, vivier tertiaire important",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 3.3,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 87.9,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 63.7,
+   "etendue_villes_km": 49.3,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Bayonne",
+  "priorite": "P2",
+  "rang": 23,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Bayonne",
+    "lat": 43.4923,
+    "lon": -1.4665
+   },
+   "rayon_km": 30,
+   "departements": [
+    "64 Pyrénées-Atlantiques",
+    "40 Landes"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine"
+   ],
+   "villes_principales": [
+    "Bayonne (54k)",
+    "Anglet (43k)",
+    "Biarritz (26k)",
+    "Hendaye (18k)",
+    "Saint-Jean-de-Luz (15k)"
+   ],
+   "nb_communes": 71
+  },
+  "potentiel_estime": {
+   "population_bassin": 373903,
+   "terminale_estimee": 3930,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 5,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "French Tech Pays Basque ; economie de marque, tourisme, sport-glisse = vivier marketing fort",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 91.2,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 169.2,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 78.5,
+   "etendue_villes_km": 28.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (91 km)",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Niort",
+  "priorite": "P2",
+  "rang": 24,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Niort",
+    "lat": 46.3259,
+    "lon": -0.4719
+   },
+   "rayon_km": 30,
+   "departements": [
+    "79 Deux-Sèvres",
+    "17 Charente-Maritime",
+    "85 Vendée"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine",
+    "Pays de la Loire"
+   ],
+   "villes_principales": [
+    "Niort (60k)",
+    "Saint-Maixent-l'École (8k)",
+    "Chauray (7k)",
+    "La Crèche (6k)",
+    "Aiffres (5k)"
+   ],
+   "nb_communes": 152
+  },
+  "potentiel_estime": {
+   "population_bassin": 227639,
+   "terminale_estimee": 2390,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 5,
+   "data_ia": 5,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Capitale de la mutualite (MAIF, MACIF, MAAF, Groupama) : besoins IT et data massifs, Niort Tech",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 55.5,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 127.8,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 72.2,
+   "etendue_villes_km": 0.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (56 km)",
+   "H3 - economie numerique dynamique : effet sur l'interet pour NEXA",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Belfort",
+  "priorite": "P2",
+  "rang": 25,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Montbéliard",
+    "lat": 47.5248,
+    "lon": 6.8002
+   },
+   "rayon_km": 30,
+   "departements": [
+    "25 Doubs",
+    "90 Territoire de Belfort",
+    "70 Haute-Saône"
+   ],
+   "regions": [
+    "Bourgogne-Franche-Comté"
+   ],
+   "villes_principales": [
+    "Belfort (46k)",
+    "Montbéliard (25k)",
+    "Audincourt (14k)",
+    "Héricourt (11k)",
+    "Valentigney (11k)"
+   ],
+   "nb_communes": 324
+  },
+  "potentiel_estime": {
+   "population_bassin": 352232,
+   "terminale_estimee": 3700,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 2,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Alstom, GE, Stellantis Sochaux, UTBM : bassin tres technique et industriel",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 38.5,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 260.1,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 81.8,
+   "etendue_villes_km": 22.1,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (38 km)",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Le Havre",
+  "priorite": "P2",
+  "rang": 26,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Le Havre",
+    "lat": 49.4966,
+    "lon": 0.1403
+   },
+   "rayon_km": 30,
+   "departements": [
+    "76 Seine-Maritime",
+    "14 Calvados",
+    "27 Eure"
+   ],
+   "regions": [
+    "Normandie"
+   ],
+   "villes_principales": [
+    "Le Havre (167k)",
+    "Montivilliers (15k)",
+    "Bolbec (12k)",
+    "Port-Jérôme-sur-Seine (11k)",
+    "Gonfreville-l'Orcher (9k)"
+   ],
+   "nb_communes": 187
+  },
+  "potentiel_estime": {
+   "population_bassin": 410108,
+   "terminale_estimee": 4310,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "1er port francais : cybersecurite portuaire et logistique, industrie",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.4,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 176.0,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 72.2,
+   "etendue_villes_km": 28.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Valence",
+  "priorite": "P2",
+  "rang": 27,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Valence",
+    "lat": 44.9223,
+    "lon": 4.9131
+   },
+   "rayon_km": 30,
+   "departements": [
+    "26 Drôme",
+    "07 Ardèche"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes"
+   ],
+   "villes_principales": [
+    "Valence (64k)",
+    "Romans-sur-Isère (33k)",
+    "Bourg-lès-Valence (20k)",
+    "Tournon-sur-Rhône (11k)",
+    "Guilherand-Granges (11k)"
+   ],
+   "nb_communes": 186
+  },
+  "potentiel_estime": {
+   "population_bassin": 413771,
+   "terminale_estimee": 4340,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Valence-Romans : industrie, electronique, nucleaire ; corridor rhodanien",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 70.3,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 93.1,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 72.8,
+   "etendue_villes_km": 27.3,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (70 km)",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Le Mans",
+  "priorite": "P2",
+  "rang": 28,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Le Mans",
+    "lat": 47.9888,
+    "lon": 0.1999
+   },
+   "rayon_km": 30,
+   "departements": [
+    "72 Sarthe"
+   ],
+   "regions": [
+    "Pays de la Loire"
+   ],
+   "villes_principales": [
+    "Le Mans (146k)",
+    "Allonnes (11k)",
+    "Coulaines (8k)",
+    "Changé (7k)",
+    "Arnage (5k)"
+   ],
+   "nb_communes": 182
+  },
+  "potentiel_estime": {
+   "population_bassin": 402401,
+   "terminale_estimee": 4230,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 4,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Assurance (groupe Covea/MMA) : gros besoins data et IT ; industrie automobile",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.9,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 157.8,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 78.9,
+   "etendue_villes_km": 6.2,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Chambéry",
+  "priorite": "P2",
+  "rang": 29,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Chambéry",
+    "lat": 45.5704,
+    "lon": 5.915
+   },
+   "rayon_km": 30,
+   "departements": [
+    "73 Savoie",
+    "38 Isère",
+    "01 Ain",
+    "74 Haute-Savoie"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes"
+   ],
+   "villes_principales": [
+    "Chambéry (60k)",
+    "Aix-les-Bains (32k)",
+    "La Motte-Servolex (12k)",
+    "Belley (9k)",
+    "La Ravoire (9k)"
+   ],
+   "nb_communes": 212
+  },
+  "potentiel_estime": {
+   "population_bassin": 377929,
+   "terminale_estimee": 3970,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Savoie Technolac, energies, tourisme ; tissu tech de taille moyenne",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 86.7,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 73.1,
+   "etendue_villes_km": 15.8,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Lorient",
+  "priorite": "P2",
+  "rang": 30,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Lorient",
+    "lat": 47.7502,
+    "lon": -3.3787
+   },
+   "rayon_km": 30,
+   "departements": [
+    "56 Morbihan",
+    "29 Finistère"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Lorient (58k)",
+    "Lanester (23k)",
+    "Ploemeur (19k)",
+    "Hennebont (16k)",
+    "Quimperlé (12k)"
+   ],
+   "nb_communes": 45
+  },
+  "potentiel_estime": {
+   "population_bassin": 281929,
+   "terminale_estimee": 2960,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Naval Group, cyberdefense navale, Universite Bretagne Sud, pole mer",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.7,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 150.0,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 85.8,
+   "etendue_villes_km": 23.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Poitiers",
+  "priorite": "P3/TEST",
+  "rang": 31,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Poitiers",
+    "lat": 46.5834,
+    "lon": 0.3592
+   },
+   "rayon_km": 30,
+   "departements": [
+    "86 Vienne"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine"
+   ],
+   "villes_principales": [
+    "Poitiers (90k)",
+    "Buxerolles (10k)",
+    "Jaunay-Marigny (8k)",
+    "Saint-Benoît (7k)",
+    "Chauvigny (7k)"
+   ],
+   "nb_communes": 118
+  },
+  "potentiel_estime": {
+   "population_bassin": 305686,
+   "terminale_estimee": 3210,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Futuroscope (image-numerique), laboratoire informatique universitaire, mutuelles proches",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.5,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 160.9,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 71.8,
+   "etendue_villes_km": 2.5,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "La Rochelle",
+  "priorite": "P3/TEST",
+  "rang": 32,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Rochefort",
+    "lat": 45.9493,
+    "lon": -0.9753
+   },
+   "rayon_km": 30,
+   "departements": [
+    "17 Charente-Maritime"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine"
+   ],
+   "villes_principales": [
+    "La Rochelle (80k)",
+    "Rochefort (23k)",
+    "Aytré (10k)",
+    "Périgny (9k)",
+    "Tonnay-Charente (8k)"
+   ],
+   "nb_communes": 149
+  },
+  "potentiel_estime": {
+   "population_bassin": 381011,
+   "terminale_estimee": 4000,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Ecosysteme French Tech, universite, port ; territoire pilote sur la donnee environnementale",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1.8,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 119.4,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 30.7,
+   "etendue_villes_km": 28.2,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Besançon",
+  "priorite": "P3/TEST",
+  "rang": 33,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Besançon",
+    "lat": 47.2552,
+    "lon": 6.0194
+   },
+   "rayon_km": 30,
+   "departements": [
+    "25 Doubs",
+    "70 Haute-Saône",
+    "39 Jura"
+   ],
+   "regions": [
+    "Bourgogne-Franche-Comté"
+   ],
+   "villes_principales": [
+    "Besançon (118k)",
+    "Valdahon (6k)",
+    "Baume-les-Dames (5k)",
+    "Saint-Vit (5k)",
+    "Ornans (4k)"
+   ],
+   "nb_communes": 325
+  },
+  "potentiel_estime": {
+   "population_bassin": 288113,
+   "terminale_estimee": 3030,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 4,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Microtechniques, FEMTO-ST, biomedical : culture technique tres marquee",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 189.7,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 78.4,
+   "etendue_villes_km": 0.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Perpignan",
+  "priorite": "P3/TEST",
+  "rang": 34,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Perpignan",
+    "lat": 42.6966,
+    "lon": 2.899
+   },
+   "rayon_km": 30,
+   "departements": [
+    "66 Pyrénées-Orientales",
+    "11 Aude"
+   ],
+   "regions": [
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Perpignan (122k)",
+    "Canet-en-Roussillon (13k)",
+    "Saint-Cyprien (12k)",
+    "Saint-Estève (12k)",
+    "Pia (12k)"
+   ],
+   "nb_communes": 119
+  },
+  "potentiel_estime": {
+   "population_bassin": 449660,
+   "terminale_estimee": 4720,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Tourisme-agriculture ; tissu numerique faible mais gros etablissements scolaires",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.9,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 212.6,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 85.4,
+   "etendue_villes_km": 25.4,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Reims",
+  "priorite": "P3/TEST",
+  "rang": 35,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Reims",
+    "lat": 49.2519,
+    "lon": 4.0396
+   },
+   "rayon_km": 30,
+   "departements": [
+    "51 Marne",
+    "02 Aisne",
+    "08 Ardennes"
+   ],
+   "regions": [
+    "Grand Est",
+    "Hauts-de-France"
+   ],
+   "villes_principales": [
+    "Reims (178k)",
+    "Épernay (22k)",
+    "Tinqueux (11k)",
+    "Bétheny (7k)",
+    "Cormontreuil (7k)"
+   ],
+   "nb_communes": 263
+  },
+  "potentiel_estime": {
+   "population_bassin": 386991,
+   "terminale_estimee": 4060,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Champagne-agro-logistique ; tissu numerique modeste, tertiaire important",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.9,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 129.2,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 73.9,
+   "etendue_villes_km": 25.2,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Troyes",
+  "priorite": "P3/TEST",
+  "rang": 36,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Troyes",
+    "lat": 48.2969,
+    "lon": 4.0781
+   },
+   "rayon_km": 30,
+   "departements": [
+    "10 Aube"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Troyes (62k)",
+    "Saint-André-les-Vergers (13k)",
+    "La Chapelle-Saint-Luc (13k)",
+    "Sainte-Savine (10k)",
+    "Saint-Julien-les-Villas (7k)"
+   ],
+   "nb_communes": 180
+  },
+  "potentiel_estime": {
+   "population_bassin": 217447,
+   "terminale_estimee": 2280,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 4,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Universite de technologie de Troyes (ingenierie info et cyber), logistique-textile",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.3,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 141.3,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 87.4,
+   "etendue_villes_km": 15.1,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Fort-de-France",
+  "priorite": "P3/TEST",
+  "rang": 37,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Fort-de-France",
+    "lat": 14.641,
+    "lon": -61.0691
+   },
+   "rayon_km": 30,
+   "departements": [
+    "972 Martinique"
+   ],
+   "regions": [
+    "Martinique"
+   ],
+   "villes_principales": [
+    "Fort-de-France (76k)",
+    "Le Lamentin (39k)",
+    "Le Robert (22k)",
+    "Schœlcher (19k)",
+    "Ducos (18k)"
+   ],
+   "nb_communes": 33
+  },
+  "potentiel_estime": {
+   "population_bassin": 356324,
+   "terminale_estimee": 3740,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Martinique : tertiaire-administration, eloignement maximal, offre superieure numerique reduite",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 3.0,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 6531.5,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 87.7,
+   "etendue_villes_km": 31.7,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Angoulême",
+  "priorite": "P3/TEST",
+  "rang": 38,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Angoulême",
+    "lat": 45.6475,
+    "lon": 0.1452
+   },
+   "rayon_km": 30,
+   "departements": [
+    "16 Charente"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine"
+   ],
+   "villes_principales": [
+    "Angoulême (42k)",
+    "Soyaux (10k)",
+    "La Couronne (8k)",
+    "Saint-Yrieix-sur-Charente (8k)",
+    "Ruelle-sur-Touvre (7k)"
+   ],
+   "nb_communes": 157
+  },
+  "potentiel_estime": {
+   "population_bassin": 227798,
+   "terminale_estimee": 2390,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 4,
+   "data_ia": 3,
+   "marketing": 5,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Pole Magelis : image animee, jeu video, BD - vivier creatif et numerique atypique",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 89.0,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 102.7,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 73.7,
+   "etendue_villes_km": 4.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (89 km)",
+   "H4 - besoins IT reels sans ecosysteme startup : effet sur l'alternance plutot que le recrutement",
+   "H5 - concentration NSI/STI2D/CIEL supposee : surperformance Cyber/Dev a verifier sur donnees DEPP",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Amiens",
+  "priorite": "P3/TEST",
+  "rang": 39,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Amiens",
+    "lat": 49.9005,
+    "lon": 2.2908
+   },
+   "rayon_km": 30,
+   "departements": [
+    "80 Somme",
+    "60 Oise"
+   ],
+   "regions": [
+    "Hauts-de-France"
+   ],
+   "villes_principales": [
+    "Amiens (136k)",
+    "Albert (10k)",
+    "Corbie (6k)",
+    "Doullens (6k)",
+    "Longueau (6k)"
+   ],
+   "nb_communes": 381
+  },
+  "potentiel_estime": {
+   "population_bassin": 360204,
+   "terminale_estimee": 3780,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Industrie et universite ; tissu numerique limite, effet de proximite francilienne",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.8,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 97.8,
+   "campus_nexa_le_plus_proche": "Lille",
+   "concentration_20km_pct": 70.6,
+   "etendue_villes_km": 0.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Dunkerque",
+  "priorite": "P3/TEST",
+  "rang": 40,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Calais",
+    "lat": 50.9501,
+    "lon": 1.8761
+   },
+   "rayon_km": 30,
+   "departements": [
+    "62 Pas-de-Calais",
+    "59 Nord"
+   ],
+   "regions": [
+    "Hauts-de-France"
+   ],
+   "villes_principales": [
+    "Dunkerque (86k)",
+    "Calais (68k)",
+    "Grande-Synthe (20k)",
+    "Gravelines (11k)",
+    "Saint-Martin-Boulogne (11k)"
+   ],
+   "nb_communes": 127
+  },
+  "potentiel_estime": {
+   "population_bassin": 365577,
+   "terminale_estimee": 3840,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Reindustrialisation majeure (gigafactories batteries), logistique transmanche : besoins IT emergents",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 69.3,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 71.0,
+   "campus_nexa_le_plus_proche": "Lille",
+   "concentration_20km_pct": 50.3,
+   "etendue_villes_km": 55.7,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (69 km)",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Limoges",
+  "priorite": "P3/TEST",
+  "rang": 41,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Limoges",
+    "lat": 45.8544,
+    "lon": 1.2491
+   },
+   "rayon_km": 30,
+   "departements": [
+    "87 Haute-Vienne"
+   ],
+   "regions": [
+    "Nouvelle-Aquitaine"
+   ],
+   "villes_principales": [
+    "Limoges (130k)",
+    "Saint-Junien (11k)",
+    "Panazol (11k)",
+    "Couzeix (10k)",
+    "Isle (8k)"
+   ],
+   "nb_communes": 98
+  },
+  "potentiel_estime": {
+   "population_bassin": 305888,
+   "terminale_estimee": 3210,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Legrand, ceramique, universite ; economie numerique peu dense",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 2.5,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 178.7,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 81.2,
+   "etendue_villes_km": 32.7,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Les Abymes",
+  "priorite": "P3/TEST",
+  "rang": 42,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Les Abymes",
+    "lat": 16.2728,
+    "lon": -61.5016
+   },
+   "rayon_km": 30,
+   "departements": [
+    "971 Guadeloupe"
+   ],
+   "regions": [
+    "Guadeloupe"
+   ],
+   "villes_principales": [
+    "Les Abymes (51k)",
+    "Baie-Mahault (31k)",
+    "Le Gosier (28k)",
+    "Petit-Bourg (25k)",
+    "Sainte-Anne (24k)"
+   ],
+   "nb_communes": 18
+  },
+  "potentiel_estime": {
+   "population_bassin": 315878,
+   "terminale_estimee": 3320,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Guadeloupe : eloignement, offre superieure numerique reduite, tertiaire dominant",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 4.9,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 6432.1,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 69.8,
+   "etendue_villes_km": 45.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Saint-Brieuc",
+  "priorite": "P3/TEST",
+  "rang": 43,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Saint-Brieuc",
+    "lat": 48.5146,
+    "lon": -2.7618
+   },
+   "rayon_km": 30,
+   "departements": [
+    "22 Côtes-d'Armor"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Saint-Brieuc (44k)",
+    "Lamballe-Armor (17k)",
+    "Plérin (14k)",
+    "Ploufragan (12k)",
+    "Trégueux (8k)"
+   ],
+   "nb_communes": 115
+  },
+  "potentiel_estime": {
+   "population_bassin": 283124,
+   "terminale_estimee": 2970,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Agroalimentaire ; tissu numerique faible, offre superieure limitee",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 91.5,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 171.3,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 70.6,
+   "etendue_villes_km": 23.2,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (92 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Colmar",
+  "priorite": "P3/TEST",
+  "rang": 44,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Colmar",
+    "lat": 48.1102,
+    "lon": 7.385
+   },
+   "rayon_km": 30,
+   "departements": [
+    "68 Haut-Rhin",
+    "67 Bas-Rhin",
+    "88 Vosges"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Colmar (67k)",
+    "Sélestat (20k)",
+    "Wintzenheim (8k)",
+    "Horbourg-Wihr (6k)",
+    "Sainte-Marie-aux-Mines (5k)"
+   ],
+   "nb_communes": 160
+  },
+  "potentiel_estime": {
+   "population_bassin": 282746,
+   "terminale_estimee": 2970,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Industrie et viticulture ; bassin dense mais peu tech",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 40.1,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 325.5,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 79.8,
+   "etendue_villes_km": 18.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (40 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Mamoudzou",
+  "priorite": "P3/TEST",
+  "rang": 45,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Dembeni",
+    "lat": -12.8902,
+    "lon": 45.1767
+   },
+   "rayon_km": 30,
+   "departements": [
+    "976 Mayotte"
+   ],
+   "regions": [
+    "Mayotte"
+   ],
+   "villes_principales": [
+    "Mamoudzou (71k)",
+    "Koungou (32k)",
+    "Dzaoudzi (18k)",
+    "Dembeni (16k)",
+    "Bandraboua (14k)"
+   ],
+   "nb_communes": 17
+  },
+  "potentiel_estime": {
+   "population_bassin": 256518,
+   "terminale_estimee": 2690,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Mayotte : demographie la plus jeune de France, offre superieure quasi inexistante",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 1415.2,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 7425.6,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 95.0,
+   "etendue_villes_km": 19.8,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (1415 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Quimper",
+  "priorite": "P3/TEST",
+  "rang": 46,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Quimper",
+    "lat": 47.9969,
+    "lon": -4.0909
+   },
+   "rayon_km": 30,
+   "departements": [
+    "29 Finistère"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Quimper (64k)",
+    "Concarneau (21k)",
+    "Douarnenez (14k)",
+    "Fouesnant (10k)",
+    "Ergué-Gabéric (9k)"
+   ],
+   "nb_communes": 78
+  },
+  "potentiel_estime": {
+   "population_bassin": 295290,
+   "terminale_estimee": 3100,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Dev",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Agroalimentaire et tourisme ; tissu numerique faible",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 52.6,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 209.7,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 78.2,
+   "etendue_villes_km": 36.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (53 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Béziers",
+  "priorite": "P3/TEST",
+  "rang": 47,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Béziers",
+    "lat": 43.3429,
+    "lon": 3.24
+   },
+   "rayon_km": 30,
+   "departements": [
+    "34 Hérault",
+    "11 Aude"
+   ],
+   "regions": [
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Béziers (82k)",
+    "Narbonne (58k)",
+    "Agde (30k)",
+    "Sérignan (9k)",
+    "Marseillan (8k)"
+   ],
+   "nb_communes": 125
+  },
+  "potentiel_estime": {
+   "population_bassin": 419790,
+   "terminale_estimee": 4410,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Tourisme-viticulture ; economie numerique tres faible, vivier surtout tertiaire et pro",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 59.4,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 174.9,
+   "campus_nexa_le_plus_proche": "Marseille",
+   "concentration_20km_pct": 60.1,
+   "etendue_villes_km": 42.0,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (59 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Saint-Malo",
+  "priorite": "P3/TEST",
+  "rang": 48,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Saint-Malo",
+    "lat": 48.6399,
+    "lon": -1.9808
+   },
+   "rayon_km": 30,
+   "departements": [
+    "35 Ille-et-Vilaine",
+    "22 Côtes-d'Armor"
+   ],
+   "regions": [
+    "Bretagne"
+   ],
+   "villes_principales": [
+    "Saint-Malo (47k)",
+    "Dinan (15k)",
+    "Dinard (11k)",
+    "Pleurtuit (7k)",
+    "Combourg (6k)"
+   ],
+   "nb_communes": 104
+  },
+  "potentiel_estime": {
+   "population_bassin": 249692,
+   "terminale_estimee": 2620,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 3,
+   "data_ia": 2,
+   "marketing": 4,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Tourisme et agro ; tissu numerique faible, vivier tertiaire",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 62.3,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 162.8,
+   "campus_nexa_le_plus_proche": "Nantes",
+   "concentration_20km_pct": 53.7,
+   "etendue_villes_km": 22.6,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (62 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H6 - vivier STMG/generaliste suppose : performance Marketing Digital a verifier",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Évreux",
+  "priorite": "P3/TEST",
+  "rang": 49,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Évreux",
+    "lat": 49.0199,
+    "lon": 1.1415
+   },
+   "rayon_km": 30,
+   "departements": [
+    "27 Eure",
+    "78 Yvelines",
+    "28 Eure-et-Loir"
+   ],
+   "regions": [
+    "Centre-Val de Loire",
+    "Normandie",
+    "Île-de-France"
+   ],
+   "villes_principales": [
+    "Évreux (49k)",
+    "Vernon (25k)",
+    "Gaillon (7k)",
+    "Mesnils-sur-Iton (6k)",
+    "Saint-Sébastien-de-Morsent (6k)"
+   ],
+   "nb_communes": 230
+  },
+  "potentiel_estime": {
+   "population_bassin": 289363,
+   "terminale_estimee": 3040,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Pharma-cosmetique, sous-traitance ; forte dependance francilienne",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 47.2,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 90.8,
+   "campus_nexa_le_plus_proche": "Paris",
+   "concentration_20km_pct": 61.6,
+   "etendue_villes_km": 26.1,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (47 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Albi",
+  "priorite": "P3/TEST",
+  "rang": 50,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Gaillac",
+    "lat": 43.881,
+    "lon": 1.93
+   },
+   "rayon_km": 30,
+   "departements": [
+    "81 Tarn"
+   ],
+   "regions": [
+    "Occitanie"
+   ],
+   "villes_principales": [
+    "Albi (51k)",
+    "Gaillac (16k)",
+    "Graulhet (13k)",
+    "Lavaur (11k)",
+    "Carmaux (10k)"
+   ],
+   "nb_communes": 166
+  },
+  "potentiel_estime": {
+   "population_bassin": 231601,
+   "terminale_estimee": 2430,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Dev",
+   "Data/IA",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 3,
+   "data_ia": 3,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "IMT Mines Albi, agro ; bassin moyen a culture d'ingenierie",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 0.5,
+   "contient_pole_etudiant_majeur": true,
+   "distance_campus_nexa_km": 238.9,
+   "campus_nexa_le_plus_proche": "Bordeaux",
+   "concentration_20km_pct": 58.4,
+   "etendue_villes_km": 37.7,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 (contre-test) - offre superieure locale forte : la zone convertit-elle malgre la concurrence ?",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Forbach",
+  "priorite": "P3/TEST",
+  "rang": 51,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Sarreguemines",
+    "lat": 49.1057,
+    "lon": 7.1177
+   },
+   "rayon_km": 30,
+   "departements": [
+    "57 Moselle",
+    "67 Bas-Rhin"
+   ],
+   "regions": [
+    "Grand Est"
+   ],
+   "villes_principales": [
+    "Forbach (20k)",
+    "Sarreguemines (20k)",
+    "Saint-Avold (15k)",
+    "Freyming-Merlebach (13k)",
+    "Stiring-Wendel (11k)"
+   ],
+   "nb_communes": 226
+  },
+  "potentiel_estime": {
+   "population_bassin": 280231,
+   "terminale_estimee": 2940,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Bassin houiller en reconversion, frontalier Sarre ; economie numerique tres faible",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 52.7,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 317.2,
+   "campus_nexa_le_plus_proche": "Lille",
+   "concentration_20km_pct": 60.6,
+   "etendue_villes_km": 29.6,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (53 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Montélimar",
+  "priorite": "P3/TEST",
+  "rang": 52,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Montélimar",
+    "lat": 44.5548,
+    "lon": 4.748
+   },
+   "rayon_km": 30,
+   "departements": [
+    "26 Drôme",
+    "07 Ardèche",
+    "84 Vaucluse"
+   ],
+   "regions": [
+    "Auvergne-Rhône-Alpes",
+    "Provence-Alpes-Côte d'Azur"
+   ],
+   "villes_principales": [
+    "Montélimar (41k)",
+    "Bollène (14k)",
+    "Pierrelatte (14k)",
+    "Aubenas (12k)",
+    "Valréas (9k)"
+   ],
+   "nb_communes": 142
+  },
+  "potentiel_estime": {
+   "population_bassin": 256865,
+   "terminale_estimee": 2700,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Cyber",
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 3,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Nucleaire (Tricastin), agro ; bassin etale et peu tech",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 67.5,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 133.9,
+   "campus_nexa_le_plus_proche": "Lyon",
+   "concentration_20km_pct": 47.0,
+   "etendue_villes_km": 44.9,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (68 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ },
+ {
+  "bassin": "Saint-Quentin",
+  "priorite": "P3/TEST",
+  "rang": 53,
+  "perimetre": {
+   "pole_centre": {
+    "commune": "Saint-Quentin",
+    "lat": 49.8685,
+    "lon": 3.3018
+   },
+   "rayon_km": 30,
+   "departements": [
+    "02 Aisne",
+    "80 Somme",
+    "59 Nord",
+    "60 Oise"
+   ],
+   "regions": [
+    "Hauts-de-France"
+   ],
+   "villes_principales": [
+    "Saint-Quentin (53k)",
+    "Tergnier (13k)",
+    "Péronne (7k)",
+    "Bohain-en-Vermandois (6k)",
+    "Gauchy (5k)"
+   ],
+   "nb_communes": 346
+  },
+  "potentiel_estime": {
+   "population_bassin": 252540,
+   "terminale_estimee": 2650,
+   "nature": "PROXY population x 1,05 % - a remplacer par effectifs DEPP"
+  },
+  "filieres_nexa_prioritaires": [
+   "Marketing"
+  ],
+  "potentiels_par_filiere_1a5": {
+   "cyber": 2,
+   "developpement": 2,
+   "data_ia": 2,
+   "marketing": 3,
+   "nature": "ESTIMATION EXPERTE"
+  },
+  "raisons_de_selection": "Industrie en reconversion ; economie numerique tres faible",
+  "variables_experimentales": {
+   "distance_pole_etudiant_majeur_km": 56.7,
+   "contient_pole_etudiant_majeur": false,
+   "distance_campus_nexa_km": 85.2,
+   "campus_nexa_le_plus_proche": "Lille",
+   "concentration_20km_pct": 53.3,
+   "etendue_villes_km": 25.4,
+   "campus_connecte": "A_COLLECTER (source DGESIP)",
+   "offre_superieure_numerique_locale": "A_COLLECTER (Parcoursup / ONISEP)",
+   "ips_moyen_lycees": "A_COLLECTER (fr-en-ips-lycees)"
+  },
+  "hypotheses_a_tester": [
+   "H1 - faible offre superieure locale : la zone convertit-elle mieux ?",
+   "H2 - eloignement du pole etudiant majeur (57 km)",
+   "H3 (contre-test) - economie numerique faible : le vivier suffit-il seul ?",
+   "H7 - ville moyenne : rendement par IE superieur aux metropoles ?",
+   "H8 - presence d'un Campus connecte : A COLLECTER (DGESIP) avant lancement"
+  ]
+ }
+]

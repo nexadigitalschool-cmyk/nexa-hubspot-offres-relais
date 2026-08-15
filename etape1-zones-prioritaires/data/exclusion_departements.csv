@@ -1,0 +1,30 @@
+dep;departement;nb_communes;communes_exclues_A;pct_communes_exclues_A;population_totale;population_exclue_A;pct_population_exclue_A;communes_exclues_B;pct_communes_exclues_B;statut_perimetre_A
+01;Ain;391;182;46.5;679344;353311;52.0;182;46.5;partiellement exclu - reste exploitable
+07;Ardèche;335;26;7.8;334231;47342;14.2;26;7.8;partiellement exclu - reste exploitable
+13;Bouches-du-Rhône;119;0;0.0;2087658;0;0.0;91;76.5;partiellement exclu - reste exploitable
+17;Charente-Maritime;462;0;0.0;672279;0;0.0;59;12.8;partiellement exclu - reste exploitable
+24;Dordogne;503;0;0.0;417614;0;0.0;27;5.4;partiellement exclu - reste exploitable
+26;Drôme;362;13;3.6;524207;24883;4.7;13;3.6;partiellement exclu - reste exploitable
+28;Eure-et-Loir;363;2;0.6;433129;6927;1.6;2;0.6;partiellement exclu - reste exploitable
+33;Gironde;534;0;0.0;1690493;0;0.0;494;92.5;partiellement exclu - reste exploitable
+38;Isère;512;208;40.6;1298990;488385;37.6;208;40.6;partiellement exclu - reste exploitable
+40;Landes;327;0;0.0;433570;0;0.0;7;2.1;partiellement exclu - reste exploitable
+42;Loire;320;169;52.8;774133;562864;72.7;169;52.8;majoritairement exclu
+44;Loire-Atlantique;207;0;0.0;1487570;0;0.0;190;91.8;partiellement exclu - reste exploitable
+49;Maine-et-Loire;175;0;0.0;816614;0;0.0;21;12.0;partiellement exclu - reste exploitable
+59;Nord;647;435;67.2;2615635;2149846;82.2;435;67.2;majoritairement exclu
+60;Oise;680;246;36.2;829899;450493;54.3;246;36.2;partiellement exclu - reste exploitable
+62;Pas-de-Calais;887;406;45.8;1457905;912102;62.6;406;45.8;partiellement exclu - reste exploitable
+69;Rhône;266;260;97.7;1914667;1912661;99.9;260;97.7;majoritairement exclu
+71;Saône-et-Loire;563;12;2.1;550310;13988;2.5;12;2.1;partiellement exclu - reste exploitable
+75;Paris;1;1;100.0;2103778;2103778;100.0;1;100.0;totalement exclu
+77;Seine-et-Marne;507;286;56.4;1468108;1219557;83.1;286;56.4;majoritairement exclu
+78;Yvelines;259;246;95.0;1485086;1470301;99.0;246;95.0;majoritairement exclu
+83;Var;153;0;0.0;1119307;0;0.0;61;39.9;partiellement exclu - reste exploitable
+84;Vaucluse;151;0;0.0;572056;0;0.0;23;15.2;partiellement exclu - reste exploitable
+85;Vendée;251;0;0.0;711000;0;0.0;85;33.9;partiellement exclu - reste exploitable
+91;Essonne;194;188;96.9;1338485;1327332;99.2;188;96.9;majoritairement exclu
+92;Hauts-de-Seine;36;36;100.0;1654712;1654712;100.0;36;100.0;totalement exclu
+93;Seine-Saint-Denis;39;39;100.0;1704316;1704316;100.0;39;100.0;totalement exclu
+94;Val-de-Marne;47;47;100.0;1426929;1426929;100.0;47;100.0;totalement exclu
+95;Val-d'Oise;183;180;98.4;1281653;1279983;99.9;180;98.4;majoritairement exclu
