@@ -55,6 +55,14 @@ jugement expert. Seuls 20 % (concentration) sont entièrement observés. **Les �
 inférieurs à ~5 points ne sont pas significatifs** — Metz et Caen sont à 48,3 tous les deux, et
 l'ordre entre les rangs 18 et 30 ne doit pas être interprété comme un classement.
 
+### La distance aux campus n'est pas un critère de sélection
+
+`d_campus_nexa_km` est calculée et publiée, mais **n'entre ni dans le score, ni dans le classement,
+ni dans le choix des zones de test**. Elle relève de la planification opérationnelle, une fois les
+zones retenues. L'intégrer à la sélection concentrerait mécaniquement l'expérimentation autour de
+l'Île-de-France, de Rhône-Alpes et des Hauts-de-France — un biais de commodité, non un signal de
+potentiel.
+
 ### Les distances sont orthodromiques, pas routières
 
 Toutes les distances sont calculées à vol d'oiseau. L'écart avec le temps de trajet réel est
@@ -86,7 +94,7 @@ travaillés séparément : **Montpellier–Nîmes** (53 km d'étendue, 33 % de l
 | 5 | **Offre supérieure numérique locale** (BTS SIO/CIEL, BUT info/MMI/R&T, bachelors) | Rend H1 réellement testable | Parcoursup, ONISEP | ~1 j |
 | 6 | **IPS des lycées** | Variable expérimentale socio-économique | `fr-en-ips-lycees` | script fourni |
 | 7 | **Emploi numérique par bassin** | Fiabilise l'axe économie (15 %) | France Travail, INSEE Flores, Numeum | ~1 j |
-| 8 | **Temps de trajet routier** (à la place des distances à vol d'oiseau) | Fiabilise l'arbitrage score / coût, décisif dans le choix du portefeuille | API itinéraires | ~2 h |
+| 8 | **Temps de trajet routier** (à la place des distances à vol d'oiseau) | Planification des tournées en étape 2 — sans effet sur la sélection des zones | API itinéraires | ~2 h |
 
 Les points 1, 2, 3 et 6 sont couverts par `pipeline/05_enrichissement_depp.py`, qui n'a pas pu être
 exécuté ici faute d'accès réseau.
@@ -150,7 +158,7 @@ l'environnement de production**. Voir `01-methodologie.md` §0.
 | Note économie numérique | **moyenne** | ancrée sur des faits vérifiables, mais non quantifiée |
 | Score global | **moyenne** | 20 % seulement entièrement observés |
 | Classement P1 / P2 / P3 | **moyenne** | à réviser après enrichissement DEPP |
-| Portefeuille de test recommandé | **moyenne-élevée** | repose surtout sur des critères observés (coût d'accès, concentration, opposition d'hypothèses) |
+| Portefeuille de test recommandé | **moyenne** | combine le score (partiellement expert) et un objectif de diversité de profils et d'hypothèses |
 
 **En une phrase :** la géographie de ce livrable est solide, sa démographie est raisonnable, sa
 dimension scolaire reste à établir.
@@ -166,6 +174,9 @@ campus existant à ces noms sur nexa.fr. Cette hypothèse est écartée.
 Conséquence sur le livrable : six bassins majeurs (Marseille, Bordeaux, Nantes, Toulon,
 Saint-Nazaire, Cholet) ont été **réintégrés à l'univers scoré**, qui passe de 53 à 59 bassins.
 Marseille devient le premier bassin de France hors exclusion (~18 520 Terminales estimées) et le
-classement P1 est modifié en conséquence. Toutes les distances d'accès sont désormais mesurées
-depuis les trois bases réelles, ce qui a **fortement modifié le portefeuille de test recommandé** :
-les zones du Grand Ouest, accessibles depuis un hypothétique campus nantais, sont devenues coûteuses.
+classement P1 est modifié en conséquence.
+
+Le portefeuille de test a par ailleurs été reconstruit **sans tenir compte du coût de déplacement**,
+à la demande de NEXA : les zones sont sélectionnées sur leurs fondamentaux et sur leur capacité à
+tester des hypothèses distinctes, la contrainte budgétaire ne jouant que sur **le nombre** de zones
+retenues (9 sur 59).

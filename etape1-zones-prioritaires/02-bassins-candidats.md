@@ -86,57 +86,55 @@ Valence, Troyes et Dunkerque–Calais sont P3 et pourtant recommandées au porte
 
 ## Lectures transversales
 
-### Le coût d'accès : la contrainte qui doit corriger le score
+### Le déplacement : une information opérationnelle, jamais un critère de sélection
 
-Distance de la ville principale au campus NEXA le plus proche (Paris, Lyon ou Lille). Les meilleurs
-bassins **ne sont pas** les plus accessibles — cet arbitrage doit être fait explicitement.
+La colonne `d_campus_nexa_km` (distance à Paris, Lyon ou Lille) figure dans les données et **n'entre
+ni dans le score, ni dans le classement, ni dans le choix des zones de test**. Elle est là pour
+organiser les tournées **une fois les zones retenues** — pas pour écarter un territoire pertinent
+parce qu'il est loin.
 
-| Base | Bassins à 60–200 km (aller-retour dans la journée) |
-|---|---|
-| **Lyon** | Chambéry (87), Valence (93), **Grenoble (94)**, Annecy (101), **Clermont-Ferrand (133)**, Dijon (175), Besançon (190) |
-| **Paris** | **Rouen (112)**, Orléans (115), Reims (129), Troyes (141), Le Havre (176), Le Mans (187) |
-| **Lille** | **Dunkerque–Calais (71)**, Saint-Quentin (85), Amiens (98) |
+Ce choix est délibéré : intégrer le coût de déplacement à la sélection reviendrait à confondre
+*« où le potentiel est-il réel ? »* avec *« où est-il commode d'aller ? »*, et conduirait
+mécaniquement à concentrer l'expérimentation autour du Bassin parisien, de Rhône-Alpes et des
+Hauts-de-France — c'est-à-dire à reproduire, sous une autre forme, le biais que la règle des 60 km
+cherchait précisément à éviter.
 
-| Distance | Bassins concernés |
-|---|---|
-| **200–350 km** (nuitée simple) | Caen (202), Avignon (203), Tours (205), Montpellier (250), Belfort (260), Angers (265), Marseille (277), Metz (278), Nancy (280), Mulhouse (292), Nice (296), Béziers (297), Toulon (304), Rennes (310), Saint-Malo (320), Colmar (326) |
-| **> 350 km** (déplacement lourd) | Nantes (343), Niort (354), Toulouse (361), Angoulême (364), Perpignan (374), Saint-Brieuc (378), Strasbourg (384), Saint-Nazaire (386), Vannes (402), La Rochelle (402), Bordeaux (434), Lorient (442), Quimper (486), Pau (492), Brest (507), Bayonne (558), DROM |
-
-**Constat central** : quatre des cinq meilleurs bassins de France — Toulouse, Bordeaux, Nantes,
-Nice — sont à plus de 290 km d'une base. Marseille (277 km) est le seul bassin de tête réellement
-atteignable en nuitée simple depuis Lyon.
+La contrainte budgétaire est prise en compte **sur le nombre de zones testées** (9 recommandées sur
+59), pas sur leur identité.
 
 ### Les zones où le vivier est important mais l'offre supérieure locale absente
 
 Ces bassins **ne contiennent aucun pôle étudiant majeur** (université de plein exercice). Ce sont les
 supports directs des hypothèses H1 et H2 — celles que NEXA veut pouvoir vérifier, pas confirmer.
-La dernière colonne est décisive : elle indique lesquelles sont testables à coût raisonnable.
 
-| Bassin | Prio | Tle est. | Pôle étudiant le plus proche | Campus NEXA le plus proche | Filières dominantes |
-|---|---|---|---|---|---|
-| Vannes | P2 | ~3 460 | 47 km | 402 km (Paris) | Cyber |
-| Bayonne | P2 | ~3 930 | 91 km | 558 km (Lyon) | Marketing |
-| Niort | P2 | ~2 390 | 56 km | 354 km (Paris) | Dev + Data/IA |
-| Belfort–Montbéliard | P2 | ~3 700 | 38 km | 260 km (Lyon) | Cyber + Dev + Data/IA |
-| **Valence** | P3/TEST | **~4 340** | **70 km** | **93 km (Lyon)** | polyvalent |
-| Saint-Nazaire | P3/TEST | ~3 760 | 53 km | 386 km (Paris) | polyvalent |
-| Angoulême | P3/TEST | ~2 390 | 89 km | 364 km (Lyon) | Marketing |
-| **Dunkerque–Calais** | P3/TEST | **~3 840** | **69 km** | **71 km (Lille)** | polyvalent |
-| Saint-Brieuc | P3/TEST | ~2 970 | 92 km | 378 km (Paris) | Dev + Marketing |
-| Colmar | P3/TEST | ~2 970 | 40 km | 326 km (Lyon) | Dev + Marketing |
-| Quimper | P3/TEST | ~3 100 | 53 km | 486 km (Paris) | Dev + Marketing |
-| Saint-Malo | P3/TEST | ~2 620 | 62 km | 320 km (Paris) | Marketing |
-| Béziers–Narbonne | P3/TEST | ~4 410 | 59 km | 297 km (Lyon) | Marketing |
-| **Évreux** | P3/TEST | ~3 040 | 47 km | **91 km (Paris)** | Marketing |
-| Forbach | P3/TEST | ~2 940 | 53 km | 317 km (Lille) | Marketing |
-| Montélimar | P3/TEST | ~2 700 | 68 km | 134 km (Lyon) | Cyber + Marketing |
-| **Saint-Quentin** | P3/TEST | ~2 650 | 57 km | **85 km (Lille)** | Marketing |
-| Mamoudzou (Mayotte) | P3/TEST | ~2 690 | 1 415 km | 7 661 km | Dev + Marketing |
+| Bassin | Prio | Tle est. | Pôle étudiant le plus proche | Filières dominantes |
+|---|---|---|---|---|
+| Vannes | P2 | ~3 460 | 47 km | Cyber |
+| Bayonne | P2 | ~3 930 | 91 km | Marketing |
+| Niort | P2 | ~2 390 | 56 km | Dev + Data/IA |
+| Belfort–Montbéliard | P2 | ~3 700 | 38 km | Cyber + Dev + Data/IA |
+| Valence | P3/TEST | ~4 340 | 70 km | polyvalent |
+| Saint-Nazaire | P3/TEST | ~3 760 | 53 km | polyvalent |
+| Angoulême | P3/TEST | ~2 390 | 89 km | Marketing |
+| Dunkerque–Calais | P3/TEST | ~3 840 | 69 km | polyvalent |
+| Saint-Brieuc | P3/TEST | ~2 970 | 92 km | Dev + Marketing |
+| Colmar | P3/TEST | ~2 970 | 40 km | Dev + Marketing |
+| Quimper | P3/TEST | ~3 100 | 53 km | Dev + Marketing |
+| Saint-Malo | P3/TEST | ~2 620 | 62 km | Marketing |
+| **Béziers–Narbonne** | P3/TEST | **~4 410** | 59 km | Marketing |
+| Évreux | P3/TEST | ~3 040 | 47 km | Marketing |
+| Forbach | P3/TEST | ~2 940 | 53 km | Marketing |
+| Montélimar | P3/TEST | ~2 700 | 68 km | Cyber + Marketing |
+| Saint-Quentin | P3/TEST | ~2 650 | 57 km | Marketing |
+| Mamoudzou (Mayotte) | P3/TEST | ~2 690 | 1 415 km | Dev + Marketing |
 
-**Valence et Dunkerque–Calais sont les deux meilleurs tests de H1/H2 disponibles à coût faible** :
-vivier substantiel, aucun pôle étudiant à proximité, et moins de 95 km d'une base NEXA.
-Saint-Quentin est le contre-test le plus radical (économie numérique notée 1/5, 85 km de Lille), mais
-son vivier est le plus faible du panel — risque d'un résultat nul non interprétable.
+**Béziers–Narbonne est le meilleur support de H1/H2 du panel** : c'est le plus gros vivier de la
+liste (~4 410 Terminales estimées, supérieur à Niort et à Vannes), sans aucun pôle étudiant à moins
+de 59 km, et avec une économie numérique notée 1/5 — il teste donc **simultanément H1 et H3**.
+Viennent ensuite **Valence** (~4 340, pôle à 70 km) et **Dunkerque–Calais** (~3 840, pôle à 69 km).
+
+Saint-Quentin est le contre-test le plus radical (économie numérique 1/5 également), mais son vivier
+est le plus faible du panel : un résultat nul y serait ambigu.
 
 ### Les anomalies : forte affinité, vivier modeste
 
@@ -154,9 +152,11 @@ dépasse le plus largement le poids démographique** — les « pépites » à s
 | **Poitiers** | 69 | 10 | +59 | Futuroscope, laboratoire d'informatique universitaire |
 | **Lorient** | 62 | 8 | +55 | Naval Group, cyberdéfense navale |
 
-Ces zones sont exactement celles qu'un classement mécanique par volume aurait manquées. **Troyes
-figure au portefeuille de test recommandé pour cette raison** — et parce qu'elle est à 141 km de Paris,
-là où Niort (354 km) et Vannes (402 km) coûtent trois fois plus cher à tester.
+Ces zones sont exactement celles qu'un classement mécanique par volume aurait manquées.
+**Niort figure au portefeuille de test recommandé pour cette raison** : c'est l'anomalie la plus
+marquée de tout le panel, et la seule qui permette de répondre à la question « une affinité très
+forte peut-elle compenser un vivier faible ? ». **Vannes** y est associée pour la même logique, sur
+un profil cyber spécialisé.
 
 ### La réserve : 16 bassins non scorés
 

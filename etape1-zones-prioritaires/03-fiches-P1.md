@@ -3,8 +3,8 @@
 > **Rappel de lecture.** « Vivier » est un **PROXY** (population × 1,05 %), pas un effectif observé.
 > « Affinité NEXA » est une **ESTIMATION EXPERTE** fondée sur le tissu économique, **pas** sur les
 > effectifs NSI/STI2D/CIEL/STMG. « Concentration » et toutes les distances sont **observées**.
-> Les campus physiques retenus sont **Paris, Lyon et Lille** : toutes les distances d'accès sont
-> mesurées depuis ces trois bases.
+> **Le coût de déplacement n'intervient dans aucune des recommandations ci-dessous** : les zones sont
+> jugées sur leurs fondamentaux, pas sur leur commodité d'accès.
 
 ---
 
@@ -34,13 +34,12 @@ Marseille, Aix, l'étang de Berre.
 **Hypothèses à tester** — H3 et H5. Marseille sert surtout de **plafond de référence** : c'est ce
 qu'une zone peut produire au maximum en France hors Île-de-France.
 
-**Vigilance** — 277 km de Lyon : nuitée obligatoire, mais c'est le **seul bassin de tête réellement
-atteignable** depuis une base NEXA. La forte hétérogénéité sociale du bassin rend la moyenne
-trompeuse : Marseille Nord et Aix-en-Provence sont deux marchés très différents, ce que le vivier
-proxy ne capte pas du tout.
+**Vigilance** — La forte hétérogénéité sociale du bassin rend la moyenne trompeuse : Marseille Nord,
+Marseille Sud et Aix-en-Provence sont trois marchés très différents, ce que le vivier proxy ne capte
+pas du tout. L'étendue de 57 km impose par ailleurs de traiter le bassin en trois sous-ensembles.
 
-**Recommandation — P1**, retenu au portefeuille de test comme **unique long-courrier**, avec un plan
-de tournée distinguant explicitement Marseille intra-muros, Aix et l'étang de Berre.
+**Recommandation — P1**, retenu au portefeuille de test, avec un plan de tournée distinguant
+explicitement Marseille intra-muros, Aix et l'étang de Berre.
 
 ---
 
@@ -63,13 +62,11 @@ moins de 20 km).
 
 **Hypothèses à tester** — H3 et H5.
 
-**Vigilance décisive** — **361 km de Lyon.** Aucun aller-retour possible. C'est le meilleur bassin
-français en potentiel pur, et l'un des plus coûteux à activer depuis vos trois bases. C'est aussi la
-zone la plus concurrentielle de France sur les formations numériques privées.
+**Vigilance** — Zone la plus concurrentielle de France sur les formations numériques privées : une
+part importante du vivier est déjà couverte localement en présentiel. Le score, qui ne mesure pas la
+propension au distanciel, pourrait ici surestimer le potentiel réel.
 
-**Recommandation — P1 sur le fond, différé en année 1.** À engager quand NEXA aura mesuré son
-rendement par IE sur des zones proches, ou si un relais local (partenaire, alumni, salon) permet de
-mutualiser le déplacement.
+**Recommandation — P1**, retenu au portefeuille de test.
 
 ---
 
@@ -95,10 +92,11 @@ un vivier marketing de premier plan.
 **Hypothèses à tester** — H6 en priorité : Bordeaux est, avec Nantes, le meilleur terrain pour
 mesurer la performance **Marketing Digital** sur un gros vivier.
 
-**Vigilance décisive** — **434 km de Lyon : le bassin métropolitain le plus éloigné de vos bases.**
-Le rapport score / coût de déplacement est le plus défavorable du top 5.
+**Vigilance** — Offre supérieure locale très dense (université de Bordeaux, nombreuses écoles
+privées du numérique) : comme à Toulouse, une part du vivier est déjà captée en présentiel.
 
-**Recommandation — P1 sur le fond, différé en année 1** pour la même raison que Toulouse.
+**Recommandation — P1**, retenu au portefeuille de test — c'est le seul gros vivier du cœur de
+cible orienté **Marketing Digital**, famille que Toulouse, Rennes et Grenoble couvrent mal.
 
 ---
 
@@ -120,13 +118,14 @@ Atlanpole, quartier de la création, Airbus Nantes, forte densité d'ESN.
 
 **Hypothèses à tester** — H6 et H3.
 
-**Vigilance** — 343 km de Paris. Par ailleurs, le bassin de **Saint-Nazaire** (~3 760 Tle) et celui de
-**Cholet** (~3 170 Tle) sont limitrophes : une tournée nantaise bien conçue peut les absorber, ce qui
-améliore nettement le rendement du déplacement. C'est le seul bassin lointain où cette mutualisation
-est possible à cette échelle.
+**Vigilance** — Le profil de Nantes recoupe très largement celui de Bordeaux (Dev 5/5 +
+Marketing 5/5, économie 5/5, concentration comparable) : les tester tous deux la même année
+apporterait peu d'information supplémentaire. À noter par ailleurs que les bassins de
+**Saint-Nazaire** (~3 760 Tle) et de **Cholet** (~3 170 Tle) sont limitrophes et peuvent être
+travaillés dans le même mouvement.
 
-**Recommandation — P1**, à engager **en tournée groupée Nantes + Saint-Nazaire + Cholet** si NEXA
-accepte un déplacement de 3 à 4 jours. Seule, la zone est difficile à justifier en année 1.
+**Recommandation — P1**, **première réserve** du portefeuille : à substituer à Bordeaux si celui-ci
+se révèle inexploitable, ou à ajouter dès que la capacité de l'équipe le permet.
 
 ---
 
@@ -150,10 +149,11 @@ Nice → Antibes → Cannes → Fréjus est un déplacement d'axe, pas un rayonn
 
 **Hypothèses à tester** — H3, H5, et H6 grâce au doublet tourisme premium + Sophia.
 
-**Vigilance** — 296 km de Lyon, et une linéarité qui renchérit chaque IE.
+**Vigilance** — La linéarité du bassin impose un plan de tournée en axe et non en étoile. Le profil
+cyber/dev recoupe par ailleurs celui de Marseille et de Toulouse.
 
-**Recommandation — P1**, avec un plan de tournée conçu en **axe littoral**. Priorité inférieure à
-Marseille, qui offre un vivier 60 % supérieur pour un déplacement plus court.
+**Recommandation — P1**, **deuxième réserve** du portefeuille : excellent bassin, mais son profil est
+déjà représenté dans le cœur de cible.
 
 ---
 
@@ -178,10 +178,11 @@ l'adéquation avec l'offre cyber de NEXA est la plus explicite en France.
 écosystème de formation supérieure très fourni (INSA, ENSAI, Université Rennes 1). Si NEXA À distance
 y convertit malgré tout, H1 est sérieusement affaiblie.
 
-**Vigilance** — 310 km de Paris.
+**Vigilance** — Offre de formation supérieure très fournie : Rennes est le meilleur contre-terrain
+de H1 du panel, mais un mauvais terrain pour la confirmer.
 
-**Recommandation — P1.** Excellent bassin, mais son coût d'accès le place derrière Grenoble, qui
-offre un profil comparable à 94 km de Lyon.
+**Recommandation — P1**, retenu au portefeuille de test — c'est le profil **cyber le plus pur** de
+l'univers, à opposer directement à Vannes (même filière, sans université de plein exercice).
 
 ---
 
@@ -191,7 +192,7 @@ offre un profil comparable à 94 km de Lyon.
 
 **Pourquoi il ressort** — Vivier scientifique probablement le plus dense de France rapporté à sa
 taille, dans un bassin naturellement contraint par le relief donc **le plus concentré de tout le
-panel (88/100)** — et à seulement **94 km de Lyon**.
+panel (88/100)**.
 
 **Vivier** — 686 820 hab., 181 communes, ~7 210 Terminales estimées, 11 villes de ≥ 10 000 hab.
 
@@ -209,7 +210,8 @@ Des résultats divergents entre eux signaleraient un facteur non capté par le m
 **Vigilance** — Ne pas y pousser l'offre Marketing Digital sans test préalable. Concurrence forte de
 l'enseignement supérieur public scientifique.
 
-**Recommandation — P1**, **retenu au portefeuille**. Meilleur rapport score / coût du top 10.
+**Recommandation — P1**, retenu au portefeuille de test — c'est le seul territoire délibérément
+**spécialisé** du cœur de cible, qui permet de tester l'offre technique isolément du marketing.
 
 ---
 
@@ -232,9 +234,12 @@ banque-assurance, industrie, écosystème numérique structuré.
 **Hypothèses à tester** — H3 et H6. Meilleur candidat pour tester **l'offre NEXA complète** sur un
 même territoire, aucune famille n'y étant structurellement désavantagée.
 
-**Vigilance décisive** — **384 km de Lyon.**
+**Vigilance** — L'étendue de 48,5 km impose un plan de tournée en deux temps (agglomération
+strasbourgeoise, puis Haguenau et le nord du Bas-Rhin).
 
-**Recommandation — P1 sur le fond, différé en année 1.**
+**Recommandation — P1.** Non retenu au portefeuille de première année : son profil parfaitement
+équilibré en fait un excellent terrain, mais aucune de ses quatre familles n'y est distinctive, ce
+qui rend l'interprétation des résultats moins tranchée que sur des zones spécialisées.
 
 ---
 
@@ -259,8 +264,8 @@ parce qu'ils sont contigus.
 
 **Hypothèses à tester** — H6, et H7 via Nîmes.
 
-**Vigilance** — **Traiter Montpellier et Nîmes comme deux tournées séparées.** À 250 km de Lyon, le
-bassin est le deuxième plus accessible du top 5 après Marseille.
+**Vigilance** — **Traiter Montpellier et Nîmes comme deux tournées séparées.** La concentration de
+45/100 est la plus faible du top 10 : c'est le principal frein opérationnel de cette zone.
 
 **Recommandation — P1**, avec **scission opérationnelle explicite** en deux sous-bassins.
 
@@ -285,9 +290,10 @@ connecté : un écosystème électronique/IoT sans équivalent à cette taille d
 **Hypothèses à tester** — **H7 en premier lieu**. Angers est le meilleur représentant « haut de
 gamme » de l'hypothèse villes moyennes.
 
-**Vigilance** — 265 km de Paris. Mutualisable avec une tournée Nantes (88 km d'Angers) ou Tours.
+**Vigilance** — Angers est à 88 km de Nantes : une partie du vivier peut viser Nantes en présentiel,
+y compris chez d'autres écoles. Ce risque de substitution n'est pas mesuré ici.
 
-**Recommandation — P1**, à activer **en tournée groupée avec Nantes**, pas isolément.
+**Recommandation — P1**, meilleur représentant « haut de gamme » de l'hypothèse villes moyennes.
 
 ---
 
@@ -296,8 +302,8 @@ gamme » de l'hypothèse villes moyennes.
 **Normandie** · Seine-Maritime (76), Eure (27) · Rouen, Saint-Étienne-du-Rouvray, Sotteville-lès-Rouen, Le Grand-Quevilly, Le Petit-Quevilly
 
 **Pourquoi il ressort** — Gros vivier (~8 080 Terminales estimées, 6ᵉ du panel) associé à une bonne
-concentration (74/100, 16 villes de ≥ 10 000 hab.) et surtout à un **coût d'accès faible : 112 km de
-Paris**. **C'est le meilleur rapport vivier / coût de déplacement de tout l'univers.**
+concentration (74/100, 16 villes de ≥ 10 000 hab. dans un rayon serré) et à un **profil économique
+distinct de tous les autres P1** : industriel et non « French Tech ».
 
 **Vivier** — 769 914 hab., **336 communes** — le maillage le plus fin du panel.
 
@@ -315,8 +321,8 @@ recrutement étudiant.
 **Vigilance** — L'affinité est estimée à partir du tissu industriel, sans donnée DEPP : c'est
 précisément une zone où le taux réel de STI2D et de Bac Pro CIEL doit être vérifié avant d'engager.
 
-**Recommandation — P1**, **retenu au portefeuille**. **Le meilleur candidat « premier test »**
-compte tenu du coût.
+**Recommandation — P1**, retenu au portefeuille de test — c'est le **seul profil industriel non
+« French Tech » du cœur de cible**, et donc le meilleur terrain de H4.
 
 ---
 
@@ -326,7 +332,7 @@ compte tenu du coût.
 
 **Pourquoi il ressort** — Bassin **isolé sans concurrence métropolitaine proche**, bien concentré
 (77 % de la population à moins de 20 km), avec une affinité technique élevée portée par Michelin —
-acteur majeur de la data et de l'IA industrielle — et Limagrain. À 133 km de Lyon.
+acteur majeur de la data et de l'IA industrielle — et Limagrain.
 
 **Vivier** — 529 942 hab., 208 communes, ~5 560 Terminales estimées, 9 villes de ≥ 10 000 hab.
 
@@ -342,7 +348,7 @@ Bon test de l'effet « capitale régionale isolée ».
 **Vigilance** — Université Clermont Auvergne et offre supérieure locale substantielle : la zone
 n'est pas sous-dotée, seulement isolée. Bien distinguer les deux dans l'interprétation.
 
-**Recommandation — P1**, **retenu au portefeuille**.
+**Recommandation — P1.**
 
 ---
 
@@ -350,14 +356,17 @@ n'est pas sous-dotée, seulement isolée. Bien distinguer les deux dans l'interp
 
 **1. Les 12 zones P1 contiennent toutes un pôle étudiant majeur.** Elles ne permettent donc **pas**,
 à elles seules, de tester H1 et H2 — les hypothèses qui fondent l'intuition stratégique du campus
-À distance. C'est pourquoi le portefeuille recommandé intègre **Valence** (vivier ~4 340, aucun pôle
-étudiant à 70 km, 93 km de Lyon), **Dunkerque–Calais** (~3 840, aucun pôle à 69 km, 71 km de Lille)
-et **Troyes** (ville moyenne, 141 km de Paris).
+À distance. C'est pourquoi le portefeuille recommandé leur adjoint **Vannes** (pôle cyber sans
+université de plein exercice, pôle étudiant à 47 km), **Niort** (affinité 88/100 pour un vivier
+indexé à 1/100) et **Béziers–Narbonne** (vivier ~4 410, économie numérique 1/5, aucun pôle étudiant
+à moins de 59 km).
 
-**2. Le classement au score et le classement au coût s'opposent frontalement.** Sur les 12 P1, seuls
-**Grenoble (94 km), Rouen (112 km) et Clermont-Ferrand (133 km)** sont activables en aller-retour
-dans la journée. Les six premiers du classement sont tous à plus de 270 km d'une base.
+**2. Les P1 sont en partie redondants entre eux.** Marseille, Toulouse et Nice partagent un profil
+Cyber + Dev + Data ; Bordeaux et Nantes un profil Dev + Marketing ; Rennes et Grenoble un profil
+technique très concentré. Retenir les six premiers du classement reviendrait à tester **trois
+configurations** en en payant six.
 
-**Un plan d'action qui suivrait le score seul consommerait le budget déplacement en quatre zones et
-n'apprendrait rien.** Le portefeuille recommandé assume un seul long-courrier — Marseille, parce
-qu'il pèse à lui seul ~18 520 Terminales.
+Le cœur de cible recommandé — Marseille, Toulouse, Bordeaux, Rennes, Grenoble, Rouen — est construit
+pour couvrir **six profils distincts** : le plus gros vivier national, l'affinité maximale, le gros
+vivier marketing, le cyber pur, le technique spécialisé, et l'industriel non-« French Tech ».
+Nantes et Nice restent en réserve immédiate.

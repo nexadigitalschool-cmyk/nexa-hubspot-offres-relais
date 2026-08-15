@@ -85,64 +85,75 @@ Perpignan, Saint-Nazaire, Amiens, Angoulême, Dunkerque–Calais, Béziers…
 
 ---
 
-## La tension centrale : les meilleures zones sont loin de vos trois campus
+## Une règle de lecture : le coût de déplacement n'entre pas dans la sélection
 
-Avec Paris, Lyon et Lille pour seules bases de tournée, les quatre meilleurs bassins après Marseille
-sont **Toulouse (361 km), Bordeaux (434 km), Nantes (343 km) et Nice (296 km)**. Aucun n'est
-activable en aller-retour dans la journée.
+La distance aux campus **ne participe ni au score ni au choix des zones**. Elle est calculée et
+conservée dans les données (`d_campus_nexa_km`) comme **information opérationnelle**, au même titre
+que les variables expérimentales : elle sert à organiser les tournées une fois les zones choisies,
+pas à décider lesquelles sont pertinentes.
 
-À l'inverse, les zones proches d'une base sont d'un cran en dessous au score, mais restent solides :
-Grenoble (94 km de Lyon), Annecy (101), Rouen (112 de Paris), Orléans (115), Clermont-Ferrand (133),
-Valence (93), Chambéry (87), Amiens (98 de Lille), Dunkerque (71), Troyes (141), Reims (129).
-
-**Il faut donc arbitrer explicitement entre score et coût.** Le portefeuille ci-dessous assume
-**un seul long-courrier** — Marseille, parce que c'est le premier vivier de France hors exclusion —
-et optimise le reste sur le coût d'accès.
+La contrainte budgétaire agit donc sur **le nombre** de zones testées, pas sur **lesquelles**.
 
 ---
 
-## Recommandation finale : tester 8 bassins, pas 59
+## Recommandation finale : tester 9 bassins, pas 59
 
-Avec une petite équipe et un budget de déplacement limité, la contrainte réelle n'est pas le nombre
-de zones intéressantes — il y en a beaucoup — mais **le nombre d'IE nécessaires pour qu'une zone
+Avec une petite équipe, la contrainte réelle est **le nombre d'IE nécessaires pour qu'une zone
 produise un signal lisible**. En dessous de 3 à 5 IE dans un bassin, un résultat nul ne se distingue
 pas du bruit : on ne saura pas si la zone est mauvaise ou si elle a été mal travaillée.
 
-Sur une saison d'IE (octobre → mars, ~20 semaines utiles), un objectif réaliste est de **8 bassins ×
-4 à 5 IE ≈ 35 IE**. Au-delà, NEXA disperse son budget et **n'apprend rien** — ce qui est le vrai coût.
+Sur une saison d'IE (octobre → mars, ~20 semaines utiles), un objectif réaliste est de **9 bassins ×
+4 à 5 IE ≈ 40 IE**. Au-delà, NEXA disperse son effort et **n'apprend rien** — ce qui est le vrai coût.
 
-| Rôle | Bassin | Prio | Base | Distance | Ce qu'on va apprendre |
-|---|---|---|---|---|---|
-| **Cœur de cible** | **Marseille – Aix** | P1 (1er) | Lyon | 277 km | Le plus gros vivier de France hors exclusion (~18 520 Tle) : le plafond de ce qu'une zone peut produire |
-| **Cœur de cible** | **Grenoble** | P1 (7e) | Lyon | 94 km | Vivier scientifique maximal, bassin le plus concentré du panel (88/100) |
-| **Cœur de cible** | **Rouen** | P1 (11e) | Paris | 112 km | Meilleur rapport vivier / coût de déplacement de tout l'univers (~8 080 Tle) |
-| **Cœur de cible** | **Clermont-Ferrand** | P1 (12e) | Lyon | 133 km | Capitale régionale isolée, sans métropole concurrente à moins de 2 h |
-| **Cœur de cible** | **Orléans** | P2 (20e) | Paris | 115 km | Meilleure concentration du panel (89/100) : 4–5 IE réalisables en deux jours |
-| **Adjacente** | **Valence** | P3 (32e) | Lyon | 93 km | Vivier réel (~4 340 Tle) **sans** pôle étudiant à moins de 70 km : **test direct de H1 et H2** |
-| **Adjacente** | **Troyes** | P3 (38e) | Paris | 141 km | Ville moyenne dotée d'une université de technologie : **test de H7** |
-| **Expérimentale** | **Dunkerque – Calais** | P3 (45e) | Lille | 71 km | Vivier ~3 840 Tle, aucun pôle étudiant à 69 km, réindustrialisation en cours : **contre-test H1 + H3 + H4** |
+La sélection applique la logique **70 / 20 / 10** et veille à ce que le cœur de cible ne soit pas
+composé de six territoires au même profil.
 
-Sept des huit zones sont à moins de 145 km d'une base. **Le budget déplacement se concentre sur une
-seule zone longue distance.**
+### Cœur de cible — 6 zones (67 %)
 
-### Le neuvième bassin, s'il y a du budget : Amiens
+Les fondamentaux mesurables les plus solides, choisis pour **couvrir des profils de filières
+différents** :
 
-Amiens est à **98 km de Lille**, comme Dunkerque (71 km) — et leurs viviers estimés sont
-**identiques à 1,6 % près** (~3 780 contre ~3 840 Terminales). Mais Amiens **possède** une université
-de plein exercice quand Dunkerque n'en a aucune à moins de 69 km.
+| Bassin | Rang | Vivier (Tle est.) | Profil dominant | Ce qu'il apporte au panel |
+|---|---|---|---|---|
+| **Marseille – Aix** | 1 | ~18 520 | Cyber + Dev + Data/IA | Le plus gros vivier de France hors exclusion : mesure le plafond |
+| **Toulouse** | 2 | ~13 900 | Cyber + Dev + Data/IA | Affinité maximale (94/100) **et** forte concentration (81/100) |
+| **Bordeaux** | 3 | ~12 650 | **Dev + Marketing** | Le seul gros vivier du cœur orienté marketing (Cdiscount, Ubisoft, vin, tourisme) |
+| **Rennes** | 6 | ~7 500 | **Cyber pur** | Pôle cyber national, bassin le plus compact du top 10 (87/100) |
+| **Grenoble** | 7 | ~7 210 | Cyber + Dev + **Data/IA**, marketing faible | Territoire délibérément **spécialisé** : teste l'offre technique isolément |
+| **Rouen** | 11 | ~8 080 | **Cyber industriel** | Seul profil non-« French Tech » du cœur (économie 3/5) : teste H4 |
 
-C'est une **expérience naturelle quasi parfaite**, sur deux zones desservies par la même base, à coût
-marginal. Si une seule chose devait être ajoutée au plan, c'est celle-là : elle transforme un
-contre-test isolé en comparaison interprétable.
+**Nantes (4ᵉ) et Nice (5ᵉ) sont volontairement écartés du premier lot** — non par manque de
+potentiel, mais parce que leurs profils recoupent presque exactement ceux de Bordeaux et de Toulouse.
+Ce sont les **deux premières réserves** : à substituer immédiatement si une zone du cœur se révèle
+inexploitable.
 
-### Si le budget ne permet que 5 bassins
+### Cibles adjacentes — 2 zones (22 %)
 
-**Rouen, Grenoble, Orléans, Valence, Dunkerque.** On conserve l'opposition centrale forte offre
-locale / faible offre locale (Rouen–Grenoble–Orléans contre Valence–Dunkerque), qui est
-l'apprentissage le plus rentable, pour un coût de déplacement minimal — aucune zone à plus de 135 km.
+Potentiel sérieux, **configuration franchement différente** :
 
-On renonce alors à Marseille, donc à la mesure du plafond national. C'est un arbitrage défendable
-en année 1 : mieux vaut un apprentissage propre qu'un gros chiffre isolé.
+| Bassin | Rang | Vivier | Pourquoi elle est là |
+|---|---|---|---|
+| **Niort** | 27 | ~2 390 | **L'anomalie la plus forte du panel** : affinité 88/100 pour un vivier indexé à 1/100. MAIF, MACIF, MAAF, Groupama. Teste directement : **l'affinité compense-t-elle le volume ?** |
+| **Vannes** | 19 | ~3 460 | Pôle cyber breton **sans université de plein exercice** (pôle étudiant à 47 km). Teste H1 et H2 sur un profil spécialisé, à opposer à Rennes |
+
+### Zone expérimentale — 1 zone (11 %)
+
+| Bassin | Rang | Vivier | Pourquoi elle est là |
+|---|---|---|---|
+| **Béziers – Narbonne** | 55 | ~4 410 | **Le contre-test le plus pur.** Vivier réel — supérieur à celui de Niort et de Vannes — mais économie numérique notée **1/5** et aucun pôle étudiant à moins de 59 km. Si Béziers convertit, l'axe économie numérique doit être fortement dépondéré en année 2 |
+
+### Le cas à part : La Réunion
+
+La Réunion (17ᵉ, ~7 120 Terminales estimées) est **le test le plus discriminant de H2** — éloignement
+maximal de toute alternative métropolitaine. Elle n'est pas dans les 9 non pour son potentiel, mais
+parce qu'elle appelle une **modalité de test différente** : webinaires, partenariats rectorat et
+lycées, relais locaux, plutôt que des IE en présentiel. À lancer en parallèle, sur un budget distinct.
+
+### Si la capacité ne permet que 5 bassins
+
+**Marseille, Toulouse, Rennes, Niort, Béziers.** On garde les deux plus gros viviers, un profil cyber
+très concentré, l'anomalie d'affinité et le contre-test — c'est-à-dire l'essentiel du pouvoir
+d'apprentissage du panel complet.
 
 ---
 

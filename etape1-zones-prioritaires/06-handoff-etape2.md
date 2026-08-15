@@ -102,26 +102,26 @@ chaque lycée sur des critères que l'étape territoriale ne peut pas trancher :
 
 Ne pas lancer la recherche établissement sur les 59 bassins. Suivre l'ordre suivant :
 
-1. **Les 8 bassins du portefeuille de test** (voir [README](README.md)) — Marseille, Grenoble,
-   Rouen, Clermont-Ferrand, Orléans, Valence, Troyes, Dunkerque–Calais. Ce sont les seuls à activer
-   en année 1.
-2. **Amiens**, si le budget permet un neuvième bassin : il complète la paire expérimentale avec
-   Dunkerque (viviers identiques à 1,6 % près, même base de tournée à Lille).
-3. **Les P1 non retenus** — Toulouse, Bordeaux, Nantes, Nice, Rennes, Strasbourg,
-   Montpellier–Nîmes, Angers — écartés en année 1 pour leur seul coût d'accès (> 250 km), pas pour
-   leur potentiel. À réactiver dès qu'une base ou un relais local le permet.
-4. **Les P2 et P3** — uniquement après les résultats de mi-saison, en fonction de ce que les
-   premières zones auront appris.
+1. **Les 9 bassins du portefeuille de test** (voir [README](README.md)) :
+   - cœur de cible — **Marseille, Toulouse, Bordeaux, Rennes, Grenoble, Rouen** ;
+   - cibles adjacentes — **Niort, Vannes** ;
+   - zone expérimentale — **Béziers–Narbonne**.
+2. **Les réserves immédiates** — **Nantes** et **Nice**, à substituer si une zone du cœur se révèle
+   inexploitable. Leur profil recoupe celui de Bordeaux et de Toulouse, d'où leur mise en réserve.
+3. **La Réunion**, sur une modalité de test distincte (webinaires, partenariats rectorat et lycées),
+   avec un budget séparé : c'est le test le plus discriminant de H2.
+4. **Les autres P1 et P2** — Strasbourg, Montpellier–Nîmes, Angers, Clermont-Ferrand, Brest, Tours,
+   Pau, Toulon… — en fonction des résultats de mi-saison.
+5. **Les P3** — uniquement après les premiers enseignements de l'année 1.
 
 ---
 
 ## Trois arbitrages à trancher avant de lancer l'étape 2
 
-1. **L'arbitrage score / coût d'accès.** Avec Paris, Lyon et Lille pour seules bases, quatre des
-   cinq meilleurs bassins (Toulouse, Bordeaux, Nantes, Nice) sont à plus de 290 km. Le portefeuille
-   recommandé assume un seul long-courrier (Marseille). Si NEXA dispose de relais locaux — alumni,
-   partenaires, salons régionaux — permettant de mutualiser un déplacement, cet arbitrage change et
-   Toulouse ou Bordeaux redeviennent prioritaires.
+1. **La capacité réelle de l'équipe en IE.** Le portefeuille est dimensionné à 9 bassins × 4 à 5 IE,
+   soit ~40 IE sur la saison. Si la capacité est inférieure, **réduire le nombre de zones, pas le
+   nombre d'IE par zone** : trois IE dans un bassin est le plancher en dessous duquel un résultat
+   nul devient ininterprétable. La liste courte à 5 zones figure dans le README.
 
 2. **L'enrichissement DEPP.** Lancer `pipeline/05_enrichissement_depp.py` depuis un poste au réseau
    ouvert, puis rejouer `03_scoring.py`. Le classement P1/P2/P3 **doit être considéré comme
