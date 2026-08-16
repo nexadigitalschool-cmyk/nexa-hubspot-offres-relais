@@ -4,6 +4,10 @@
 
 # Dossiers de travail de /watch et de l'agent montage
 watch-*/
+
+# Contenu tiers collecte + rendus lourds (skill /faceless)
+transcripts/
+faceless/
 *.mp4
 *.mov
 *.mkv

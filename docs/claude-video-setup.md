@@ -3,6 +3,10 @@
 Trois briques indépendantes, installées dans ce dépôt : la skill `/watch`, un accès
 Gemini pour YouTube, et quatre agents de production de contenu.
 
+> Pour la production d'une chaîne faceless de bout en bout (collecte en masse,
+> extraction de pattern, script, visuels, montage), voir la skill `/faceless` et
+> [`docs/faceless-workflow.md`](faceless-workflow.md).
+
 ---
 
 ## 1. Skill `/watch`
