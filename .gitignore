@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.local
+
+# Dossiers de travail de /watch et de l'agent montage
+watch-*/
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.mp3
+*.srt
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
