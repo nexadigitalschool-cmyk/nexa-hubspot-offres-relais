@@ -250,8 +250,6 @@ def tambour_gauche():
     out.append(path(build_base(LF.ring_through(260, 846), L_CAP), DARK, DARK, 9))
     out.append(path(ellipse_path(L_HOOP), BEIGE, DARK, 9))
     out.append(path(ellipse_path(L_SKIN), BEIGE, DARK, 9))
-    cres = ellipse_ring(L_SKIN.C[0]+7, L_SKIN.C[1]+9, 126.1*0.93, 36.7*0.86, -19.1)
-    out.append(path(arc_path(cres, 190, 348), "none", DARK, 4))
     att = []
     for phi in (134, 95, 54):
         cord, head = lug(LF, L_HOOP, phi)
@@ -304,7 +302,6 @@ def djembe():
     out.append(g("djembe-cordages", "\n".join(cordes) + "\n" + "\n".join(noeuds),
                  ' clip-path="url(#galbe-djembe)"'))
     out.append(path(ellipse_path(M_SKIN), BEIGE, DARK, 9))
-    out.append(path(arc_path(ellipse_ring(489, 128, 152, 12, 0.0), 180, 360), "none", DARK, 4.5))
     return g("djembe-central", "\n".join(out),
              ' stroke-linecap="round" stroke-linejoin="round"')
 
@@ -355,8 +352,6 @@ def tambour_droit():
     out.append(path(build_base(RF.ring_through(740, 835), R_CAP), OCRE2, DARK, 9))
     out.append(path(ellipse_path(R_HOOP), TAN, DARK, 9))
     out.append(path(ellipse_path(R_SKIN), TAN, DARK, 9))
-    cres = ellipse_ring(R_SKIN.C[0]-4, R_SKIN.C[1]+10, 139.9*0.94, 39.5*0.86, 16.0)
-    out.append(path(arc_path(cres, 188, 350), "none", DARK, 4))
     return g("tambour-droit", "\n".join(out),
              ' stroke-linecap="round" stroke-linejoin="round"')
 
